@@ -95,4 +95,20 @@
 }
 .textoIntegrante1{
     font-family: "Open sans";
+    text-align: justify;
+}
+
+.nombreIntegrante4{
+    font-family: "Raleway";
+    font-size: 30px;    
+}
+.rolIntegrante4{
+    font-family: "Open sans";
+    font-size: 25px;
+    color: #25C4C7;
+}
+.textoIntegrante4{
+    font-family: "Open sans";
+    text-align: justify;
+    font-size: 18px;
 }
