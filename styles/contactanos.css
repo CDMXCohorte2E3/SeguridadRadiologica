@@ -1,0 +1,32 @@
+.bg-azul{
+    background-color: #25C4C7;
+}
+.bg-oscuro{
+    background-color: #303030;
+}
+.bg-gris{
+    background-color: #6B6B6B;
+}
+.bg-blanco{
+    background-color: #ffffff;
+}
+
+.container-fluid{
+    padding-left: 0;
+    width: 100vw;
+}
+.fondo{
+    width: 100vw;
+    height: 90px;
+    background-color: #25C4C7;
+}
+.contactanos{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    font-family: "Raleway";
+    font-size: 75px;
+}
+.inicioForm{
+    font-family: "Open sans";
+    font-size: 20px;
+}
