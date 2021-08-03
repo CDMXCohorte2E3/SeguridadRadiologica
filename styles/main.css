@@ -10,7 +10,10 @@ h1{
     font-size: 60px;
     text-transform: uppercase;
     text-align: center;
-    margin: 100px;
+    margin: 100px auto 100px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 h2{
@@ -29,6 +32,7 @@ h3{
     animation-duration: 3s;
     animation-iteration-count: 1;
     text-align: center;
+    align-items: center;
 
 }
 
@@ -41,6 +45,18 @@ h4{
     margin: 30px;
 }
 
+
+.card-img{
+    justify-content: center;
+    align-self: center;
+    height: 80vh;
+    opacity: 50%;
+    object-fit: cover;
+}
+
+.header-img{
+    height: 30vh;
+}
 
 .navbar-body-background{
     background-color: white;
@@ -68,15 +84,33 @@ h4{
     color:var(--azul);
 }
 
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: var(--azul);
+}
+
+a {
+    color:  var(--negro);
+    text-decoration: none;
+    font-family: "Open sans";
+}
+
+a:hover{
+    text-decoration: none;
+    color:var(--gris);
+}
+
 .container-bios{
     margin-top: 30px;
     margin-bottom: 30px;
+    justify-content: center;
+    align-self: center;
 }
 
 .container-img-bios{
     width: 100%;
     object-fit: cover;
-    height: 50vw;
+    height: 35vw;
 }
 
 .container-text-blue{
@@ -107,15 +141,18 @@ h4{
 
 }
 
-
 .row{
     margin: 0px;
 }
 
 .container-fullvw{
-    margin-top: 200px;
+    margin: 50px auto 50px auto;
+    
 }
 
+.card{
+    border: none;
+}
 
 .footer-background-black{
     background-color: var(--negro);
@@ -123,14 +160,21 @@ h4{
     
 .footer-link-txt{
     color:white;
-
 }
 
 .footer-title-txt{
     color:white;
     font-weight: 700;
     text-decoration: underline var(--azul) solid 3px;
-    text-underline-offset: 5px;
+    text-underline-offset: 7px;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-title-txt-mobile{
+    color:white;
+    font-weight: 700;
     padding-top: 20px;
     margin-bottom: 20px;
 }
@@ -146,6 +190,27 @@ h4{
     margin-right: 5px;
 }
 
+.container-services-img{
+    width: 50%;
+}
+
+.container-services-text{
+    width: 50%;
+}
+
+.container-services-text-blackbox{
+    background-color: var(--negro);
+    color: white;
+    padding: 20px;
+    font-weight: 500;
+}
+#more {
+    display: none;}
+
+li{
+    list-style: none;
+
+}
 @keyframes slideIn{
     from {
         opacity: 0;
@@ -167,8 +232,6 @@ h4{
 
  .navbar-nav {
     flex-direction: column;
-
-}
 }
 /* .footer-link-txt{
     
@@ -178,7 +241,7 @@ h4{
 .container-img-bios{
     width: 100%;
     object-fit: cover;
-    height: 100vw;
+    height: 90vw;
 }
 
 .container-img-square{
@@ -187,7 +250,16 @@ h4{
     margin:10px 0px 10px 0px;
 }
 .container-fullvw{
-    margin: 30px auto 10px auto;
+    margin: 100px auto 10px auto;
+}
+
+.card-img{
+    height: 40vh;
+}
+.header-img{
+    height: 20vh;
+}
+
 }
 @media (max-width: 992px) {
 
@@ -210,5 +282,17 @@ h4{
         background-color: white!important;
         z-index: 8!important;
     }
+    
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
