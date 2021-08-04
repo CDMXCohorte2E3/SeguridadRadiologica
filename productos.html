@@ -31,13 +31,13 @@
 
 <body>
     <!--Nav bar -->
-    <div class="container-fluid" style="padding:0%">
+    <div class="container-fluid barra-navegacion">
         <div class="nav-blue-bar">
             <!-- <nav class="navbar navbar-light navbar-body-background"> -->
             <nav class="navbar navbar-expand-lg navbar-light navbar-body-background">
                 <a class="navbar-brand" href="index.html">
                     <!-- Inserto el logo de la empresa-->
-                    <img src="./img/logo/logo-horizontal.svg" width="200" height="50" class="d-inline-block align-top"
+                    <img src="./img/logo/logo-horizontal.svg" width="150" class="d-inline-block align-top"
                         alt="Radiomed Seguridad y protección radiológica en diagnóstico médico">
                 </a>
 
@@ -51,6 +51,9 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <!--menú hamburgesa-->
                     <ul class="navbar-nav ml-auto nav-ba">
+                        <li class="nav-item mr-5">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
                         <li class="nav-item mr-5">
                             <a class="nav-link" href="acercaDe.html">Nosotros</a>
                         </li>
@@ -90,21 +93,22 @@
         <h3>Le ofrecemos mandiles plomados, protectores de tiroides, protectores de gónadas, guantes plomados lentes
             plomados, faldones plomados para uso en hemodinamia, etc. Pregunte por nuestras opciones y elija la que más
             se ajuste a su presupuesto. <br><br> Nuestros dispositivos de protección radiológica y señalamientos cumplen
-            con
-            los estándares exigidos por la Norma Oficial Mexicana NOM-229-SSA1-2002.</h3>
+            con los estándares exigidos por la Norma Oficial Mexicana NOM-229-SSA1-2002.</h3>
     </div>
 
     <!-- Container  de productos-->
-    <div class="container">
-        <div class="col-2"></div>
-        <div class="col-8"></div>
+    <div class="container div-centered" style="width: 80%;">
         <div class="row" id="productos">
         </div>
     </div>
 
+    <!-- boton ir arriba -->
+    <button onclick="topFunction()" id="irArriba">↑</button>
+    <!-- termina boton ir arriba -->
+
+
     <!-- Footer -->
     <footer class="text-center text-lg-start text-white footer-background-black">
-        <br />
         <!-- Section: Links  -->
         <section class="">
             <div class="container text-center text-md-start mt-5">
@@ -114,7 +118,9 @@
                     <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
                         <!-- RadioMed -->
                         <h6 class="footer-title-txt">RadioMed</h6>
-                        <p style="margin-top: auto;"><a href="./contacto.html" class="footer-link-txt">Contáctanos</a>
+                        <p><a href="./index.html" class="footer-link-txt">Inicio</a>
+                        </p>
+                        <p><a href="./contacto.html" class="footer-link-txt">Contáctanos</a>
                         </p>
                         <p><a href="./acercaDe.html" class="footer-link-txt">Nosotros</a> </p>
                         <p><a href="./iniciarSesion.html" class="footer-link-txt">Ingresar</a></p>
@@ -153,9 +159,9 @@
         <!-- Section: Links  -->
 
         <!-- Copyright -->
-        <div class="text-center p-3 footer-link-copyright" style="background-color: rgba(0, 0, 0, 0.2)">
+        <div class="text-center p-3 footer-link-copyright">
             COPYRIGHT © RADIOMED 2021
-            <div class="text-right footer-link-copyright" style="text-align: right;">AVISO DE PRIVACIDAD</div>
+            <div class="text-right">AVISO DE PRIVACIDAD</div>
         </div>
         <!-- Copyright -->
     </footer>
@@ -167,6 +173,7 @@
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
     <script src="./js/productos.js"></script>
+    <script src="./js/irArriba.js"></script>
     <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
 </body>

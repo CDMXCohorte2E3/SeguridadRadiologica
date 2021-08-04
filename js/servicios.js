@@ -103,15 +103,15 @@ function anadirServicio(servicios) {
             	<div class="card-body"> 
 					<h5 class="card-title">${servicio.titulo}</h5> 
               	  <p class="card-text">${servicio.parrafo1}</p> 
-					<div id="etc"></div>
-					<div id="more">
+					<div id="etc_${servicio.id}"></div>
+					<div id="more_${servicio.id}" class="more">
 					<p class="card-text">${servicio.parrafo2}</p> 
 					<p class="card-text">${servicio.parrafo3}</p>
 					<p class="card-text container-services-text-blackbox">${servicio.parrafoBlack}</p> 
 					</div>
 					</p>
                 <div class="text-center">
-                        <button onclick="myFunction()" class="btn btn-light" id="myBtn">Ver más</button>
+                        <button onclick="myFunction(${servicio.id})" class="btn btn-light" id="myBtn_${servicio.id}">Ver más</button>
                         <br><br>
                         <a href="./contacto.html"><button class="btn btn-info">COTIZAR</button></a>
                     </div>
@@ -126,20 +126,21 @@ function anadirServicio(servicios) {
 } //Fin del anadirProducto
 anadirServicio(datosJson);
 
-//función del botón ver mas o ver menos
-var etc = document.getElementById("etc");
-var moreText = document.getElementById("more");
-var btnText = document.getElementById("myBtn");
 
 
-	function myFunction() {
-			if (etc.style.display === "none") {
-				etc.style.display = "inline";
-				btnText.innerHTML = "Ver más";
-			moreText.style.display = "none";
-		} else {
-			etc.style.display = "none";
-			btnText.innerHTML = "Ver menos";
-			moreText.style.display = "inline";
-		} //else
-	}// myFunction
+function myFunction(id) {
+	//función del botón ver mas o ver menos
+	var etc = document.getElementById("etc_" + id);
+	var moreText = document.getElementById("more_" + id);
+	var btnText = document.getElementById("myBtn_" + id);
+
+	if (etc.style.display === "none") {
+		etc.style.display = "inline";
+		btnText.innerHTML = "Ver más";
+		moreText.style.display = "none";
+	} else {
+		etc.style.display = "none";
+		btnText.innerHTML = "Ver menos";
+		moreText.style.display = "inline";
+	} //else
+}// myFunction
