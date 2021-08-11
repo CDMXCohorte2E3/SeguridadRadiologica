@@ -104,10 +104,15 @@
                     <input type="email" name="email" class="form-control" id="email" maxlength="40" required/>
 
                     <div class="invalid-feedback">
-                        e-mail válido es requerido
+                        E-mail válido es requerido
                       </div>
-
                 </div>
+                <div class="form-group">
+                  <label for="adress">Dirección del establecimiento de radiodiagnóstico:</label>
+                  <input name="adress" class="form-control" id="adress" maxlength="100" required/>
+              </div>
+
+
                   <div class="form-group">
                     <label for="phone">Teléfono:</label>
                     <input type="number" name="phone" class="form-control" id="phone" maxlength="12" required/>
@@ -115,12 +120,18 @@
                     <div class="invalid-feedback">
                         Número de teléfono válido es requerido
                       </div>
-
                 </div>
+
+                <div class="form-group">
+                  <label for="rfc">Razón social (opcional)</label>
+                  <input  type="text" class="form-control" name="rfc" id="rfc" maxlength="13">
+                </div>
+
                 <div class="form-group">
                   <label for="notas">Notas (opcional)</label>
-                  <textarea class="form-control" name="notas" id="notas" rows="3" placeholder="Escribe aquí los productos o servicios que quieras cotizar" maxlength="280"></textarea>
+                  <textarea class="form-control" name="notas" id="notas" rows="3" placeholder="¿Que servicio te gustaría cotizar? ¿Cómo lo podemos apoyar?" maxlength="280"></textarea>
                 </div>
+
                 <div class="text-center">
                 <button type="submit" class="btn btn-info">Enviar</button>
                 </div>
@@ -180,7 +191,7 @@
       <!-- Copyright -->
       <div class="text-center p-3 footer-link-copyright" style="background-color: rgba(0, 0, 0, 0.2)">
           COPYRIGHT © RADIOMED 2021
-          <div class="text-right footer-link-copyright" style="text-align: right;">AVISO DE PRIVACIDAD</div>
+          <div class="text-right" style="text-align: right;">AVISO DE PRIVACIDAD</div>
       </div>
       <!-- Copyright -->
   </footer>

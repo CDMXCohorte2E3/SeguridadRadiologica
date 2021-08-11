@@ -203,52 +203,21 @@ for(i=0 ; i < botonClase.length ; i++){
 } // fin del for
 
 
-<<<<<<< HEAD
+
 function listaElementos(json){
   let descr,spl,myDiv;
   for( i = 0 ; i < json.length ; i++ ){
     let descr = json[i].descripcion;
     let spl = descr.split(","); 
     let myDiv = document.getElementById("lista-desor_" + json[i].id);
-  // }
-  for (let j = 0; j < 4; j++) {     // Necesito este ciclo, porque para la card 4 en adelante siempre es falso i = 4 < spl.length
+  
+  for (let j = 0; j < 4; j++) { 
     if (j < spl.length){         
       myDiv.innerHTML +="<li>"+ spl[j] + "</li>";     
     } else {         
       myDiv.innerHTML +="<br/>"
     }// else       
   }//for j
-}
-}
+}// for i
+}// function listaElementos
 listaElementos(pruebaJson);
-
-/*
-let lis = "0.55m de plomo"; // Obtengo la descripción del JSON
-let a = lis.split("|"); // Convierto dicha descripción: String -> Array
-let myDiv = document.getElementById("div_lis"); // Traigo mi elemento contener de los <li>
-myDiv.innerHTML = "<ul>";
-for (let i = 0; i < 4; i++) {
-  if (i<a.length){ // Si i es menor que la longitud de mi Array...
-    myDiv.innerHTML +="<li>"+ a[i] + "</li>";
-  } else {        
-    myDiv.innerHTML +="<br/>"     
-  }// else       
-  }//for i 
-  myDiv.innerHTML += "</ul>";
-=======
-/*
-let lis = "0.55m de plomo";
-let a = lis.split("|");
-let myDiv = document.getElementById("div_lis");
-myDiv.innerHTML = "<ul>";
-for (let i = 0; i < 4; i++) {
-    if (i<a.length){
-        myDiv.innerHTML +="<li>"+a[i] + "</li>";
-    } else {
-        myDiv.innerHTML +="<br/>"
-    }// else 
-    
-}//for i
-myDiv.innerHTML += "</ul>";
->>>>>>> bd07ecf7952bbcbdefc3118dbc782a456210a14b
-*/
