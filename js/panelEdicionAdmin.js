@@ -126,6 +126,7 @@ function validateForm(e){//validateForm
     if (valid==4){
       console.log('Done');
       nuevoProducto();
+      window.location.reload()
     }
     return valid = 0;
 }//validateForm
@@ -146,6 +147,8 @@ function nuevoProducto(evento){
   let inputDescription = document.getElementById('description').value;
   let inputImage = document.getElementById('image').value;
 
+  let traerLocalStorage = JSON.parse(window.localStorage.getItem("productosLocalS")) // Me traigo la base de datos
+
   // Aquí se "hace JSON" los valores que puso el admin en añadir producto
   const caracteristicasProducto = {
     "imagen": inputImage,
@@ -153,10 +156,9 @@ function nuevoProducto(evento){
     "marca": inputMarca,
     "modelo" : inputModel,
     "descripcion" : inputDescription,
-    "id" : 99 // valor de prueba
+    "id" : traerLocalStorage.length + 1 // valor de prueba
   }
 
-  let traerLocalStorage = JSON.parse(window.localStorage.getItem("productosLocalS")) // Me traigo la base de datos
   console.log(traerLocalStorage) // La veo en consola para tener una referencia
   traerLocalStorage.push(caracteristicasProducto) // Como la base es un array, le hago push
   console.log(traerLocalStorage) // La veo y comparo
