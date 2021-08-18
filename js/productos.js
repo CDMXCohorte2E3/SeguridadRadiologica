@@ -189,6 +189,20 @@ function anadirProducto(productos){
 } //Fin del anadirProducto
 anadirProducto(almacenLocal);
 
+// Función boton pop up
+const botonClase = document.getElementsByClassName("btn-add-car");
+for(i=0 ; i < botonClase.length ; i++){
+  botonClase[i].addEventListener('click', function(){
+      new Swal({
+        icon: 'success',
+        title: 'AGREGADO AL CARRITO',
+        showConfirmButton: false,
+        timer: 1500,
+        position: 'center',
+      })
+  })//addEventListener 
+} // fin del for
+
 function listaElementos(json){
   let descr,spl,myDiv;
   for( i = 0 ; i < json.length ; i++ ){

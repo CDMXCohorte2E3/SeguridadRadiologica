@@ -89,6 +89,8 @@ function nuevoProducto(evento){
   let inputImage = document.getElementById('image').value;
 
   // Aquí se "hace JSON" los valores que puso el admin en añadir producto
+  let traerLocalStorage = JSON.parse(window.localStorage.getItem("productosLocalS")) // Me traigo la base de datos
+
   const caracteristicasProducto = {
     "imagen": inputImage,
     "titulo" : inputProduct, 
@@ -98,7 +100,6 @@ function nuevoProducto(evento){
     "id" : traerLocalStorage.length + 1
   }
 
-  let traerLocalStorage = JSON.parse(window.localStorage.getItem("productosLocalS")) // Me traigo la base de datos  
   traerLocalStorage.push(caracteristicasProducto) // Como la base es un array, le hago push  
   window.localStorage.setItem("productosLocalS",JSON.stringify(traerLocalStorage)) // Reenvío la información a la base de datos
 
