@@ -1,5 +1,3 @@
-
-
 let datosJson = [
 	{
 		"imagen": "./img/services/img-service1.jpg",

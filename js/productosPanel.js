@@ -111,20 +111,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
     }
   ]
   window.localStorage.setItem('productosLocalS',JSON.stringify(prueba))
-} 
-
-
-
-// fin de añadir a local storage 
-
-function searchOnDatabase(idProductos) {
-  const productoFitrado = arregloProductos.find(producto => {
-      return producto.id == parseInt(idProductos)
-  })
-  console.log(productoFitrado)
-  return productoFitrado;
-}
-
+}  // fin de añadir a local storage 
 
 // Cambio a uso del local storage para trabajar con el JSON
 
@@ -241,8 +228,9 @@ function anadirProducto(productos){
             </div> <!--card-body--> 
         </div><!--card--> 
         </div>`
-
+        if( producto.habilitado == "true" ){
         plantilla += card;
+        }
 
     }) // Fin del forEach
 
@@ -250,20 +238,6 @@ function anadirProducto(productos){
 
 } //Fin del anadirProducto
 anadirProducto(almacenLocal);
-
-// Función boton pop up
-const botonClase = document.getElementsByClassName("btn-add-car");
-for(i=0 ; i < botonClase.length ; i++){
-  botonClase[i].addEventListener('click', function(){
-      new Swal({
-        icon: 'success',
-        title: 'AGREGADO AL CARRITO',
-        showConfirmButton: false,
-        timer: 1500,
-        position: 'center',
-      })
-  })//addEventListener 
-} // fin del for
 
 function listaElementos(json){
   let descr,spl,myDiv;
@@ -280,7 +254,7 @@ function listaElementos(json){
     }// else       
   }//for j
 }// for i
-}// function listaElementos
+}//fin de listaElementos
 listaElementos(almacenLocal);
 
 
@@ -300,113 +274,3 @@ function guardarCambios(id_producto_a_editar){
 
 }  
 // Aquí termina el bloque de funciones para editar los productos 
-/*
-let actForm = document.getElementById('act-needs-validation');
-//Editar las clases
-//Traer el elemento al cual quiero hacer document.getEle
-//1. Leyendo el listado actual de clases elemento.classList
-//2. Agrego un estilo elemento.classList.add('nuevaClase')
-//3. Elemento elemento.value
-let actValid = 0;
-function validateForm(e){//validateForm
-    //No ejecutes
-    e.preventDefault();
-    let inputProduct = document.getElementById('actualizarNombre');
-    let inputMarca = document.getElementById('actualizarMarca');
-    let inputModel = document.getElementById('actualizarModelo');
-    let inputDescription = document.getElementById('actualizarDescripcion');
-
-    console.log(typeof(inputProduct.value))
-    
-    console.log(inputProduct.classList)
-
-    function validateName(nombre){//validateName
-      //let expReg= /^[A-Z]+$/;
-      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)  
-      let esValido = expReg.test(nombre);
-      console.log(esValido);
-      if(esValido == true){//if nombre
-          inputProduct.classList.remove('is-invalid')
-          inputProduct.classList.add('is-valid')
-          console.log('Hey si es mayor a =0')
-          return valid ++;
-        }else{
-          inputProduct.classList.add('is-invalid')
-          console.log('Esta vacío intenta nuevamente');
-      }//if nombre
-    }//validateName
-    
-    validateName(inputProduct.value)
-    
-    function validateMarca(marca){//validateMarca
-      //let expReg= /^[A-Z]+$/;
-      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
-      let esValido2 = expReg.test(marca);
-      console.log(esValido2);
-      if(esValido2 == true){//if Marca
-          inputMarca.classList.remove('is-invalid')
-          inputMarca.classList.add('is-valid')
-          console.log('Hey si es mayor a =0')
-          return valid ++;
-        }else{
-          inputMarca.classList.add('is-invalid')
-          console.log('Esta vacío intenta nuevamente');
-      }//if Marca
-    }//validateMarca
-    
-    validateMarca(inputMarca.value)
-
-    function validateModel(model){//validateModel
-      //let expReg= /^[A-Z]+$/;
-      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
-      let esValido3 = expReg.test(model);
-      console.log(esValido3);
-      if(esValido3 == true){//if Model
-          inputModel.classList.remove('is-invalid')
-          inputModel.classList.add('is-valid')
-          console.log('Hey si es mayor a =0')
-          return valid ++;
-        }else{
-          inputModel.classList.add('is-invalid')
-          console.log('Esta vacío intenta nuevamente');
-      }//if Model
-    }//validateModel
-    
-    validateModel(inputModel.value)
-    
-    function validateDescription(description){//validateDescription
-      //let expReg= /^[A-Z]+$/;
-      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.| ]+$/)
-      let esValido4 = expReg.test(description);
-      console.log(esValido4);
-      if(esValido4 == true){//if Description
-          inputDescription.classList.remove('is-invalid')
-          inputDescription.classList.add('is-valid')
-          console.log('Hey si es mayor a =0')
-          return valid ++;
-        }else{
-          inputDescription.classList.add('is-invalid')
-          console.log('Esta vacío intenta nuevamente');
-      }//if Description
-    }//validateDescription
-
-    validateDescription(inputDescription.value)
-
-    if (actValid==4){
-      console.log('Done');
-      guardarCambios();
-    }
-    return valid = 0;
-}//validateForm
-
-//Eventos
-
-actForm.addEventListener('submit',validateForm)
-
-
-
-
-
-
-
-*/

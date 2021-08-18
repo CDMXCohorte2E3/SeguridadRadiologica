@@ -147,25 +147,11 @@ if( window.localStorage.getItem("productosLocalS") == null ){
     }
   ]
   window.localStorage.setItem('productosLocalS',JSON.stringify(prueba))
-} 
-
-
-
-// fin de añadir a local storage 
-
-function searchOnDatabase(idProductos) {
-  const productoFitrado = arregloProductos.find(producto => {
-      return producto.id == parseInt(idProductos)
-  })
-  console.log(productoFitrado)
-  return productoFitrado;
-}
-
+} // fin de añadir a local storage 
 
 // Cambio a uso del local storage para trabajar con el JSON
 
 let almacenLocal = JSON.parse(window.localStorage.getItem("productosLocalS")) // Extraje la información que almacené en local storage
-
 
 function anadirProducto(productos){
 
@@ -203,20 +189,6 @@ function anadirProducto(productos){
 } //Fin del anadirProducto
 anadirProducto(almacenLocal);
 
-// Función boton pop up
-const botonClase = document.getElementsByClassName("btn-add-car");
-for(i=0 ; i < botonClase.length ; i++){
-  botonClase[i].addEventListener('click', function(){
-      new Swal({
-        icon: 'success',
-        title: 'AGREGADO AL CARRITO',
-        showConfirmButton: false,
-        timer: 1500,
-        position: 'center',
-      })
-  })//addEventListener 
-} // fin del for
-
 function listaElementos(json){
   let descr,spl,myDiv;
   for( i = 0 ; i < json.length ; i++ ){
@@ -232,5 +204,5 @@ function listaElementos(json){
     }// else       
   }//for j
 }// for i
-}// function listaElementos
+}// fin de  listaElementos
 listaElementos(almacenLocal);
