@@ -6,6 +6,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Mandil emplomado económico",
       "marca": "Marca Slim Royal",
       "modelo": "E6995",
+      "precio": "121 USD",
       "li1": "0.5mm de plomo",
       "li2": "66x95 cm",
       "li3": "Con bolsillo",
@@ -18,6 +19,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Mandil emplomado estándar",
       "marca": "Marca Slim Royal",
       "modelo": "S6995",
+      "precio": "00 USD",
       "li1": "0.5mm de plomo",
       "li2": "66x95 cm",
       "li3": "Con bolsillo",
@@ -30,6 +32,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Faldón emplomado",
       "marca": "Marca Slim Royale",
       "modelo": "SQUARE",
+      "precio": "00 USD",
       "li1": "0.5mm de plomo",
       "li2": "40x40 cm",
       "li3": "Tipo falda",
@@ -42,6 +45,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Lentes emplomados",
       "marca": "Marca Slim Royale",
       "modelo": "SS-53",
+      "precio": "00 USD",
       "li1": "0.55mm de plomo",
       "li2": "Con estuche",
       "li3": "<br>",
@@ -54,6 +58,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Lentes emplomados",
       "marca": "Marca Slim Royale",
       "modelo": "S-53",
+      "precio": "00 USD",
       "li1": "0.5mm de plomo",
       "li2": "Con estuche",
       "li3": " <br>",
@@ -66,6 +71,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Googles emplomados",
       "marca": "Marca Slim Royale",
       "modelo": "GOOGLE-HO",
+      "precio": "00 USD",
       "li1": "0.5mm de plomo",
       "li2": "Con bolsa de tela",
       "li3": " <br>",
@@ -78,6 +84,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Guantes emplomados",
       "marca": "Marca Slim Royale",
       "modelo": "100 M/L",
+      "precio": "00 USD",
       "li1": "0.5mm de plomo",
       "li2": "350mm de largo",
       "li3": "Tamaño mediano o grande",
@@ -90,6 +97,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Guantes emplomados",
       "marca": "Marca Shielding",
       "modelo": "XR47",
+      "precio": "00 USD",
       "li1": "RADIAXON",
       "li2": "Equivalente a 0.5mm de plomo",
       "li3": "Tamaño mediano o grande",
@@ -102,6 +110,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Collarín emplomado",
       "marca": "Marca Slim Royale",
       "modelo": "STANDAR-O5",
+      "precio": "00 USD",
       "li1": "0.5mm de plomo",
       "li2": "<br> ",
       "li3": "<br> ",
@@ -114,6 +123,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Collarín emplomado de lujo",
       "marca": "Marca Slim Royale",
       "modelo": "DELUX-O5",
+      "precio": "00 USD",
       "li1": "0.5mm de plomo",
       "li2": "<br> ",
       "li3": "<br> ",
@@ -126,6 +136,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Protectores de gónadas",
       "marca": "Marca Slim Royale",
       "modelo": "S806A",
+      "precio": "00 USD",
       "li1": "0.5mm de plomo",
       "li2": "Juego de 3 protectores: grande mediano y chico",
       "li3": "<br>",
@@ -138,6 +149,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Protectores de gónadas",
       "marca": "Marca Slim Royale",
       "modelo": "S806 M/L",
+      "precio": "00 USD",
       "li1": "0.5mm de plomo",
       "li2": "Una pieza",
       "li3": "Tamaño mediano o grande",
@@ -168,6 +180,7 @@ function anadirProducto(productos){
                 <h4 class="card-title text-center">${producto.titulo}</h4> 
                 <h6 class="card-subtitle mb-2 text-muted text-center">${producto.marca}</h6> 
                 <h6 class="card-subtitle mb-2 text-muted text-center">${producto.modelo}</h6> 
+                <h6 class="card-subtitle text-muted text-center">${producto.precio}</h6> 
                 <p class="card-text"> 
                     <ul style="list-style-position: inside;" id="lista-desor_${producto.id}"> 
 

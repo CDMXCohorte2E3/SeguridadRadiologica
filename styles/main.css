@@ -91,10 +91,9 @@ h6 {
     color: var(--negro);
     text-transform: uppercase;
     padding: 3px;
-    /* font-size: 1em;
-    padding: .5rem 7rem; */
-    padding: 3px;
-    font-size: 0.9em;
+    font-size: 1em;
+    padding: .5rem;
+
 }
 
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link{
