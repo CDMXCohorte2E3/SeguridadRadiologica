@@ -159,25 +159,11 @@ if( window.localStorage.getItem("productosLocalS") == null ){
     }
   ]
   window.localStorage.setItem('productosLocalS',JSON.stringify(prueba))
-} 
-
-
-
-// fin de añadir a local storage 
-
-function searchOnDatabase(idProductos) {
-  const productoFitrado = arregloProductos.find(producto => {
-      return producto.id == parseInt(idProductos)
-  })
-  console.log(productoFitrado)
-  return productoFitrado;
-}
-
+} // fin de añadir a local storage 
 
 // Cambio a uso del local storage para trabajar con el JSON
 
 let almacenLocal = JSON.parse(window.localStorage.getItem("productosLocalS")) // Extraje la información que almacené en local storage
-
 
 function anadirProducto(productos){
 
@@ -245,5 +231,5 @@ function listaElementos(json){
     }// else       
   }//for j
 }// for i
-}// function listaElementos
+}// fin de  listaElementos
 listaElementos(almacenLocal);

@@ -1,11 +1,7 @@
 
 //Validación del formulario
 let form = document.getElementById('needs-validation');
-//Editar las clases
-//Traer el elemento al cual quiero hacer document.getEle
-//1. Leyendo el listado actual de clases elemento.classList
-//2. Agrego un estilo elemento.classList.add('nuevaClase')
-//3. Elemento elemento.value
+
 let valid = 0;
 function validateForm(e){//validateForm
     //No ejecutes
@@ -17,25 +13,16 @@ function validateForm(e){//validateForm
     let inputContraseña = document.getElementById('passwordRegistrar');
     let inputConfirmarContraseña = document.getElementById('confirmPassword');
 
-    // console.log(typeof(inputNombre.value))
-    //let inputZipcode = document.getElementById('zipCode')
-    
-    //console.log(inputNombre.value)
-    //console.log(inputNombre.classList)
-
     function validateName(nombre){
       //let expReg= /^[A-Z]+$/;
       let expReg = new RegExp(/^[a-zA-Z-á-ú ]+$/)  
-      let esValido2 = expReg.test(nombre);
-      console.log(esValido2);
+      let esValido2 = expReg.test(nombre);      
       if(esValido2 == true){//if nombre
           inputNombre.classList.remove('is-invalid')
-          inputNombre.classList.add('is-valid')
-          console.log('Hey si es mayor a =0')
+          inputNombre.classList.add('is-valid')          
           return valid ++;
         }else{
-          inputNombre.classList.add('is-invalid')
-          console.log('Esta vacío intenta nuevamente');
+          inputNombre.classList.add('is-invalid')          
       }//if nombre
     }//validateName
     
@@ -44,16 +31,13 @@ function validateForm(e){//validateForm
     function validateLastName(apellidos){
         //let expReg= /^[A-Z]+$/;
         let expReg = new RegExp(/^[a-zA-Z-á-ú ]+$/)  
-        let esValido2 = expReg.test(apellidos);
-        console.log(esValido2);
+        let esValido2 = expReg.test(apellidos);        
         if(esValido2 == true){//if apellido
             inputApellidos.classList.remove('is-invalid')
-            inputApellidos.classList.add('is-valid')
-            console.log('Hey si es mayor a =0')
+            inputApellidos.classList.add('is-valid')            
             return valid ++;
           }else{
-            inputApellidos.classList.add('is-invalid')
-            console.log('Esta vacío intenta nuevamente');
+            inputApellidos.classList.add('is-invalid')            
         }//if apellidos
       }//validateLastName
       
@@ -61,33 +45,27 @@ function validateForm(e){//validateForm
 
     function validateEmail(email){//validateEmail
       let expReg = new RegExp(/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/);
-      let esValido = expReg.test(email);
-      console.log(esValido);
+      let esValido = expReg.test(email);      
       if(esValido == true ){//if email 
         inputEmail.classList.remove('is-invalid')
-        inputEmail.classList.add('is-valid')
-        console.log('Hey si es mayor a =0')
+        inputEmail.classList.add('is-valid')        
         return valid++;
       }else{
-        inputEmail.classList.add('is-invalid')
-        console.log('Esta vacío intenta nuevamente');
+        inputEmail.classList.add('is-invalid')        
       }//if email
     }//validateEmail
 
     validateEmail(inputEmail.value)
 
     function validatePassword(password){//validatePassword
-      let expReg = new RegExp(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[$@!%?&]).{6,12}$/);
-      let esValido = expReg.test(password);
-      console.log(esValido);
+      let expReg = new RegExp(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[/$@*#!%?&._-]).{6,12}$/);
+      let esValido = expReg.test(password);      
       if(esValido == true ){//if email 
         inputContraseña.classList.remove('is-invalid')
-        inputContraseña.classList.add('is-valid')
-        console.log('Hey si es mayor a =0')
+        inputContraseña.classList.add('is-valid')        
         return valid++;
       }else{
-        inputContraseña.classList.add('is-invalid')
-        console.log('Esta vacío intenta nuevamente');
+        inputContraseña.classList.add('is-invalid')        
       }//if Password
     }//validatePassword
 
@@ -129,7 +107,7 @@ function nuevoRegistro(evento){
     let inputEmail = document.getElementById('emailRegistrar').value;
     let inputPhone = document.getElementById('phone').value;
     let inputContraseña = document.getElementById('passwordRegistrar').value;
-    let inputConfirmarContraseña = document.getElementById('confirmPassword')   ;
+    let inputConfirmarContraseña = document.getElementById('confirmPassword');
   
     // Aquí se "hace JSON" los valores que puso el admin en añadir producto
     const datosRegistro = {
@@ -139,8 +117,7 @@ function nuevoRegistro(evento){
         "telefono": inputPhone,
         "contrasena": inputContraseña
     }
-    if( window.localStorage.getItem("nuevoRegistro") === null ){
-        console.log(datosRegistro)
+    if( window.localStorage.getItem("nuevoRegistro") === null ){        
         let primerRegistro = []
         primerRegistro[0] = datosRegistro
         window.localStorage.setItem("nuevoRegistro",JSON.stringify(primerRegistro))
@@ -149,7 +126,5 @@ function nuevoRegistro(evento){
         let registrosDB = JSON.parse(window.localStorage.getItem("nuevoRegistro")) // Me traigo la base de datos
         registrosDB.push(datosRegistro) // Como la base es un array, le hago push
         window.localStorage.setItem("nuevoRegistro",JSON.stringify(registrosDB)) // Reenvío la información a la base de datos
-    }
-    
-  
-  }
+    } // fin de if
+} // fin de nuevoRegistro
