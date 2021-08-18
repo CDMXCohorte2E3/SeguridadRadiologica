@@ -1,10 +1,6 @@
 //Validación del formulario
 let form = document.getElementById('needs-validation');
-//Editar las clases
-//Traer el elemento al cual quiero hacer document.getEle
-//1. Leyendo el listado actual de clases elemento.classList
-//2. Agrego un estilo elemento.classList.add('nuevaClase')
-//3. Elemento elemento.value
+
 let valid = 0;
 function validateForm(e){//validateForm
     //No ejecutes
@@ -16,25 +12,16 @@ function validateForm(e){//validateForm
     let inputRfc = document.getElementById('rfc');
     let inputNotes = document.getElementById('notas');
 
-    console.log(typeof(inputNombre.value))
-    //let inputZipcode = document.getElementById('zipCode')
-    
-    //console.log(inputNombre.value)
-    console.log(inputNombre.classList)
-
     function validateName(nombre){
       //let expReg= /^[A-Z]+$/;
       let expReg = new RegExp(/^[a-zA-Z-á-ú ]+$/)  
-      let esValido2 = expReg.test(nombre);
-      console.log(esValido2);
+      let esValido2 = expReg.test(nombre);      
       if(esValido2 == true){//if nombre
           inputNombre.classList.remove('is-invalid')
-          inputNombre.classList.add('is-valid')
-          console.log('Hey si es mayor a =0')
+          inputNombre.classList.add('is-valid')          
           return valid ++;
         }else{
-          inputNombre.classList.add('is-invalid')
-          console.log('Esta vacío intenta nuevamente');
+          inputNombre.classList.add('is-invalid')          
       }//if nombre
     }//validateName
     
@@ -42,16 +29,13 @@ function validateForm(e){//validateForm
 
     function validateEmail(email){//validateEmail
       let expReg = new RegExp(/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/);
-      let esValido = expReg.test(email);
-      console.log(esValido);
+      let esValido = expReg.test(email);      
       if(esValido == true ){//if email 
         inputEmail.classList.remove('is-invalid')
-        inputEmail.classList.add('is-valid')
-        console.log('Hey si es mayor a =0')
+        inputEmail.classList.add('is-valid')        
         return valid++;
       }else{
-        inputEmail.classList.add('is-invalid')
-        console.log('Esta vacío intenta nuevamente');
+        inputEmail.classList.add('is-invalid')        
       }//if email
     }//validateEmail
 
@@ -60,16 +44,13 @@ function validateForm(e){//validateForm
     function validateAdress(adress){//validateAdress
       //let expReg= /^[A-Z]+$/;
       let expReg = new RegExp(/^[a-zA-Z-á-ú-0-9 -.#/]+$/)  
-      let esValido3 = expReg.test(adress);
-      console.log(esValido3);
+      let esValido3 = expReg.test(adress);      
       if(esValido3 == true){//if nombre
           inputAdress.classList.remove('is-invalid')
-          inputAdress.classList.add('is-valid')
-          console.log('Hey si es mayor a =0')
+          inputAdress.classList.add('is-valid')          
           return valid ++;
         }else{
-          inputAdress.classList.add('is-invalid')
-          console.log('Esta vacío intenta nuevamente');
+          inputAdress.classList.add('is-invalid')          
       }//if nombre
     }//validateAdress
 
