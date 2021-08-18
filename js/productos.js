@@ -6,7 +6,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Mandil emplomado económico",
       "marca": "Marca Slim Royal",
       "modelo": "E6995",
-      "precio": "121 USD",
+      "precio": "00 USD",
       "li1": "0.5mm de plomo",
       "li2": "66x95 cm",
       "li3": "Con bolsillo",
