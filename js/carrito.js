@@ -14,3 +14,15 @@ window.onload = function () {
         });
     })//addEventListener 
 }// window.onload
+
+
+function DeleteRowFunction() {
+    // event.target will be the input element.
+    var td = event.target.parentNode; 
+    var tr = td.parentNode; // the row to be removed
+    tr.parentNode.removeChild(tr);
+}
+
+//funcion para añadir producto al carrito de compras
+import { anadirCarrito } from './js/productos.js';
+

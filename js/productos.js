@@ -1,3 +1,5 @@
+//export function anadirCarrito();
+
 // Esto añade al local storage las key-values
 if( window.localStorage.getItem("productosLocalS") == null ){
   let prueba = [
@@ -139,20 +141,18 @@ function anadirProducto(productos){
                     </ul> 
                 </p> 
                 <div class="button text-center">      
-                  <button class="btn btn-info btn-add-car">Comprar</button>   
+                  <button class="btn btn-info btn-add-car" onclick="anadirCarrito();">Comprar</button>   
                 </div>   
             </div> <!--card-body--> 
         </div><!--card--> 
         </div>`
 
         plantilla += card;
-
     }) // Fin del forEach
-
     ancla.innerHTML = plantilla;
-
 } //Fin del anadirProducto
 anadirProducto(almacenLocal);
+
 
 // Función boton pop up
 const botonClase = document.getElementsByClassName("btn-add-car");
@@ -185,3 +185,15 @@ function listaElementos(json){
 }// for i
 }// fin de  listaElementos
 listaElementos(almacenLocal);
+
+
+//funcion para añadir producto al carrito de compras
+function  anadirCarrito(){
+  
+  var anclaCart = document.getElementsByClassName("productoCarrito");
+
+  anclaCart.innerHTML = "Si funciona";
+  console.log("Si funciona el ancla");
+}
+
+
