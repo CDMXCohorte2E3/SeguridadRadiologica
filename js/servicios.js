@@ -1,4 +1,6 @@
-let datosJson = [
+// Esto añade al local storage las key-values
+if( window.localStorage.getItem("serviciosLocalS") == null ){
+	let datosJson = [
 	{
 		"imagen": "./img/services/img-service1.jpg",
 		"titulo": "Curso Básico de Protección Radiológica Nivel Personal Ocupacionalmente Expuesto (POE)",
@@ -81,7 +83,16 @@ let datosJson = [
 		"parrafoBlack": "Nuestros señalamientos cumplen con los estándares exigidos por la Norma Oficial Mexicana NOM-229-SSA1-2002.",
 		"id": "9"
 	},
-]
+	]
+	window.localStorage.setItem('serviciosLocalS',JSON.stringify(datosJson))
+} // fin de añadir a local storage 
+  
+// Cambio a uso del local storage para trabajar con el JSON
+  
+let almacenLocal = JSON.parse(window.localStorage.getItem("serviciosLocalS")) // Extraje la información que almacené en local storage
+
+
+
 
 function anadirServicio(servicios) {
 
@@ -122,7 +133,7 @@ function anadirServicio(servicios) {
 	}) // Fin del forEach
 	ancla.innerHTML = plantilla;
 } //Fin del anadirProducto
-anadirServicio(datosJson);
+anadirServicio(almacenLocal);
 
 
 
