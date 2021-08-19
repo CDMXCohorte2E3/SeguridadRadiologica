@@ -9,7 +9,8 @@ function validateForm(e){//validateForm
     let inputEmail = document.getElementById('email');
     let inputAdress = document.getElementById('adress');
     let inputPhone = document.getElementById('phone');
-    let inputRfc = document.getElementById('rfc');
+    let inputNombreEmpresa = document.getElementById('nombreEmpresa');
+    let inputRazonSocial = document.getElementById('razonSocial');
     let inputNotes = document.getElementById('notas');
 
     function validateName(nombre){
@@ -65,14 +66,23 @@ function validateForm(e){//validateForm
       inputPhone.classList.add('is-invalid')
     }//if teléfono
 
-    if(inputRfc.value.length != 0 || inputRfc.value.length === 0){//if opcional RFC
-      inputRfc.classList.remove('is-invalid')
-      inputRfc.classList.add('is-valid') 
+    if(inputNombreEmpresa.value.length != 0 || inputNombreEmpresa.value.length === 0){//if opcional NombreEmpresa
+      inputNombreEmpresa.classList.remove('is-invalid')
+      inputNombreEmpresa.classList.add('is-valid') 
       valid++;
     }else{
-      inputRfc.classList.add('is-valid')
+      inputNombreEmpresa.classList.add('is-valid')
       valid++;
-    }//if opcional RFC
+    }//if opcional NombreEmpresa
+
+    if(inputRazonSocial.value.length != 0 || inputRazonSocial.value.length === 0){//if opcional RazonSocial
+      inputRazonSocial.classList.remove('is-invalid')
+      inputRazonSocial.classList.add('is-valid') 
+      valid++;
+    }else{
+      inputRazonSocial.classList.add('is-valid')
+      valid++;
+    }//if opcional RazonSocial
 
     if(inputNotes.value.length != 0 || inputNotes.value.length === 0){//if opcional Notes
       inputNotes.classList.remove('is-invalid')
@@ -83,7 +93,7 @@ function validateForm(e){//validateForm
       valid++;
     }//if opcional Notes
 
-    if (valid==6){
+    if (valid==7){
       window.open('mailto:generation.c2.cdmxe3@gmail.com?subject=Contacto&body=body');
     }
     return valid = 0;

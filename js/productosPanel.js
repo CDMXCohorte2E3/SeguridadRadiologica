@@ -226,18 +226,23 @@ function anadirProducto(productos){
     }) // Fin del forEach
 
     ancla.innerHTML = plantilla;
+
+
+    
     productos.forEach(function(producto){
       let tempform = document.getElementById("submit_" + producto.id);
-      tempform.addEventListener('click',validateFormS);
+      tempform.addEventListener('click',validateFormS); //Llama a la función de validación para cada producto
       // console.log("submit_" + producto.id);
     });
     // let tempform = document.getElementById("submit_1");
     //   tempform.addEventListener('click',validateFormS);
 } //Fin del anadirProducto
+
+//Función de validación para cada producto
 function validateFormS(e){
   // console.log('validateFormS');
   e.preventDefault();
-  let num = e.target.id.split("_")[1];
+  let num = e.target.id.split("_")[1]; //trae el id del producto
   // console.log(num);
   validateForm2(num);
 }
