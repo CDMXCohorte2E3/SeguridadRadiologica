@@ -6,10 +6,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Mandil emplomado económico",
       "marca": "Marca Slim Royal",
       "modelo": "E6995",
-      "li1": "0.5mm de plomo",
-      "li2": "66x95 cm",
-      "li3": "Con bolsillo",
-      "li4": "Acabado textil",
+      "precio": "121 USD",
       "descripcion" : "0.5mm de plomo|66x95 cm|Con bolsillo|Acabado textil",
       "id": "1"
     },
@@ -18,10 +15,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Mandil emplomado estándar",
       "marca": "Marca Slim Royal",
       "modelo": "S6995",
-      "li1": "0.5mm de plomo",
-      "li2": "66x95 cm",
-      "li3": "Con bolsillo",
-      "li4": "Acabado plástico",
+      "precio": "00 USD",
       "descripcion" : "0.5mm de plomo|66x95 cm|Con bolsillo|Acabado plástico",
       "id": "2"
     },
@@ -30,10 +24,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Faldón emplomado",
       "marca": "Marca Slim Royale",
       "modelo": "SQUARE",
-      "li1": "0.5mm de plomo",
-      "li2": "40x40 cm",
-      "li3": "Tipo falda",
-      "li4": "<br>",
+      "precio": "00 USD",
       "descripcion" : "0.5mm de plomo,40x40 cm|Tipo falda",
       "id": "3"
     },
@@ -42,10 +33,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Lentes emplomados",
       "marca": "Marca Slim Royale",
       "modelo": "SS-53",
-      "li1": "0.55mm de plomo",
-      "li2": "Con estuche",
-      "li3": "<br>",
-      "li4": " <br>",
+      "precio": "00 USD",
       "descripcion" : "0.55mm de plomo|Con estuche",
       "id": "4"
     },
@@ -54,10 +42,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Lentes emplomados",
       "marca": "Marca Slim Royale",
       "modelo": "S-53",
-      "li1": "0.5mm de plomo",
-      "li2": "Con estuche",
-      "li3": " <br>",
-      "li4": "<br> ",
+      "precio": "00 USD",
       "descripcion" : "0.5mm de plomo|Con estuche",
       "id": "5"
     },
@@ -66,10 +51,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Googles emplomados",
       "marca": "Marca Slim Royale",
       "modelo": "GOOGLE-HO",
-      "li1": "0.5mm de plomo",
-      "li2": "Con bolsa de tela",
-      "li3": " <br>",
-      "li4": "<br> ",
+      "precio": "00 USD",
       "descripcion" : "0.5mm de plomo|Con bolsa de tela",
       "id": "6"
     },
@@ -78,10 +60,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Guantes emplomados",
       "marca": "Marca Slim Royale",
       "modelo": "100 M/L",
-      "li1": "0.5mm de plomo",
-      "li2": "350mm de largo",
-      "li3": "Tamaño mediano o grande",
-      "li4": "<br> ",
+      "precio": "00 USD",
       "descripcion" : "0.5mm de plomo|350mm de largo|Tamaño mediano o grande",
       "id": "7"
     },
@@ -90,10 +69,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Guantes emplomados",
       "marca": "Marca Shielding",
       "modelo": "XR47",
-      "li1": "RADIAXON",
-      "li2": "Equivalente a 0.5mm de plomo",
-      "li3": "Tamaño mediano o grande",
-      "li4": "",
+      "precio": "00 USD",
       "descripcion" : "RADIAXON|Equivalente a 0.5mm|de plomo|Tamaño mediano o grande",
       "id": "8"
     },
@@ -102,10 +78,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Collarín emplomado",
       "marca": "Marca Slim Royale",
       "modelo": "STANDAR-O5",
-      "li1": "0.5mm de plomo",
-      "li2": "<br> ",
-      "li3": "<br> ",
-      "li4": "<br> ",
+      "precio": "00 USD",
       "descripcion" : "0.5mm de plomo",
       "id": "9"
     },
@@ -114,10 +87,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Collarín emplomado de lujo",
       "marca": "Marca Slim Royale",
       "modelo": "DELUX-O5",
-      "li1": "0.5mm de plomo",
-      "li2": "<br> ",
-      "li3": "<br> ",
-      "li4": "<br> ",
+      "precio": "00 USD",
       "descripcion" : "0.5mm de plomo",
       "id": "10"
     },
@@ -126,10 +96,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Protectores de gónadas",
       "marca": "Marca Slim Royale",
       "modelo": "S806A",
-      "li1": "0.5mm de plomo",
-      "li2": "Juego de 3 protectores: grande mediano y chico",
-      "li3": "<br>",
-      "li4": "<br>",
+      "precio": "00 USD",
       "descripcion" : "0.5mm de plomo,Juego de 3 piezas:|Grande mediano y chico",
       "id": "11"
     },
@@ -138,34 +105,17 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Protectores de gónadas",
       "marca": "Marca Slim Royale",
       "modelo": "S806 M/L",
-      "li1": "0.5mm de plomo",
-      "li2": "Una pieza",
-      "li3": "Tamaño mediano o grande",
-      "li4": " <br>",
+      "precio": "00 USD",
       "descripcion" : "0.5mm de plomo|Una pieza|Tamaño mediano o grande",
       "id": "12"
     }
   ]
   window.localStorage.setItem('productosLocalS',JSON.stringify(prueba))
-} 
-
-
-
-// fin de añadir a local storage 
-
-function searchOnDatabase(idProductos) {
-  const productoFitrado = arregloProductos.find(producto => {
-      return producto.id == parseInt(idProductos)
-  })
-  console.log(productoFitrado)
-  return productoFitrado;
-}
-
+} // fin de añadir a local storage 
 
 // Cambio a uso del local storage para trabajar con el JSON
 
 let almacenLocal = JSON.parse(window.localStorage.getItem("productosLocalS")) // Extraje la información que almacené en local storage
-
 
 function anadirProducto(productos){
 
@@ -182,6 +132,7 @@ function anadirProducto(productos){
                 <h4 class="card-title text-center">${producto.titulo}</h4> 
                 <h6 class="card-subtitle mb-2 text-muted text-center">${producto.marca}</h6> 
                 <h6 class="card-subtitle mb-2 text-muted text-center">${producto.modelo}</h6> 
+                <h6 class="card-subtitle text-muted text-center">${producto.precio}</h6> 
                 <p class="card-text"> 
                     <ul style="list-style-position: inside;" id="lista-desor_${producto.id}"> 
 
@@ -232,5 +183,5 @@ function listaElementos(json){
     }// else       
   }//for j
 }// for i
-}// function listaElementos
+}// fin de  listaElementos
 listaElementos(almacenLocal);

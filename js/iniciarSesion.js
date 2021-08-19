@@ -1,11 +1,6 @@
-
 //Validación del formulario
 let form = document.getElementById('needs-validation');
-//Editar las clases
-//Traer el elemento al cual quiero hacer document.getEle
-//1. Leyendo el listado actual de clases elemento.classList
-//2. Agrego un estilo elemento.classList.add('nuevaClase')
-//3. Elemento elemento.value
+
 let valid = 0;
 function validateForm(e){//validateForm
     //No ejecutes
@@ -16,16 +11,13 @@ function validateForm(e){//validateForm
 
     function validateEmail(email){//validateEmail
       let expReg = new RegExp(/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/);
-      let esValido = expReg.test(email);
-      console.log(esValido);
+      let esValido = expReg.test(email);      
       if(esValido == true ){//if email 
         inputEmail.classList.remove('is-invalid')
-        inputEmail.classList.add('is-valid')
-        console.log('Hey si es mayor a =0')
+        inputEmail.classList.add('is-valid')        
         return valid++;
       }else{
-        inputEmail.classList.add('is-invalid')
-        console.log('Esta vacío intenta nuevamente');
+        inputEmail.classList.add('is-invalid')        
       }//if email
     }//validateEmail
 
@@ -33,24 +25,19 @@ function validateForm(e){//validateForm
 
     function validatePassword(password){//validatePassword
       let expReg = new RegExp(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[/$@*#!%?&._-]).{6,12}$/);
-      let esValido = expReg.test(password);
-      console.log(esValido);
+      let esValido = expReg.test(password);      
       if(esValido == true ){//if email 
         inputContraseña.classList.remove('is-invalid')
-        inputContraseña.classList.add('is-valid')
-        console.log('Hey si es mayor a =0')
+        inputContraseña.classList.add('is-valid')        
         return valid++;
       }else{
-        inputContraseña.classList.add('is-invalid')
-        console.log('Esta vacío intenta nuevamente');
+        inputContraseña.classList.add('is-invalid')        
       }//if Password
     }//validatePassword
 
     validatePassword(inputContraseña.value)
 
     if (valid==2){
-      //window.open('mailto:generation.c2.cdmxe3@gmail.com?subject=Contacto&body=body');
-      console.log('Done')
       Toast();
     }
     return valid = 0;
@@ -73,11 +60,12 @@ function Toast(){
       toast.addEventListener('mouseleave', Swal.resumeTimer)
     } 
   });
-
+  window.location.href = "./panelEdicionAdmin.html";
+  
 Toast.fire({
   icon: 'success',
   title: 'Inicio de sesión exitoso'
-});
+})
 
 }//function Toast
 

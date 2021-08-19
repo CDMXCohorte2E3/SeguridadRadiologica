@@ -43,7 +43,6 @@ h4{
     color: var(--negro);
     text-align: center;
     text-transform: uppercase;
-
 }
 
 h6 {
@@ -91,10 +90,9 @@ h6 {
     color: var(--negro);
     text-transform: uppercase;
     padding: 3px;
-    /* font-size: 1em;
-    padding: .5rem 7rem; */
-    padding: 3px;
-    font-size: 0.9em;
+    font-size: 1em;
+    padding: .5rem;
+
 }
 
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link{
@@ -140,11 +138,19 @@ a:hover{
     margin: 10px;
 }
 
+
 .container-text-p{
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     color: var(--negro);
     margin: 20px;
+}
+
+.container--texto-presentacion{
+    font-family: "Open sans";
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
 }
 
 .div-centered{
