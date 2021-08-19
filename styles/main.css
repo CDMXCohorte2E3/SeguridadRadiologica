@@ -43,6 +43,7 @@ h4{
     color: var(--negro);
     text-align: center;
     text-transform: uppercase;
+
 }
 
 h6 {
@@ -138,19 +139,11 @@ a:hover{
     margin: 10px;
 }
 
-
 .container-text-p{
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     color: var(--negro);
     margin: 20px;
-}
-
-.container--texto-presentacion{
-    font-family: "Open sans";
-    font-size: 20px;
-    text-align: center;
-    align-items: center;
 }
 
 .div-centered{
