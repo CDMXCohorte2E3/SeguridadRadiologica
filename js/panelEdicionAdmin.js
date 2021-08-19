@@ -7,6 +7,7 @@ function validateForm(e){//validateForm
     e.preventDefault();
     let inputProduct = document.getElementById('product');
     let inputMarca = document.getElementById('marca');
+    let inputPrice = document.getElementById('precio');
     let inputModel = document.getElementById('model');
     let inputDescription = document.getElementById('description');
     let inputImage = document.getElementById('image');
@@ -40,11 +41,25 @@ function validateForm(e){//validateForm
     
     validateMarca(inputMarca.value)
 
+    function validatePrice(price){//validateModel
+      //let expReg= /^[A-Z]+$/;
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
+      let esValido3 = expReg.test(price);      
+      if(esValido3 == true){//if Price
+          inputPrice.classList.remove('is-invalid')
+          inputPrice.classList.add('is-valid')          
+          return valid ++;
+        }else{
+          inputPrice.classList.add('is-invalid')          
+      }//if Price
+    }//validatePrice
+    validatePrice(inputPrice.value)
+
     function validateModel(model){//validateModel
       //let expReg= /^[A-Z]+$/;
       let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
-      let esValido3 = expReg.test(model);      
-      if(esValido3 == true){//if Model
+      let esValido4 = expReg.test(model);      
+      if(esValido4 == true){//if Model
           inputModel.classList.remove('is-invalid')
           inputModel.classList.add('is-valid')          
           return valid ++;
@@ -58,8 +73,8 @@ function validateForm(e){//validateForm
     function validateDescription(description){//validateDescription
       //let expReg= /^[A-Z]+$/;
       let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.| ]+$/)
-      let esValido4 = expReg.test(description);      
-      if(esValido4 == true){//if Description
+      let esValido5 = expReg.test(description);      
+      if(esValido5 == true){//if Description
           inputDescription.classList.remove('is-invalid')
           inputDescription.classList.add('is-valid')          
           return valid ++;
@@ -70,7 +85,7 @@ function validateForm(e){//validateForm
 
     validateDescription(inputDescription.value)
 
-    if (valid==4){      
+    if (valid==5){      
       nuevoProducto();
       window.location.reload()
     }
@@ -87,6 +102,7 @@ function nuevoProducto(evento){
   
   let inputProduct = document.getElementById('product').value;
   let inputMarca = document.getElementById('marca').value;
+  let inputPrice = document.getElementById('precio').value;
   let inputModel = document.getElementById('model').value;
   let inputDescription = document.getElementById('description').value;
   let inputImage = document.getElementById('image').value;
@@ -98,6 +114,7 @@ function nuevoProducto(evento){
     "imagen": inputImage,
     "titulo" : inputProduct, 
     "marca": inputMarca,
+    "precio": inputPrice,
     "modelo" : inputModel,
     "descripcion" : inputDescription,
     "id" : traerLocalStorage.length + 1
