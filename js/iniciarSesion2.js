@@ -100,7 +100,7 @@ function validateForm(e){//validateForm
 
 form.addEventListener('submit',validateForm)
 
-function nuevoRegistro(evento){
+function nuevoRegistro(){
     
     let inputNombre = document.getElementById('name').value;
     let inputApellidos = document.getElementById('lastName').value;
@@ -111,20 +111,20 @@ function nuevoRegistro(evento){
   
     // Aquí se "hace JSON" los valores que puso el admin en añadir producto
     const datosRegistro = {
-        "nombre": inputNombre,
-        "apellidos": inputApellidos,
+        "name": inputNombre,
+        "lastName": inputApellidos,
+        "phone": inputPhone,
         "email": inputEmail,
-        "telefono": inputPhone,
-        "contrasena": inputContraseña
+        "password": inputContraseña
     }
-    if( window.localStorage.getItem("nuevoRegistro") === null ){        
+    if( window.localStorage.getItem("listaRegistro") === null ){        
         let primerRegistro = []
         primerRegistro[0] = datosRegistro
-        window.localStorage.setItem("nuevoRegistro",JSON.stringify(primerRegistro))
+        window.localStorage.setItem("listaRegistro",JSON.stringify(primerRegistro))
     } else{
 
-        let registrosDB = JSON.parse(window.localStorage.getItem("nuevoRegistro")) // Me traigo la base de datos
+        let registrosDB = JSON.parse(window.localStorage.getItem("listaRegistro")) // Me traigo la base de datos
         registrosDB.push(datosRegistro) // Como la base es un array, le hago push
-        window.localStorage.setItem("nuevoRegistro",JSON.stringify(registrosDB)) // Reenvío la información a la base de datos
+        window.localStorage.setItem("listaRegistro",JSON.stringify(registrosDB)) // Reenvío la información a la base de datos
     } // fin de if
 } // fin de nuevoRegistro
