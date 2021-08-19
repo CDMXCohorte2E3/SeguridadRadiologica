@@ -60,12 +60,11 @@ function Toast(){
       toast.addEventListener('mouseleave', Swal.resumeTimer)
     } 
   });
-  window.location.href = "./panelEdicionAdmin.html";
-  
+
 Toast.fire({
   icon: 'success',
   title: 'Inicio de sesión exitoso'
-})
+});
 
 }//function Toast
 
