@@ -42,27 +42,3 @@ if( window.localStorage.getItem("listaRegistro") == null ){
   
   // Cambio a uso del local storage para trabajar con el JSON
   
-
-  /*
-  let almacenLocal = JSON.parse(window.localStorage.getItem("listaRegistro")) // Extraje la información que almacené en local storage
-
-  function listaElementos2(json){
-    let descr,spl,myDiv;
-    
-    for( i = 0 ; i < json.length ; i++ ){
-      let descr = json[i].descripcion;
-      let spl = descr.split("|"); 
-      let myDiv = document.getElementById("lista-desor_" + json[i].id);
-    
-    for (let j = 0; j < 4; j++) { 
-      if (j < spl.length){         
-        myDiv.innerHTML +="<li>"+ spl[j] + "</li>";     
-      } else {         
-        myDiv.innerHTML +="<br/>"
-      }// else       
-    }//for j
-  }// for i
-
-  }// fin de  listaElementos
-  listaElementos2(almacenLocal);
-*/

@@ -90,7 +90,6 @@ function validateForm(e){//validateForm
     }//if teléfono
 
     if (valid==6){
-      window.open('mailto:generation.c2.cdmxe3@gmail.com?subject=Contacto&body=body');
       nuevoRegistro();
     }
     return vaid = 0;
