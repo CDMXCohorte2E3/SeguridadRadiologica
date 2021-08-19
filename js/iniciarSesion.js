@@ -38,7 +38,8 @@ function validateForm(e){//validateForm
     validatePassword(inputContraseña.value)
 
     if (valid==2){
-      Toast();
+      //Toast();
+      iniciarSesion();
     }
     return valid = 0;
 }//validateForm
@@ -68,31 +69,59 @@ Toast.fire({
 
 }//function Toast
 
-/* Intento de funcion para la tarea.. 8
+// Inicio de sesión
+
+
+
 function iniciarSesion(){
-
-  let inputEmail = document.getElementById('emailIniciar').value;
-  let inputContraseña = document.getElementById('passwordIniciar').value;
   
-  console.log(inputEmail)
+  const boton = document.getElementById('botonEnviar');
+  const msgError = `
+  <button type="submit" class="btn btn-info">Enviar</button>
+  <small id="password" class="form-text text-danger">Contraseña o correo incorrectos</small>
+  `;
+  const msgYes = `
+  <button type="submit" class="btn btn-info">Enviar</button>
+  `
+  
+  let almacenLocal = JSON.parse(window.localStorage.getItem("listaRegistro"))
+  
+    let inputEmail2 = document.getElementById('emailIniciar');
+    let inputContraseña2 = document.getElementById('passwordIniciar');
 
-  var comparacionBD = JSON.parse(window.localStorage.getItem("nuevoRegistro"))
+    console.log(inputEmail2.value);
+    console.log(inputContraseña2.value);
 
-  for( i = 0 ; i < comparacionBD.length ; i++){
+    let cont = 0;
 
-    if( comparacionBD[i].email == inputEmail ){
+  for( i = 0 ; i < almacenLocal.length ; i++){
+    if( almacenLocal[i].email == inputEmail2.value ){
         console.log("Entre al primer if")
-        if( comparacionBD[i].contrasena == inputContraseña ){
-          console.log("¡Contraseña correcta!")
+        cont++;
+        //Toast();
+        if( almacenLocal[i].password == inputContraseña2.value ){ 
+          Toast();
+          boton.innerHTML = msgYes;
+          cont++;
           break
         } else {
           console.log("Contraseña o correo incorrecto")
+          boton.innerHTML = msgError;
         } // if para comparar las contraseñas
 
-    } else {
-      continue
-    } // if para encontrar, o no, el correo
-  }
+    }else{
+      console.log("Contraseña o correo incorrecto")
+      boton.innerHTML = msgError;
+    }//if
 
-} Att Carlos */
+  }//for
+
+  if(cont == 2){
+    location.href ="index.html";
+    }
+
+}//Iniciar sesión
+
+
+
 
