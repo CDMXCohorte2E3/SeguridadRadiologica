@@ -94,12 +94,12 @@
                         <h4>Panel de edición</h4>
 
 
-                        <form id="needs-validation" style="margin-bottom: 20px;" novalidate>
+                        <form id="needs-validation" style="margin-bottom: 20px;" method="POST" novalidate>
                             <!--Formulario de edición-->
                             <div class="form-group">
 
                                 <label for="validationCustom01">Nombre del servicio: </label>
-                                <input type="text" name="nombre" class="form-control" id="nombre" maxlength="300"
+                                <input type="text" name="nombre" class="form-control" id="titulo" maxlength="300"
                                     required>
                                 <div class="invalid-feedback">
                                     <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
@@ -110,7 +110,7 @@
                             <div class="form-group">
 
                                 <label for="validationCustom01">Párrafo de presentación</label>
-                                <textarea type="text" name="parrafo" class="form-control" id="parrafo" maxlength="300"
+                                <textarea type="text" name="parrafo" class="form-control" id="parrafo1" maxlength="300"
                                     required rows="2"
                                     placeholder="Este párrafo es obligatorio, siempre será visible"></textarea>
                                 <div class="invalid-feedback">
@@ -147,7 +147,7 @@
                             <div class="form-group">
 
                                 <label for="validationCustom01">Párrafo Resaltado: </label>
-                                <textarea type="text" name="parrafoRes" class="form-control" id="parrafoRes" maxlength="300"
+                                <textarea type="text" name="parrafoRes" class="form-control" id="parrafoBlack" maxlength="300"
                                     required rows="2" placeholder="Información resaltada"></textarea>
                                 <div class="invalid-feedback">
                                     <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
