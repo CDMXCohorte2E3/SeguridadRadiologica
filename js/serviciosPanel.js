@@ -122,7 +122,7 @@ function anadirServicio(servicios) {
                 <div class="text-center">
                         <button onclick="myFunction(${servicio.id})" class="btn btn-light" id="myBtn_${servicio.id}">Ver más</button>
                         <br><br>
-                        <a href="./contacto.html"><button class="btn btn-info">COTIZAR</button></a>
+                        <a href="./contacto.html"><button class="btn btn-info">Editar</button></a>
                     </div>
         	 </div> <!--card-body--> 
         </div><!--card--> 
