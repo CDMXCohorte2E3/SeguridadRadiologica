@@ -152,7 +152,7 @@ function anadirProducto(productos){
                   <div class="modal-body">
                   <div class="adminForm">
                   <h4>Panel de edición</h4>
-                  <form action="#" id="act-needs-validation" style="margin-bottom: 20px;" method="POST" novalidate>
+                  <form action="#" id="act-needs-validation${producto.id}" style="margin-bottom: 20px;" method="POST" novalidate>
                       <!--Formulario de edición-->
                       <div class="form-group">
                           <label for="validationCustom01">Nuevo nombre del producto: </label>
@@ -172,6 +172,20 @@ function anadirProducto(productos){
                               Marca válida es requerida
                           </div>
                       </div>
+
+                      <div class="form-group">
+
+                                <label for="validationCustom01">Precio: </label>
+                                <input type="text" name="precio" class="form-control" id="actualizarPrecio${producto.id}" maxlength="31"
+                                    required>
+
+                                <div class="invalid-feedback">
+                                    <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
+                                    Precio válido es requerido
+                                </div>
+                      </div>
+
+
                       <div class="form-group">
                           <label for="validationCustom01">Modelo: </label>
                           <input type="text" name="model" class="form-control" id="actualizarModelo${producto.id}" maxlength="31"
@@ -197,7 +211,7 @@ function anadirProducto(productos){
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cancelar </button>
-                    <button onclick="guardarCambios(${producto.id})" type="button" class="btn btn-primary"> Guardar cambios </button>
+                    <button id="submit_${producto.id}" type="submit" class="btn btn-primary"> Guardar cambios </button>
                   </div>
                 </div>
               </div>
@@ -212,8 +226,21 @@ function anadirProducto(productos){
     }) // Fin del forEach
 
     ancla.innerHTML = plantilla;
-
+    productos.forEach(function(producto){
+      let tempform = document.getElementById("submit_" + producto.id);
+      tempform.addEventListener('click',validateFormS);
+      // console.log("submit_" + producto.id);
+    });
+    // let tempform = document.getElementById("submit_1");
+    //   tempform.addEventListener('click',validateFormS);
 } //Fin del anadirProducto
+function validateFormS(e){
+  // console.log('validateFormS');
+  e.preventDefault();
+  let num = e.target.id.split("_")[1];
+  // console.log(num);
+  validateForm2(num);
+}
 anadirProducto(almacenLocal);
 
 function listaElementos(json){
@@ -236,12 +263,110 @@ function listaElementos(json){
 listaElementos(almacenLocal);
 // Función para editar productos desde el panel de admin
 
+//Validación del formulario
+let form2 = document.getElementById('act-needs-validation');
+
+
+let valid2 = 0;
+function validateForm2(n){//validateForm
+    
+    // e.preventDefault();
+    let inputProduct = document.getElementById(`actualizarNombre${n}`);
+    let inputMarca = document.getElementById(`actualizarMarca${n}`);
+    let inputPrice = document.getElementById(`actualizarPrecio${n}`);
+    let inputModel = document.getElementById(`actualizarModelo${n}`);
+    let inputDescription = document.getElementById(`actualizarDescripcion${n}`);
+    let inputImage = document.getElementById('image');
+
+    function validateName(nombre){//validateName
+      //let expReg= /^[A-Z]+$/;
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)  
+      let esValido = expReg.test(nombre);
+      if(esValido == true){//if nombre
+          inputProduct.classList.remove('is-invalid')
+          inputProduct.classList.add('is-valid')
+          return valid2 ++;
+        }else{
+          inputProduct.classList.add('is-invalid')
+      }//if nombre
+    }//validateName
+    
+    validateName(inputProduct.value)
+    
+    function validateMarca(marca){//validateMarca
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
+      let esValido2 = expReg.test(marca);      
+      if(esValido2 == true){//if Marca
+          inputMarca.classList.remove('is-invalid')
+          inputMarca.classList.add('is-valid')          
+          return valid2 ++;
+        }else{
+          inputMarca.classList.add('is-invalid')          
+      }//if Marca
+    }//validateMarca
+    
+    validateMarca(inputMarca.value)
+
+    function validatePrice(price){//validateModel
+      //let expReg= /^[A-Z]+$/;
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
+      let esValido3 = expReg.test(price);      
+      if(esValido3 == true){//if Price
+          inputPrice.classList.remove('is-invalid')
+          inputPrice.classList.add('is-valid')          
+          return valid2 ++;
+        }else{
+          inputPrice.classList.add('is-invalid')          
+      }//if Price
+    }//validatePrice
+    validatePrice(inputPrice.value)
+
+    function validateModel(model){//validateModel
+      //let expReg= /^[A-Z]+$/;
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
+      let esValido4 = expReg.test(model);      
+      if(esValido4 == true){//if Model
+          inputModel.classList.remove('is-invalid')
+          inputModel.classList.add('is-valid')          
+          return valid2 ++;
+        }else{
+          inputModel.classList.add('is-invalid')          
+      }//if Model
+    }//validateModel
+    
+    validateModel(inputModel.value)
+    
+    function validateDescription(description){//validateDescription
+      //let expReg= /^[A-Z]+$/;
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.| ]+$/)
+      let esValido5 = expReg.test(description);      
+      if(esValido5 == true){//if Description
+          inputDescription.classList.remove('is-invalid')
+          inputDescription.classList.add('is-valid')          
+          return valid2 ++;
+        }else{
+          inputDescription.classList.add('is-invalid')          
+      }//if Description
+    }//validateDescription
+
+    validateDescription(inputDescription.value)
+
+    if (valid2==5){      
+      guardarCambios(n);
+      window.location.reload()
+    }
+    return valid2 = 0;
+}//validateForm
+
+
+
 function guardarCambios(id_producto_a_editar){
   
   let variableLS = JSON.parse(window.localStorage.getItem("productosLocalS"))
 
   variableLS[id_producto_a_editar - 1].titulo = document.getElementById("actualizarNombre" + id_producto_a_editar).value;
   variableLS[id_producto_a_editar - 1].marca =  document.getElementById("actualizarMarca" + id_producto_a_editar).value;
+  variableLS[id_producto_a_editar - 1].marca =  document.getElementById("actualizarPrecio" + id_producto_a_editar).value;
   variableLS[id_producto_a_editar - 1].modelo = document.getElementById("actualizarModelo" + id_producto_a_editar).value;
   variableLS[id_producto_a_editar - 1].descripcion = document.getElementById("actualizarDescripcion" + id_producto_a_editar).value
 
