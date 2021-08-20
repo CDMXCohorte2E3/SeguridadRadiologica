@@ -210,5 +210,3 @@ function  anadirCarrito(arg_id){
   }
 
 }
-
-
