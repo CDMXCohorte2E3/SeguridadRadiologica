@@ -156,7 +156,7 @@ function anadirProducto(productos){
                       <!--Formulario de edición-->
                       <div class="form-group">
                           <label for="validationCustom01">Nuevo nombre del producto: </label>
-                          <input type="text" name="product" class="form-control" id="actualizarNombre${producto.id}" maxlength="31"
+                          <input value="${producto.titulo}" type="text" name="product" class="form-control" id="actualizarNombre${producto.id}" maxlength="31"
                               required>
                           <div class="invalid-feedback">
                               <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
@@ -165,7 +165,7 @@ function anadirProducto(productos){
                       </div>
                       <div class="form-group">
                           <label for="validationCustom01">Marca:</label>
-                          <input type="text" name="marca" class="form-control" id="actualizarMarca${producto.id}" maxlength="31"
+                          <input value="${producto.marca}" type="text" name="marca" class="form-control" id="actualizarMarca${producto.id}" maxlength="31"
                               required>
                           <div class="invalid-feedback">
                               <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
@@ -176,7 +176,7 @@ function anadirProducto(productos){
                       <div class="form-group">
 
                                 <label for="validationCustom01">Precio: </label>
-                                <input type="text" name="precio" class="form-control" id="actualizarPrecio${producto.id}" maxlength="31"
+                                <input value="${producto.precio}" type="text" name="precio" class="form-control" id="actualizarPrecio${producto.id}" maxlength="31"
                                     required>
 
                                 <div class="invalid-feedback">
@@ -188,7 +188,7 @@ function anadirProducto(productos){
 
                       <div class="form-group">
                           <label for="validationCustom01">Modelo: </label>
-                          <input type="text" name="model" class="form-control" id="actualizarModelo${producto.id}" maxlength="31"
+                          <input value="${producto.modelo}" type="text" name="model" class="form-control" id="actualizarModelo${producto.id}" maxlength="31"
                               required>
                           <div class="invalid-feedback">
                               <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
@@ -198,12 +198,12 @@ function anadirProducto(productos){
                       <div class="form-group">
                           <label for="image">Selecciona una imagen (.jpeg,.jpg,.png)</label>
                           <input type="file" class="form-control-file" name="image" id="image" accept=".jpeg,.jpg,.png">
-                          <!-- <input type="file" class="form-control-file" name="image" id="image" accept=".jpeg,.jpg,.png" onchange="ValidarTamaño(this);"> -->
+                          <!-- <input value="${producto.imagen}" type="file" class="form-control-file" name="image" id="image" accept=".jpeg,.jpg,.png" onchange="ValidarTamaño(this);"> -->
                       </div>
                       <div class="form-group">
                           <label for="validationCustom01">Descripción: </label>
                           <textarea class="form-control" name="description" id="actualizarDescripcion${producto.id}" rows="3"
-                              maxlength="280" placeholder="Detalle 1 | Detalle 2 | Detalle 3 | Detalle 4"></textarea>
+                              maxlength="280" placeholder="Detalle 1 | Detalle 2 | Detalle 3 | Detalle 4">${producto.descripcion}</textarea>
                       </div>
                   </form>
                   <!--Formulario de edición-->
@@ -343,7 +343,7 @@ function validateForm2(n){//validateForm
     
     function validateDescription(description){//validateDescription
       //let expReg= /^[A-Z]+$/;
-      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.| ]+$/)
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.,| ]+$/)
       let esValido5 = expReg.test(description);      
       if(esValido5 == true){//if Description
           inputDescription.classList.remove('is-invalid')
@@ -371,7 +371,7 @@ function guardarCambios(id_producto_a_editar){
 
   variableLS[id_producto_a_editar - 1].titulo = document.getElementById("actualizarNombre" + id_producto_a_editar).value;
   variableLS[id_producto_a_editar - 1].marca =  document.getElementById("actualizarMarca" + id_producto_a_editar).value;
-  variableLS[id_producto_a_editar - 1].marca =  document.getElementById("actualizarPrecio" + id_producto_a_editar).value;
+  variableLS[id_producto_a_editar - 1].precio =  document.getElementById("actualizarPrecio" + id_producto_a_editar).value;
   variableLS[id_producto_a_editar - 1].modelo = document.getElementById("actualizarModelo" + id_producto_a_editar).value;
   variableLS[id_producto_a_editar - 1].descripcion = document.getElementById("actualizarDescripcion" + id_producto_a_editar).value
 
