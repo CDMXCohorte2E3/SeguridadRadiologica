@@ -1,5 +1,3 @@
-//export function anadirCarrito();
-
 // Esto añade al local storage las key-values
 if( window.localStorage.getItem("productosLocalS") == null ){
   let prueba = [
@@ -141,7 +139,7 @@ function anadirProducto(productos){
                     </ul> 
                 </p> 
                 <div class="button text-center">      
-                  <button class="btn btn-info btn-add-car" onclick="anadirCarrito();">Comprar</button>   
+                  <button class="btn btn-info btn-add-car" onclick="anadirCarrito(${producto.id});">Comprar</button>   
                 </div>   
             </div> <!--card-body--> 
         </div><!--card--> 
@@ -188,12 +186,29 @@ listaElementos(almacenLocal);
 
 
 //funcion para añadir producto al carrito de compras
-function  anadirCarrito(){
-  
-  var anclaCart = document.getElementsByClassName("productoCarrito");
+function  anadirCarrito(arg_id){
 
-  anclaCart.innerHTML = "Si funciona";
-  console.log("Si funciona el ancla");
+  
+  if( window.localStorage.getItem("identificadoresLocalS") == null ){
+    let varTmp = JSON.parse(window.localStorage.getItem("productosLocalS"));
+    let empujarTmp = {
+      "identificador" : varTmp[arg_id -1].id
+      }
+    let jsonTmp = [];
+    jsonTmp.push(empujarTmp);
+    window.localStorage.setItem("identificadoresLocalS",JSON.stringify(jsonTmp));
+    
+  } else {
+
+    let varTmp = JSON.parse(window.localStorage.getItem("productosLocalS"));
+    let empujarTmp = {
+      "identificador" : varTmp[arg_id -1].id
+      }
+    let localSNotNull = JSON.parse(window.localStorage.getItem("identificadoresLocalS"));
+    localSNotNull.push(empujarTmp);
+    window.localStorage.setItem("identificadoresLocalS", JSON.stringify(localSNotNull))
+  }
+
 }
 
 

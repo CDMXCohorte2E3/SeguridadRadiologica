@@ -1,3 +1,4 @@
+/*
 // Función boton pop up
 window.onload = function () {
     const btnAdd = document.getElementById('btn-orden');
@@ -24,5 +25,6 @@ function DeleteRowFunction() {
 }
 
 //funcion para añadir producto al carrito de compras
-import { anadirCarrito } from './js/productos.js';
+// import { anadirCarrito } from './js/productos.js';
 
+*/
