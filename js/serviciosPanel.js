@@ -120,9 +120,121 @@ function anadirServicio(servicios) {
 					</div>
 					</p>
                 <div class="text-center">
-                        <button onclick="myFunction(${servicio.id})" class="btn btn-light" id="myBtn_${servicio.id}">Ver más</button>
-                        <br><br>
-                        <a href="./contacto.html"><button class="btn btn-info">Editar</button></a>
+                        <button onclick="desplegarServicios(${servicio.id})" class="btn btn-light" id="myBtn_${servicio.id}">Ver más</button>
+                        
+						<!-- Inicia Modal de edición -->
+
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEditarServicio${servicio.id}">
+						Editar servicio
+						</button>
+
+						<!-- Modal -->
+						<div class="modal fade" id="modalEditarServicio${servicio.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Edición de ${servicio.titulo}</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+							
+							<!-- Inicia el form -->
+
+							<h4>Panel de edición</h4>
+
+
+							<form id="act-needs-validation${servicio.id}" style="margin-bottom: 20px;" method="POST" novalidate>
+                            <!--Formulario de edición-->
+                            <div class="form-group">
+
+                                <label for="validationCustom01">Nombre del servicio: </label>
+                                <input type="text" name="nombre" class="form-control" id="editarTitulo${servicio.id}" maxlength="300"
+                                    required>
+                                <div class="invalid-feedback">
+                                    <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
+                                    Nombre válido es requerido
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="validationCustom01">Párrafo de presentación</label>
+                                <textarea type="text" name="parrafo" class="form-control" id="editarParrafo1${servicio.id}" maxlength="300"
+                                    required rows="2"
+                                    placeholder="Este párrafo es obligatorio, siempre será visible"></textarea>
+                                <div class="invalid-feedback">
+                                    <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
+                                    Este párrafo es requerido
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="validationCustom01">Párrafo 2: </label>
+                                <textarea type="text" name="parrafo2" class="form-control" id="editarParrafo2${servicio.id}" maxlength="300"
+                                    required rows="2" placeholder="Párrafo opcional"></textarea>
+                                <div class="invalid-feedback">
+                                    <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
+                                    Nombre válido es requerido
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="validationCustom01">Párrafo 3: </label>
+                                <textarea type="text" name="parrafo3" class="form-control" id="editarParrafo3${servicio.id}" maxlength="300"
+                                    required rows="2" placeholder="Párrafo opcional"></textarea>
+                                <div class="invalid-feedback">
+                                    <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
+                                    Nombre válido es requerido
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="validationCustom01">Párrafo Resaltado: </label>
+                                <textarea type="text" name="parrafoRes" class="form-control" id="editarParrafoBlack${servicio.id}" maxlength="300"
+                                    required rows="2" placeholder="Información resaltada"></textarea>
+                                <div class="invalid-feedback">
+                                    <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
+                                    Nombre válido es requerido
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="image">Selecciona una imagen (.jpeg,.jpg,.png)</label>
+                                <input type="file" class="form-control-file" name="image" id="editarImage${servicio.id}"
+                                    accept=".jpeg,.jpg,.png">
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Visible en el catálogo
+                                </label>
+                            </div>
+
+                        </form> <!--Formulario de edición-->
+
+							<!-- Finaliza el form -->
+
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								<button id="submit_${servicio.id}" type="submit" class="btn btn-primary">Guardar cambios</button>
+							</div>
+							</div>
+						</div>
+						</div>
+
+						<!-- Termina modal de edición -->
+                        
                     </div>
         	 </div> <!--card-body--> 
         </div><!--card--> 
@@ -132,12 +244,29 @@ function anadirServicio(servicios) {
 		plantilla += card;
 	}) // Fin del forEach
 	ancla.innerHTML = plantilla;
+
+	servicios.forEach(function(producto){
+
+		let tmpVariable = document.getElementById("submit_" + producto.id)
+		tmpVariable.addEventListener('click',validateFormAux);
+
+	})
+
 } //Fin del anadirProducto
+
+function validateFormAux(e){
+
+	e.preventDefault();
+	let num = e.target.id.split("_")[1];
+	validateFormServicios(num);
+
+}
+
 anadirServicio(almacenLocal);
 
 
 
-function myFunction(id) {
+function desplegarServicios(id) {
 	//función del botón ver mas o ver menos
 	var etc = document.getElementById("etc_" + id);
 	var moreText = document.getElementById("more_" + id);
@@ -152,4 +281,97 @@ function myFunction(id) {
 		btnText.innerHTML = "Ver menos";
 		moreText.style.display = "inline";
 	} //else
-}// myFunction
+}// Fin de desplegarServicios
+
+
+// Inician las funciones para editar los servicios 
+
+let formEdicionServicios = document.getElementById('needs-validation');
+
+let validEdicionServicios = 0;
+function validateFormServicios(n){//validateForm
+    
+    let inputNombre = document.getElementById('editarTitulo' + n);
+    let inputParrafo = document.getElementById('editarParrafo1' + n);
+    let inputParrafo2 = document.getElementById('editarParrafo2' + n);
+    let inputParrafo3 = document.getElementById('editarParrafo3' + n);
+    let inputParrafoRes = document.getElementById('editarParrafoBlack' + n);
+    
+    function validateName(nombre){//validateName
+      //let expReg= /^[A-Z]+$/;
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)  
+      let esValido = expReg.test(nombre);      
+      if(esValido == true){//if nombre
+          inputNombre.classList.remove('is-invalid')
+          inputNombre.classList.add('is-valid')          
+          return validEdicionServicios ++;
+        }else{
+          inputNombre.classList.add('is-invalid')          
+      }//if nombre
+    }//validateName
+    
+    validateName(inputNombre.value)
+    
+    function validateParrafo(parrafo){//validateParrafo
+      //let expReg= /^[A-Z]+$/;
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
+      let esValido2 = expReg.test(parrafo);      
+      if(esValido2 == true){//if Marca
+          inputParrafo.classList.remove('is-invalid')
+          inputParrafo.classList.add('is-valid')          
+          return validEdicionServicios ++;
+        }else{
+          inputParrafo.classList.add('is-invalid')          
+      }//if Marca
+    }//validateParrafo
+    
+    validateParrafo(inputParrafo.value)
+
+    if(inputParrafo2.value.length != 0 || inputParrafo2.value.length == 0){//if opcional Parrafo2
+      inputParrafo2.classList.remove('is-invalid')
+      inputParrafo2.classList.add('is-valid') 
+      validEdicionServicios++;
+    }else{
+      inputParrafo2.classList.add('is-valid')
+      validEdicionServicios++;
+    }//if opcional Parrafo2
+
+    if(inputParrafo3.value.length != 0 || inputParrafo3.value.length == 0){//if opcional Parrafo3
+      inputParrafo3.classList.remove('is-invalid')
+      inputParrafo3.classList.add('is-valid') 
+      validEdicionServicios++;
+    }else{
+      inputParrafo3.classList.add('is-valid')
+      validEdicionServicios++;
+    }//if opcional Parrafo3
+
+    if(inputParrafoRes.value.length != 0 || inputParrafoRes.value.length == 0){//if opcional ParrafoRes
+      inputParrafoRes.classList.remove('is-invalid')
+      inputParrafoRes.classList.add('is-valid') 
+      validEdicionServicios++;
+    }else{
+      inputParrafoRes.classList.add('is-valid')
+      validEdicionServicios++;
+    }//if opcional ParrafoRes
+    
+    if (validEdicionServicios==5){      
+      editarServicios(n);
+      window.location.reload();
+    }
+    return validEdicionServicios = 0;
+}//validateForm
+
+function editarServicios(id){
+
+	let variableLS =  JSON.parse(window.localStorage.getItem("serviciosLocalS"));
+
+	variableLS[id - 1].titulo = document.getElementById("editarTitulo" + id).value;
+	variableLS[id - 1].parrafo1 = document.getElementById("editarParrafo1" + id).value;
+	variableLS[id - 1].parrafo2 = document.getElementById("editarParrafo2" + id).value;
+	variableLS[id - 1].parrafo3 = document.getElementById("editarParrafo3" + id).value;
+	variableLS[id - 1].parrafoBlack = document.getElementById("editarParrafoBlack" + id).value;
+	// variableLS[id - 1] = document.getElementById("editarImage");
+
+	window.localStorage.setItem("serviciosLocalS",JSON.stringify(variableLS));
+	
+}

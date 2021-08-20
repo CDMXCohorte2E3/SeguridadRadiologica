@@ -138,9 +138,11 @@ function anadirProducto(productos){
                   </ul> 
               </p> 
               <div class="button text-center">      
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal${producto.id}"> Editar
+
+              <!-- Inicio del modal -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEditarProducto${producto.id}"> Editar
               </button>
-              <div class="modal fade" id="exampleModal${producto.id}" tabindex="-1" aria-labelledby="modal-Panel-Edicion" aria-hidden="true">
+              <div class="modal fade" id="modalEditarProducto${producto.id}" tabindex="-1" aria-labelledby="modal-Panel-Edicion" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -152,6 +154,8 @@ function anadirProducto(productos){
                   <div class="modal-body">
                   <div class="adminForm">
                   <h4>Panel de edición</h4>
+
+                  <!-- Inicia el form -->                
                   <form action="#" id="act-needs-validation${producto.id}" style="margin-bottom: 20px;" method="POST" novalidate>
                       <!--Formulario de edición-->
                       <div class="form-group">
@@ -206,7 +210,9 @@ function anadirProducto(productos){
                               maxlength="280" placeholder="Detalle 1 | Detalle 2 | Detalle 3 | Detalle 4"></textarea>
                       </div>
                   </form>
-                  <!--Formulario de edición-->
+                  <!--Fin de formulario de edición-->
+
+
               </div>
                   </div>
                   <div class="modal-footer">
@@ -226,20 +232,22 @@ function anadirProducto(productos){
     }) // Fin del forEach
 
     ancla.innerHTML = plantilla;
+
     productos.forEach(function(producto){
       let tempform = document.getElementById("submit_" + producto.id);
       tempform.addEventListener('click',validateFormS);
-      // console.log("submit_" + producto.id);
+
     });
-    // let tempform = document.getElementById("submit_1");
-    //   tempform.addEventListener('click',validateFormS);
+
 } //Fin del anadirProducto
+
+
 function validateFormS(e){
-  // console.log('validateFormS');
+  
   e.preventDefault();
   let num = e.target.id.split("_")[1];
-  // console.log(num);
   validateForm2(num);
+
 }
 anadirProducto(almacenLocal);
 
@@ -270,7 +278,6 @@ let form2 = document.getElementById('act-needs-validation');
 let valid2 = 0;
 function validateForm2(n){//validateForm
     
-    // e.preventDefault();
     let inputProduct = document.getElementById(`actualizarNombre${n}`);
     let inputMarca = document.getElementById(`actualizarMarca${n}`);
     let inputPrice = document.getElementById(`actualizarPrecio${n}`);
@@ -360,15 +367,15 @@ function validateForm2(n){//validateForm
 
 
 
-function guardarCambios(id_producto_a_editar){
+function guardarCambios(id){
   
   let variableLS = JSON.parse(window.localStorage.getItem("productosLocalS"))
 
-  variableLS[id_producto_a_editar - 1].titulo = document.getElementById("actualizarNombre" + id_producto_a_editar).value;
-  variableLS[id_producto_a_editar - 1].marca =  document.getElementById("actualizarMarca" + id_producto_a_editar).value;
-  variableLS[id_producto_a_editar - 1].marca =  document.getElementById("actualizarPrecio" + id_producto_a_editar).value;
-  variableLS[id_producto_a_editar - 1].modelo = document.getElementById("actualizarModelo" + id_producto_a_editar).value;
-  variableLS[id_producto_a_editar - 1].descripcion = document.getElementById("actualizarDescripcion" + id_producto_a_editar).value
+  variableLS[id - 1].titulo = document.getElementById("actualizarNombre" + id).value;
+  variableLS[id - 1].marca =  document.getElementById("actualizarMarca" + id).value;
+  variableLS[id - 1].marca =  document.getElementById("actualizarPrecio" + id).value;
+  variableLS[id - 1].modelo = document.getElementById("actualizarModelo" + id).value;
+  variableLS[id - 1].descripcion = document.getElementById("actualizarDescripcion" + id).value
 
   window.localStorage.setItem("productosLocalS",JSON.stringify(variableLS)) // Reenvío la información a la base de datos
   window.location.reload()
