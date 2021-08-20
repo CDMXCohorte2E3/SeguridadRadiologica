@@ -118,7 +118,7 @@ function iniciarSesion(){
   }//for
 
   if(cont == 2){
-    location.href ="index.html";
+    location.href ="panelEdicionAdmin.html";
     }
 
 }//Iniciar sesión

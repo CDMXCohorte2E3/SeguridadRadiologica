@@ -138,9 +138,11 @@ function anadirProducto(productos){
                   </ul> 
               </p> 
               <div class="button text-center">      
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal${producto.id}"> Editar
+
+              <!-- Inicio del modal -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEditarProducto${producto.id}"> Editar
               </button>
-              <div class="modal fade" id="exampleModal${producto.id}" tabindex="-1" aria-labelledby="modal-Panel-Edicion" aria-hidden="true">
+              <div class="modal fade" id="modalEditarProducto${producto.id}" tabindex="-1" aria-labelledby="modal-Panel-Edicion" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -152,11 +154,13 @@ function anadirProducto(productos){
                   <div class="modal-body">
                   <div class="adminForm">
                   <h4>Panel de edición</h4>
-                  <form action="#" id="act-needs-validation" style="margin-bottom: 20px;" method="POST" novalidate>
+
+                  <!-- Inicia el form -->                
+                  <form action="#" id="act-needs-validation${producto.id}" style="margin-bottom: 20px;" method="POST" novalidate>
                       <!--Formulario de edición-->
                       <div class="form-group">
                           <label for="validationCustom01">Nuevo nombre del producto: </label>
-                          <input type="text" name="product" class="form-control" id="actualizarNombre${producto.id}" maxlength="31"
+                          <input value="${producto.titulo}" type="text" name="product" class="form-control" id="actualizarNombre${producto.id}" maxlength="31"
                               required>
                           <div class="invalid-feedback">
                               <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
@@ -165,16 +169,30 @@ function anadirProducto(productos){
                       </div>
                       <div class="form-group">
                           <label for="validationCustom01">Marca:</label>
-                          <input type="text" name="marca" class="form-control" id="actualizarMarca${producto.id}" maxlength="31"
+                          <input value="${producto.marca}" type="text" name="marca" class="form-control" id="actualizarMarca${producto.id}" maxlength="31"
                               required>
                           <div class="invalid-feedback">
                               <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
                               Marca válida es requerida
                           </div>
                       </div>
+
+                      <div class="form-group">
+
+                                <label for="validationCustom01">Precio: </label>
+                                <input value="${producto.precio}" type="text" name="precio" class="form-control" id="actualizarPrecio${producto.id}" maxlength="31"
+                                    required>
+
+                                <div class="invalid-feedback">
+                                    <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
+                                    Precio válido es requerido
+                                </div>
+                      </div>
+
+
                       <div class="form-group">
                           <label for="validationCustom01">Modelo: </label>
-                          <input type="text" name="model" class="form-control" id="actualizarModelo${producto.id}" maxlength="31"
+                          <input value="${producto.modelo}" type="text" name="model" class="form-control" id="actualizarModelo${producto.id}" maxlength="31"
                               required>
                           <div class="invalid-feedback">
                               <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
@@ -184,20 +202,22 @@ function anadirProducto(productos){
                       <div class="form-group">
                           <label for="image">Selecciona una imagen (.jpeg,.jpg,.png)</label>
                           <input type="file" class="form-control-file" name="image" id="image" accept=".jpeg,.jpg,.png">
-                          <!-- <input type="file" class="form-control-file" name="image" id="image" accept=".jpeg,.jpg,.png" onchange="ValidarTamaño(this);"> -->
+                          <!-- <input value="${producto.imagen}" type="file" class="form-control-file" name="image" id="image" accept=".jpeg,.jpg,.png" onchange="ValidarTamaño(this);"> -->
                       </div>
                       <div class="form-group">
                           <label for="validationCustom01">Descripción: </label>
                           <textarea class="form-control" name="description" id="actualizarDescripcion${producto.id}" rows="3"
-                              maxlength="280" placeholder="Detalle 1 | Detalle 2 | Detalle 3 | Detalle 4"></textarea>
+                              maxlength="280" placeholder="Detalle 1 | Detalle 2 | Detalle 3 | Detalle 4">${producto.descripcion}</textarea>
                       </div>
                   </form>
-                  <!--Formulario de edición-->
+                  <!--Fin de formulario de edición-->
+
+
               </div>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cancelar </button>
-                    <button onclick="guardarCambios(${producto.id})" type="button" class="btn btn-primary"> Guardar cambios </button>
+                    <button id="submit_${producto.id}" type="submit" class="btn btn-primary"> Guardar cambios </button>
                   </div>
                 </div>
               </div>
@@ -213,7 +233,26 @@ function anadirProducto(productos){
 
     ancla.innerHTML = plantilla;
 
+
+    productos.forEach(function(producto){
+      let tempform = document.getElementById("submit_" + producto.id);
+      tempform.addEventListener('click',validateFormS);
+
+    });
+
 } //Fin del anadirProducto
+
+
+//Función de validación para cada producto
+
+function validateFormS(e){
+  
+  e.preventDefault();
+  let numProductos = e.target.id.split("_")[1]; //trae el id del producto
+
+  validateForm2(numProductos);
+
+}
 anadirProducto(almacenLocal);
 
 function listaElementos(json){
@@ -236,14 +275,112 @@ function listaElementos(json){
 listaElementos(almacenLocal);
 // Función para editar productos desde el panel de admin
 
-function guardarCambios(id_producto_a_editar){
+//Validación del formulario
+let form2 = document.getElementById('act-needs-validation');
+
+
+let valid2 = 0;
+function validateForm2(n){//validateForm
+    
+    let inputProduct = document.getElementById(`actualizarNombre${n}`);
+    let inputMarca = document.getElementById(`actualizarMarca${n}`);
+    let inputPrice = document.getElementById(`actualizarPrecio${n}`);
+    let inputModel = document.getElementById(`actualizarModelo${n}`);
+    let inputDescription = document.getElementById(`actualizarDescripcion${n}`);
+    let inputImage = document.getElementById('image');
+
+    function validateName(nombre){//validateName
+      //let expReg= /^[A-Z]+$/;
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)  
+      let esValido = expReg.test(nombre);
+      if(esValido == true){//if nombre
+          inputProduct.classList.remove('is-invalid')
+          inputProduct.classList.add('is-valid')
+          return valid2 ++;
+        }else{
+          inputProduct.classList.add('is-invalid')
+      }//if nombre
+    }//validateName
+    
+    validateName(inputProduct.value)
+    
+    function validateMarca(marca){//validateMarca
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
+      let esValido2 = expReg.test(marca);      
+      if(esValido2 == true){//if Marca
+          inputMarca.classList.remove('is-invalid')
+          inputMarca.classList.add('is-valid')          
+          return valid2 ++;
+        }else{
+          inputMarca.classList.add('is-invalid')          
+      }//if Marca
+    }//validateMarca
+    
+    validateMarca(inputMarca.value)
+
+    function validatePrice(price){//validateModel
+      //let expReg= /^[A-Z]+$/;
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
+      let esValido3 = expReg.test(price);      
+      if(esValido3 == true){//if Price
+          inputPrice.classList.remove('is-invalid')
+          inputPrice.classList.add('is-valid')          
+          return valid2 ++;
+        }else{
+          inputPrice.classList.add('is-invalid')          
+      }//if Price
+    }//validatePrice
+    validatePrice(inputPrice.value)
+
+    function validateModel(model){//validateModel
+      //let expReg= /^[A-Z]+$/;
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
+      let esValido4 = expReg.test(model);      
+      if(esValido4 == true){//if Model
+          inputModel.classList.remove('is-invalid')
+          inputModel.classList.add('is-valid')          
+          return valid2 ++;
+        }else{
+          inputModel.classList.add('is-invalid')          
+      }//if Model
+    }//validateModel
+    
+    validateModel(inputModel.value)
+    
+    function validateDescription(description){//validateDescription
+      //let expReg= /^[A-Z]+$/;
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.,| ]+$/)
+      let esValido5 = expReg.test(description);      
+      if(esValido5 == true){//if Description
+          inputDescription.classList.remove('is-invalid')
+          inputDescription.classList.add('is-valid')          
+          return valid2 ++;
+        }else{
+          inputDescription.classList.add('is-invalid')          
+      }//if Description
+    }//validateDescription
+
+    validateDescription(inputDescription.value)
+
+    if (valid2==5){      
+      guardarCambios(n);
+      window.location.reload()
+    }
+    return valid2 = 0;
+}//validateForm
+
+
+
+function guardarCambios(id){
   
   let variableLS = JSON.parse(window.localStorage.getItem("productosLocalS"))
 
-  variableLS[id_producto_a_editar - 1].titulo = document.getElementById("actualizarNombre" + id_producto_a_editar).value;
-  variableLS[id_producto_a_editar - 1].marca =  document.getElementById("actualizarMarca" + id_producto_a_editar).value;
-  variableLS[id_producto_a_editar - 1].modelo = document.getElementById("actualizarModelo" + id_producto_a_editar).value;
-  variableLS[id_producto_a_editar - 1].descripcion = document.getElementById("actualizarDescripcion" + id_producto_a_editar).value
+  variableLS[id - 1].titulo = document.getElementById("actualizarNombre" + id).value;
+  variableLS[id - 1].marca =  document.getElementById("actualizarMarca" + id).value;
+  variableLS[id - 1].marca =  document.getElementById("actualizarPrecio" + id).value;
+  variableLS[id - 1].modelo = document.getElementById("actualizarModelo" + id).value;
+  variableLS[id - 1].descripcion = document.getElementById("actualizarDescripcion" + id).value
+
 
   window.localStorage.setItem("productosLocalS",JSON.stringify(variableLS)) // Reenvío la información a la base de datos
   window.location.reload()
