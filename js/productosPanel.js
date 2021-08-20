@@ -6,7 +6,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Mandil emplomado económico",
       "marca": "Marca Slim Royal",
       "modelo": "E6995",
-      "precio": "121 USD",
+      "precio": "$2904.90",
       "descripcion" : "0.5mm de plomo|66x95 cm|Con bolsillo|Acabado textil",
       "id": "1"
     },
@@ -15,7 +15,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Mandil emplomado estándar",
       "marca": "Marca Slim Royal",
       "modelo": "S6995",
-      "precio": "00 USD",
+      "precio": "$3646.65",
       "descripcion" : "0.5mm de plomo|66x95 cm|Con bolsillo|Acabado plástico",
       "id": "2"
     },
@@ -24,7 +24,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Faldón emplomado",
       "marca": "Marca Slim Royale",
       "modelo": "SQUARE",
-      "precio": "00 USD",
+      "precio": "$1443.25",
       "descripcion" : "0.5mm de plomo,40x40 cm|Tipo falda",
       "id": "3"
     },
@@ -33,7 +33,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Lentes emplomados",
       "marca": "Marca Slim Royale",
       "modelo": "SS-53",
-      "precio": "00 USD",
+      "precio": "$2873.71",
       "descripcion" : "0.55mm de plomo|Con estuche",
       "id": "4"
     },
@@ -42,7 +42,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Lentes emplomados",
       "marca": "Marca Slim Royale",
       "modelo": "S-53",
-      "precio": "00 USD",
+      "precio": "$3403.08",
       "descripcion" : "0.5mm de plomo|Con estuche",
       "id": "5"
     },
@@ -51,7 +51,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Googles emplomados",
       "marca": "Marca Slim Royale",
       "modelo": "GOOGLE-HO",
-      "precio": "00 USD",
+      "precio": "$6344.55",
       "descripcion" : "0.5mm de plomo|Con bolsa de tela",
       "id": "6"
     },
@@ -60,7 +60,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Guantes emplomados",
       "marca": "Marca Slim Royale",
       "modelo": "100 M/L",
-      "precio": "00 USD",
+      "precio": "$2,911.80",
       "descripcion" : "0.5mm de plomo|350mm de largo|Tamaño mediano o grande",
       "id": "7"
     },
@@ -69,7 +69,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Guantes emplomados",
       "marca": "Marca Shielding",
       "modelo": "XR47",
-      "precio": "00 USD",
+      "precio": "$2,637.53",
       "descripcion" : "RADIAXON|Equivalente a 0.5mm|de plomo|Tamaño mediano o grande",
       "id": "8"
     },
@@ -78,7 +78,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Collarín emplomado",
       "marca": "Marca Slim Royale",
       "modelo": "STANDAR-O5",
-      "precio": "00 USD",
+      "precio": "$767.96",
       "descripcion" : "0.5mm de plomo",
       "id": "9"
     },
@@ -87,7 +87,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Collarín emplomado de lujo",
       "marca": "Marca Slim Royale",
       "modelo": "DELUX-O5",
-      "precio": "00 USD",
+      "precio": "$1,045.49",
       "descripcion" : "0.5mm de plomo",
       "id": "10"
     },
@@ -96,7 +96,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Protectores de gónadas",
       "marca": "Marca Slim Royale",
       "modelo": "S806A",
-      "precio": "00 USD",
+      "precio": "$1,618.35",
       "descripcion" : "0.5mm de plomo,Juego de 3 piezas:|Grande mediano y chico",
       "id": "11"
     },
@@ -105,7 +105,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
       "titulo": "Protectores de gónadas",
       "marca": "Marca Slim Royale",
       "modelo": "S806 M/L",
-      "precio": "00 USD",
+      "precio": "$635.24",
       "descripcion" : "0.5mm de plomo|Una pieza|Tamaño mediano o grande",
       "id": "12"
     }
