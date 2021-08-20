@@ -1,4 +1,3 @@
-//export function anadirCarrito();
 
 // Esto añade al local storage las key-values
 if( window.localStorage.getItem("productosLocalS") == null ){
@@ -188,12 +187,9 @@ listaElementos(almacenLocal);
 
 
 //funcion para añadir producto al carrito de compras
-function  anadirCarrito(){
+function anadirCarrito(productos){
   
-  var anclaCart = document.getElementsByClassName("productoCarrito");
+  var anclaCart = document.getElementById('textoPrueba');
+  anclaCart.innerHTML += `${productos.titulo}`;
 
-  anclaCart.innerHTML = "Si funciona";
-  console.log("Si funciona el ancla");
-}
-
-
+}//anadir carrito

@@ -1,8 +1,6 @@
 // Función boton pop up
-window.onload = function () {
-    const btnAdd = document.getElementById('btn-orden');
-    btnAdd.addEventListener('click', function () {
-        new swal({
+function comprarCart(){
+          new swal({
             icon: 'success',
             title: "ORDEN CREADA",
             text: 'Tu orden ha sido creada, en breve te contactaremos' ,
@@ -12,8 +10,7 @@ window.onload = function () {
                 window.location.href = "./historialPedidos.html";
             }
         });
-    })//addEventListener 
-}// window.onload
+}// comprarCart
 
 
 function DeleteRowFunction() {
@@ -22,7 +19,4 @@ function DeleteRowFunction() {
     var tr = td.parentNode; // the row to be removed
     tr.parentNode.removeChild(tr);
 }
-
-//funcion para añadir producto al carrito de compras
-import { anadirCarrito } from './js/productos.js';
 

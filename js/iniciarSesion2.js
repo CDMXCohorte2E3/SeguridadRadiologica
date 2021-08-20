@@ -1,4 +1,3 @@
-
 //Validación del formulario
 let form = document.getElementById('needs-validation');
 
@@ -90,15 +89,23 @@ function validateForm(e){//validateForm
     }//if teléfono
 
     if (valid==6){
-      window.open('mailto:generation.c2.cdmxe3@gmail.com?subject=Contacto&body=body');
+       //  window.open('mailto:generation.c2.cdmxe3@gmail.com?subject=Contacto&body=body');
       nuevoRegistro();
+      Regis();
     }
-    return vaid = 0;
+    return valid = 0;
 }//validateForm
 
 //Eventos
 
-form.addEventListener('submit',validateForm)
+
+form.addEventListener('submit', validateForm)
+
+
+/*
+Encontré este tutorial para que funcione mejor la validación + pop up
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_validation_js 
+*/
 
 function nuevoRegistro(evento){
     
@@ -108,7 +115,7 @@ function nuevoRegistro(evento){
     let inputPhone = document.getElementById('phone').value;
     let inputContraseña = document.getElementById('passwordRegistrar').value;
     let inputConfirmarContraseña = document.getElementById('confirmPassword');
-  
+ 
     // Aquí se "hace JSON" los valores que puso el admin en añadir producto
     const datosRegistro = {
         "nombre": inputNombre,
@@ -122,9 +129,26 @@ function nuevoRegistro(evento){
         primerRegistro[0] = datosRegistro
         window.localStorage.setItem("nuevoRegistro",JSON.stringify(primerRegistro))
     } else{
-
         let registrosDB = JSON.parse(window.localStorage.getItem("nuevoRegistro")) // Me traigo la base de datos
         registrosDB.push(datosRegistro) // Como la base es un array, le hago push
         window.localStorage.setItem("nuevoRegistro",JSON.stringify(registrosDB)) // Reenvío la información a la base de datos
-    } // fin de if
+    
+    
+      } // fin de if
 } // fin de nuevoRegistro
+
+
+//Funcion del pop-up
+function Regis(){
+  new swal({
+    icon: 'success',
+    title: "REGISTRO EXITOSO",
+    text: 'Ahora puedes inciar sesión' ,
+    position: 'center',
+ }).then(okay => {
+    if (okay) {
+        window.location.href = "./iniciarSesion.html";
+    }
+});
+}// Regis
+
