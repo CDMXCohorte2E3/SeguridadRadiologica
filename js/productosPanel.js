@@ -248,12 +248,9 @@ function anadirProducto(productos){
 function validateFormS(e){
   
   e.preventDefault();
+  let numProductos = e.target.id.split("_")[1]; //trae el id del producto
 
-  let num = e.target.id.split("_")[1];
-
-  let num = e.target.id.split("_")[1]; //trae el id del producto
-
-  validateForm2(num);
+  validateForm2(numProductos);
 
 }
 anadirProducto(almacenLocal);
