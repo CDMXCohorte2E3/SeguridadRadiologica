@@ -1,5 +1,5 @@
-/*
-// Función boton pop up
+
+//  Función boton pop up
 function comprarCart(){
           new swal({
             icon: 'success',
@@ -14,17 +14,17 @@ function comprarCart(){
 }// comprarCart
 
 
-function DeleteRowFunction() {
-    // event.target will be the input element.
-    var td = event.target.parentNode; 
-    var tr = td.parentNode; // the row to be removed
-    tr.parentNode.removeChild(tr);
-}
+// function DeleteRowFunction() {
+//     // event.target will be the input element.
+//     var td = event.target.parentNode; 
+//     var tr = td.parentNode; // the row to be removed
+//     tr.parentNode.removeChild(tr);
+// }
 
-//funcion para añadir producto al carrito de compras
-// import { anadirCarrito } from './js/productos.js';
+// //funcion para añadir producto al carrito de compras
+//  import { anadirCarrito } from './js/productos.js';
 
-*/
+
 
 // let listaCompras = JSON.parse(window.localStorage.getItem("identificadoresLocalS"));
 
@@ -54,9 +54,10 @@ if( window.localStorage.getItem("identificadoresLocalS") != null){
         listaCompras.forEach(function(compra){
             if(compraIndividual.indexOf(`eliminarCompra(${compra.identificador})`) == -1 ){
                 let fila = `
-                <td scope="row" class="productoCarrito"> ${listaProductos[compra.identificador].titulo} </td>
-                <td><input type="number" value="${listaCantidades[compra.identificador]}"></td>
-                <td style="text-align: center;">
+               <tr id="fila_${compra.identificador}">
+                <td scope="row" class="productoCarrito col-6"> ${listaProductos[compra.identificador].titulo} </td>
+                <td class="col-3"><input type="number" value="${listaCantidades[compra.identificador]}"></td>
+                <td style="text-align: center; class="col-3">
 
                     <button type="button" class="btn btn-outline-danger" value="Delete Row" onclick="eliminarCompra(${compra.identificador})">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -73,6 +74,7 @@ if( window.localStorage.getItem("identificadoresLocalS") != null){
                         Eliminar
                     </button>
                 </td> <br>
+                </tr>
                 `
                 compraIndividual += fila;
             }
