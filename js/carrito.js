@@ -1,6 +1,4 @@
-/*
-// Función boton pop up
-function comprarCart(){
+function hacerPedido(){
           new swal({
             icon: 'success',
             title: "ORDEN CREADA",
@@ -11,20 +9,8 @@ function comprarCart(){
                 window.location.href = "./historialPedidos.html";
             }
         });
-}// comprarCart
+}// hacerPedido
 
-
-function DeleteRowFunction() {
-    // event.target will be the input element.
-    var td = event.target.parentNode; 
-    var tr = td.parentNode; // the row to be removed
-    tr.parentNode.removeChild(tr);
-}
-
-//funcion para añadir producto al carrito de compras
-// import { anadirCarrito } from './js/productos.js';
-
-*/
 
 // let listaCompras = JSON.parse(window.localStorage.getItem("identificadoresLocalS"));
 

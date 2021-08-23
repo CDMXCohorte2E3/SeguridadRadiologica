@@ -161,9 +161,9 @@ function anadirServicio(servicios) {
                             <div class="form-group">
 
                                 <label for="validationCustom01">Párrafo de presentación</label>
-                                <textarea value="${servicio.parrafo1}" type="text" name="parrafo" class="form-control" id="editarParrafo1${servicio.id}" maxlength="300"
+                                <textarea  type="text" name="parrafo" class="form-control" id="editarParrafo1${servicio.id}" maxlength="300"
                                     required rows="2"
-                                    placeholder="Este párrafo es obligatorio, siempre será visible"></textarea>
+                                    placeholder="Este párrafo es obligatorio, siempre será visible"> ${servicio.parrafo1} </textarea>
                                 <div class="invalid-feedback">
                                     <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
                                     Este párrafo es requerido
@@ -174,8 +174,8 @@ function anadirServicio(servicios) {
                             <div class="form-group">
 
                                 <label for="validationCustom01">Párrafo 2: </label>
-                                <textarea value="${servicio.parrafo2}" type="text" name="parrafo2" class="form-control" id="editarParrafo2${servicio.id}" maxlength="300"
-                                    required rows="2" placeholder="Párrafo opcional"></textarea>
+                                <textarea  type="text" name="parrafo2" class="form-control" id="editarParrafo2${servicio.id}" maxlength="300"
+                                    required rows="2" placeholder="Párrafo opcional">${servicio.parrafo2}</textarea>
                                 <div class="invalid-feedback">
                                     <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
                                     Nombre válido es requerido
@@ -186,8 +186,8 @@ function anadirServicio(servicios) {
                             <div class="form-group">
 
                                 <label for="validationCustom01">Párrafo 3: </label>
-                                <textarea value="${servicio.parrafo3}" type="text" name="parrafo3" class="form-control" id="editarParrafo3${servicio.id}" maxlength="300"
-                                    required rows="2" placeholder="Párrafo opcional"></textarea>
+                                <textarea  type="text" name="parrafo3" class="form-control" id="editarParrafo3${servicio.id}" maxlength="300"
+                                    required rows="2" placeholder="Párrafo opcional">${servicio.parrafo3}</textarea>
                                 <div class="invalid-feedback">
                                     <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
                                     Nombre válido es requerido
@@ -198,8 +198,8 @@ function anadirServicio(servicios) {
                             <div class="form-group">
 
                                 <label for="validationCustom01">Párrafo Resaltado: </label>
-                                <textarea value="${servicio.parrafoBlack}" type="text" name="parrafoRes" class="form-control" id="editarParrafoBlack${servicio.id}" maxlength="300"
-                                    required rows="2" placeholder="Información resaltada"></textarea>
+                                <textarea  type="text" name="parrafoRes" class="form-control" id="editarParrafoBlack${servicio.id}" maxlength="300"
+                                    required rows="2" placeholder="Información resaltada">${servicio.parrafoBlack}</textarea>
                                 <div class="invalid-feedback">
                                     <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
                                     Nombre válido es requerido
