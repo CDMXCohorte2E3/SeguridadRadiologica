@@ -90,7 +90,8 @@ function validateForm(e){//validateForm
 
     if (valid==6){
        //  window.open('mailto:generation.c2.cdmxe3@gmail.com?subject=Contacto&body=body');
-      nuevoRegistro();
+       
+       nuevoRegistro();
       Regis();
     }
     return valid = 0;
@@ -108,7 +109,7 @@ https://www.w3schools.com/js/tryit.asp?filename=tryjs_validation_js
 */
 
 function nuevoRegistro(){
-    
+  
     let inputNombre = document.getElementById('name').value;
     let inputApellidos = document.getElementById('lastName').value;
     let inputEmail = document.getElementById('emailRegistrar').value;
@@ -129,9 +130,9 @@ function nuevoRegistro(){
         primerRegistro[0] = datosRegistro
         window.localStorage.setItem("listaRegistro",JSON.stringify(primerRegistro))
     } else{
-        let registrosDB = JSON.parse(window.localStorage.getItem("nuevoRegistro")) // Me traigo la base de datos
+        let registrosDB = JSON.parse(window.localStorage.getItem("listaRegistro")) // Me traigo la base de datos
         registrosDB.push(datosRegistro) // Como la base es un array, le hago push
-        window.localStorage.setItem("nuevoRegistro",JSON.stringify(registrosDB)) // Reenvío la información a la base de datos
+        window.localStorage.setItem("listaRegistro",JSON.stringify(registrosDB)) // Reenvío la información a la base de datos
       } // fin de if
 } // fin de nuevoRegistro
 
