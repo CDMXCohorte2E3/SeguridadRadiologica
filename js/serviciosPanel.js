@@ -300,7 +300,7 @@ function validateFormServicios(n){//validateForm
     
     function validateName(nombre){//validateName
       //let expReg= /^[A-Z]+$/;
-      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)  
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.,()¡!¿? ]+$/)  
       let esValido = expReg.test(nombre);      
       if(esValido == true){//if nombre
           inputNombre.classList.remove('is-invalid')
@@ -315,7 +315,7 @@ function validateFormServicios(n){//validateForm
     
     function validateParrafo(parrafo){//validateParrafo
       //let expReg= /^[A-Z]+$/;
-      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.,()¡!¿? ]+$/)
       let esValido2 = expReg.test(parrafo);      
       if(esValido2 == true){//if Marca
           inputParrafo.classList.remove('is-invalid')
