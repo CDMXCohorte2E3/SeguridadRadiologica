@@ -139,12 +139,13 @@ function anadirProducto(productos){
                     </ul> 
                 </p> 
                 <div class="button text-center">      
+
                   <button class="btn btn-info btn-add-car" onclick="anadirCarrito(${producto.id});">Comprar</button>   
+
                 </div>   
             </div> <!--card-body--> 
         </div><!--card--> 
         </div>`
-
         plantilla += card;
     }) // Fin del forEach
     ancla.innerHTML = plantilla;
@@ -216,6 +217,7 @@ function  anadirCarrito(arg_id){
 /*
 Este else evita que se añadan repeticiones, pero solo respecto al primer item "comprado"
 else if ( window.localStorage.getItem("identificadoresLocalS") != null ){
+
 
     let localSNotNull = JSON.parse(window.localStorage.getItem("identificadoresLocalS"));
 
