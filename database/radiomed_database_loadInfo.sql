@@ -2,7 +2,29 @@ INSERT INTO `radiomed_database`.`admin`
 (`idAdministrador`, `Nombre`, `Email`, `Contrasena`) 
 VALUES 
 (1,'Leticia Somera','radiomed.asesores@gmail.com','RadioMed_01'),
-(2,'David Vargas','radiomed.contacto@gmail.com','RadioMed_01');
+(2,'David Vargas','radiomed.contacto@gmail.com','RadioMed_01'),
+(3,'América Sánchez ','americasanchezleon@gmail.com','RadioMed_02'),
+(4,'Carlos Pérez','carlos.dan.pvst@gmail.com','RadioMed_02'),
+(5,'Alejandra Zataráin','azatarainalp@gmail.com','RadioMed_02'),
+(6,'Victor Martínez ','victor.martinez.zamora98@gmail.com','RadioMed_02');
+
+
+INSERT INTO `radiomed_database`.`producto` 
+(`idProducto`, `Nombre`, `Marca`, `Modelo`, `Precio`, `Descripcion`, `Imagen`, `Categoria`) 
+VALUES 
+(1,'Mandil emplomado económico','Marca Slim Royal','E6995','$2904.90','0.5 mm de plomo | 66x95cm | Con bolsillo | Acabado textil','.\\img\\products\\img-product1.jpg','Mandiles'),
+(2,'Mandil emplomado estándar','Marca Slim Royal','S6995','$3646.65','0.5 mm de plomo | 66x95cm | Con bolsillo | acabado plástico','.\\img\\products\\img-product2.jpg','Mandiles'),
+(3,'Faldón emplomado','Marca Slim Royal','SQUARE','$1443.25','0.5 mm de plomo | 40x40cm | Tipo falda','.\\img\\products\\img-product3.jpg','Mandiles'),
+(4,'Lentes emplomados','Marca Slim Royal','SS-53','$2873.71',' 0.75 mm de plomo | Con estuche','.\\img\\products\\img-product4.jpg','Lentes'),
+(5,'Lentes emplomados premium','Marca Slim Royal','S-53','$3403.08',' 0.5 mm de plomo | Con estuche','.\\img\\products\\img-product5.jpg','Lentes'),
+(6,'Googles emplomados','Marca Slim Royal','GOOGLE-HO','$6344.55',' 0.5 mm de plomo | Con bolsa de tela','.\\img\\products\\img-product6.jpg','Lentes'),
+(7,'Guantes emplomados','Marca Slim Royal','100 M/L','$2,911.80',' 0.5 mm de plomo | 350 mm de largo | Tamaño mediano o grande','.\\img\\products\\img-product7.jpg','Guantes'),
+(8,'Guantes emplomados','Marca Shielding','XR47','$2,637.53',' Modelo RADIAXON | Equivalente a 0.5 mm de plomo | Solo bajo pedido','.\\img\\products\\img-product8.jpg','Guantes'),
+(9,'Collarín emplomado','Marca Slim Royal','STANDARD-05','$767.96',' 0.5 mm de plomo','.\\img\\products\\img-product9.jpg','Collarines'),
+(10,'Collarín emplomado de lujo','Marca Slim Royal','$1,045.49','$1045.49',' 0.5 mm de plomo','.\\img\\products\\img-product10.jpg','Collarines'),
+(11,'Protectores de gónadas','Marca Slim Royal','S806A','$1,618.35','0.5 mm de plomo | Juego de 3 protectores: | grande, mediano y chico','.\\img\\products\\img-product11.jpg','Protectores de gónadas'),
+(12,'Protectores de gónadas','Marca Slim Royal','S806 M/L','$635.24',' 0.5mm de plomo | Una pieza | Tamaño mediano o grande','.\\img\\products\\img-product12.jpg','Protectores de gónadas');
+
 
 INSERT INTO `radiomed_database`.`servicio` 
 (`idServicio`, `Nombre`, `ParrafoIntroductorio`, `ParrafoDos`, `ParrafoTres`, `ParrafoResaltado`, `Imagen`) 
@@ -17,18 +39,53 @@ VALUES
 (8,'Auditoría interna en protección radiológica','Visitamos su establecimiento para evaluar las condiciones generales de protección radiológica en su sala de rayos X, con base en los requerimientos de la Norma Oficial Mexicana NOM-229-SSA1-2002','Se realiza una revisión a su expediente de seguridad radiológica y se entrega un dictamen con la evaluación de su sala, indicando los puntos que deben atenderse para cumplir con lo establecido por la COFEPRIS.','','Incluye una plática orientativa sobre el Programa de Garantía de Calidad establecido en la Norma Oficial Mexicana NOM-229-SSA1-2002.','.\\img\\products\\Img-service8.jpg'),
 (9,'Señalamientos de protección radiológica','Le proporcionamos los señalamientos de protección radiológica necesarios para su establecimiento de diagnóstico médico. ',' ','','Nuestros señalamientos cumplen con los estándares exigidos por la Norma Oficial Mexicana NOM-229-SSA1-2002.','.\\img\\products\\Img-service9.jpg');
 
-INSERT INTO `radiomed_database`.`producto` 
-(`idProducto`, `Nombre`, `Marca`, `Modelo`, `Precio`, `Descripcion`, `Imagen`, `Categoria`) 
+
+INSERT INTO `radiomed_database`.`usuario` 
+(`idUsuario`, `Nombre`, `Email`, `Direccion`, `Teléfono`, `Empresa`, `RazonSocial`, `Contrasena`) 
+
 VALUES 
-(1,'Mandil emplomado económico','Marca Slim Royal','E6995','$2904.90','0.5 mm de plomo | 66x95cm | Con bolsillo | Acabado textil','.\\img\\products\\img-product1.jpg','Mandiles'),
-(2,'Mandil emplomado estándar','Marca Slim Royal','S6995','$3646.65','0.5 mm de plomo | 66x95cm | Con bolsillo | acabado plástico','.\\img\\products\\img-product2.jpg','Mandiles'),
-(3,'Faldón emplomado','Marca Slim Royal','SQUARE','$1443.25','0.5 mm de plomo | 40x40cm | Tipo falda','.\\img\\products\\img-product3.jpg','Mandiles'),
-(4,'Lentes emplomados','Marca Slim Royal','SS-53','$2873.71',' 0.75 mm de plomo | Con estuche','.\\img\\products\\img-product4.jpg','Lentes'),
-(5,'Lentes emplomados','Marca Slim Royal','S-53','$3403.08',' 0.5 mm de plomo | Con estuche','.\\img\\products\\img-product5.jpg','Lentes'),
-(6,'Googles emplomados','Marca Slim Royal','GOOGLE-HO','$6344.55',' 0.5 mm de plomo | Con bolsa de tela','.\\img\\products\\img-product6.jpg','Lentes'),
-(7,'Guantes emplomados','Marca Slim Royal','100 M/L','$2,911.80',' 0.5 mm de plomo | 350 mm de largo | Tamaño mediano o grande','.\\img\\products\\img-product7.jpg','Guantes'),
-(8,'Guantes emplomados','Marca Shielding','XR47','$2,637.53',' Modelo RADIAXON | Equivalente a 0.5 mm de plomo | Solo bajo pedido','.\\img\\products\\img-product8.jpg','Guantes'),
-(9,'Collarín emplomado','Marca Slim Royal','STANDARD-05','$767.96',' 0.5 mm de plomo','.\\img\\products\\img-product9.jpg','Collarines'),
-(10,'Collarín emplomado de lujo','Marca Slim Royal','$1,045.49','$1045.49',' 0.5 mm de plomo','.\\img\\products\\img-product10.jpg','Collarines'),
-(11,'Protectores de gónadas','Marca Slim Royal','S806A','$1,618.35','0.5 mm de plomo | Juego de 3 protectores: | grande, mediano y chico','.\\img\\products\\img-product11.jpg','Protectores de gónadas'),
-(12,'Protectores de gónadas','Marca Slim Royal','S806 M/L','$635.24',' 0.5mm de plomo | Una pieza | Tamaño mediano o grande','.\\img\\products\\img-product12.jpg','Protectores de gónadas');
+('1', 'Fabiola León', 'red.eyees@hotmail.com', 'Jose Ma. Castorena #361B', '562482045', 'Generation', 'SALA941009S82', 'RadioMed_03'),
+('2', 'Daniel Pérez', 'red.eyees@hotmail.com', 'Calle Falsa #134', '', 'Generation', 'PECD970000S00', 'RadioMed_03'),
+('3', 'Hugo Zamora', 'red.eyees@hotmail.com', 'Calle Falsa #123', '', 'Generation', 'MAZV970000S00', 'RadioMed_03'),
+('4', 'América Sánchez ', 'red.eyees@hotmail.com', 'Calle Falsa #264', '', 'Generation', 'SALA970000S00', 'RadioMed_03'),
+('5', 'Alejandra Alpuche', 'red.eyees@hotmail.com', 'Calle Falsa #528', '', 'Generation', 'ZAAA970000S00', 'RadioMed_03');
+
+
+INSERT INTO `radiomed_database`.`orden` 
+(`idOrden`, `idUsuario`, `Fecha`) 
+VALUES 
+('1', '1', '2021-08-23 11:37:07'),
+('2', '2', '2021-08-22 10:37:07'),
+('3', '2', '2021-08-21 09:37:07'),
+('4', '3', '2021-08-20 08:37:07'),
+('5', '4', '2021-08-19 07:37:07');
+
+
+INSERT INTO `radiomed_database`.`detalleorden` 
+(`idDetalleOrden`, `idOrden`, `idProducto`, `Cantidad`) 
+VALUES 
+('1', '1', '3', '2'),
+('2', '1', '1', '1'),
+('3', '1', '5', '3'),
+('4', '2', '8', '1'),
+('5', '3', '10', '4');
+
+
+INSERT INTO `radiomed_database`.`cotizacion` 
+(`IdCotizacion`, `idUsuario`, `Fecha`) 
+VALUES 
+('1', '5', '2021-08-23 12:37:07'),
+('2', '5', '2021-08-22 11:37:07'),
+('3', '1', '2021-08-21 10:37:07'),
+('4', '3', '2021-08-20 09:37:07'),
+('5', '4', '2021-08-19 08:37:07');
+
+
+INSERT INTO `radiomed_database`.`detallecotizacion` 
+(`idDetalleCotizacion`, `idCotizacion`, `idServicio`)
+VALUES 
+('1', '1', '8'),
+('2', '1', '5'),
+('3', '2', '9'),
+('4', '3', '3'),
+('5', '4', '2');
