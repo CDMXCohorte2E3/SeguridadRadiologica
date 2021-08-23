@@ -51,7 +51,7 @@ if( window.localStorage.getItem("identificadoresLocalS") != null){
             if(compraIndividual.indexOf(`eliminarCompra(${compra.identificador})`) == -1 ){
                 let fila = `
                <tr id="fila_${compra.identificador}">
-                <td scope="row" class="productoCarrito col-6"> ${listaProductos[compra.identificador].titulo} </td>
+                <td scope="row" class="productoCarrito col-6"> ${listaProductos[compra.identificador -1].titulo} </td>
                 <td class="col-3"><input type="number" value="${listaCantidades[compra.identificador]}"></td>
                 <td style="text-align: center; class="col-3">
 
