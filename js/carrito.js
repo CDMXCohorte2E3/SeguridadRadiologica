@@ -16,8 +16,8 @@ function hacerPedido(){
 //Funcion para eliminar row
 function eliminarCompra() {
     // event.target will be the input element.
-    var td = event.target.parentNode; 
-    var tr = td.parentNode; // the row to be removed
+    let td = event.target.parentNode; 
+    let tr = td.parentNode; // the row to be removed
     tr.parentNode.removeChild(tr);
 }//DeleteRowFunction
 
