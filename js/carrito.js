@@ -29,10 +29,12 @@ function DeleteRowFunction() {
 
 */
 
+// let listaCompras = JSON.parse(window.localStorage.getItem("identificadoresLocalS"));
 
 
+// Esta función me añade los productos al carrito. Estos productos lo agregué desde productos.html al hacer click en "comprar"
 function cargarCompras(){
-
+    
     let tablaCompras = document.getElementById("tablaCompras");
     let compraIndividual = "";
 
