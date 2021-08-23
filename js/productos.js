@@ -1,4 +1,3 @@
-
 // Esto añade al local storage las key-values
 if( window.localStorage.getItem("productosLocalS") == null ){
   let prueba = [
@@ -140,7 +139,9 @@ function anadirProducto(productos){
                     </ul> 
                 </p> 
                 <div class="button text-center">      
-                  <button class="btn btn-info btn-add-car" id="btn-add-car_${producto.id}" onclick="anadirCarrito(${producto.id});">Comprar</button>   
+
+                  <button class="btn btn-info btn-add-car" onclick="anadirCarrito(${producto.id});">Comprar</button>   
+
                 </div>   
             </div> <!--card-body--> 
         </div><!--card--> 
@@ -184,5 +185,87 @@ function listaElementos(json){
 }// fin de  listaElementos
 listaElementos(almacenLocal);
 
+// funcion para añadir producto al carrito de compras. Al hacer click crea un JSON en el local storage y almacena el id del producto que se compró 
+// La idea es solo guardar los id de los productos en local storage, para usarlos en carrito.html y cargar lo que el usuario dio en "Comprar"
+// La función se ejecuta al hacer click en "Comprar" del productos.html
+function  anadirCarrito(arg_id){ 
+
+  // empujarTmp es la variable a pushear en el JSON para los productos agregados
+  let empujarTmp = {
+    "identificador" : arg_id
+  }
+  
+  // Si la base local está vacía, la creo y le añado empujarTmp
+  if( window.localStorage.getItem("identificadoresLocalS") == null ){
+    
+    let jsonTmp = [];
+    jsonTmp.push(empujarTmp);
+    window.localStorage.setItem("identificadoresLocalS",JSON.stringify(jsonTmp));
+    
+  // Si la base local no está vacía entonces me traigo la base y pusheo empujarTmp  
+  }else if ( window.localStorage.getItem("identificadoresLocalS") != null ){
+
+    let localSNotNull = JSON.parse(window.localStorage.getItem("identificadoresLocalS"));
+    localSNotNull.push(empujarTmp);  // Este push es lo que me provoca que siempre se agreguen productos y se repitan, estén o no repetidos. Meterlo bajo un if
+    window.localStorage.setItem("identificadoresLocalS", JSON.stringify(localSNotNull));  
+        
+
+  }
+
+}
+
+/*
+Este else evita que se añadan repeticiones, pero solo respecto al primer item "comprado"
+else if ( window.localStorage.getItem("identificadoresLocalS") != null ){
 
 
+    let localSNotNull = JSON.parse(window.localStorage.getItem("identificadoresLocalS"));
+
+    for( i = 0 ; i < localSNotNull.length ; i++){ // algo debe cambiar en el i = 0 ...
+
+      if( localSNotNull[i].identificador == arg_id ){ // El primer valor que toma es [0], por eso el primer elemento en agregar es el que no me deja repetir
+        
+        console.log("Entré al if dentro del for")
+        // localSNotNull[i].repeticiones = localSNotNull[i].repeticiones + 1 
+        break;
+
+      } else {
+        
+        console.log("Entré al else dentro del for")
+        localSNotNull.push(empujarTmp);  // Este push es lo que me provoca que siempre se agreguen productos, estén o no repetidos. Meterlo bajo un if
+        window.localStorage.setItem("identificadoresLocalS", JSON.stringify(localSNotNull));  
+        break;
+  
+      }
+
+    }// Fin del for-i
+
+}
+*/
+
+/*
+
+function removerUnRepetido(arr, value) {
+  var index = arr.indexOf(value);
+  if (index > -1) {
+    arr.splice(index, 1);
+  }
+  return arr;
+}
+
+function removeTodoRepetidos(arr, value) {
+  var i = 0;
+  while (i < arr.length) {
+    if (arr[i] === value) {
+      arr.splice(i, 1);
+    } else {
+      ++i;
+    }
+  }
+  return arr;
+}
+// Usage
+console.log(removeItemOnce([2,5,9,1,5,8,5], 5))
+console.log(removeItemAll([2,5,9,1,5,8,5], 5))
+
+*/

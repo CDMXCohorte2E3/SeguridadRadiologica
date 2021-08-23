@@ -233,7 +233,7 @@ function anadirProducto(productos){
 
     ancla.innerHTML = plantilla;
 
-
+    //Para cada producto trae el botón de submit de cada producto y ejecuta la función validateFormS con el click
     productos.forEach(function(producto){
       let tempform = document.getElementById("submit_" + producto.id);
       tempform.addEventListener('click',validateFormS);
@@ -250,9 +250,10 @@ function validateFormS(e){
   e.preventDefault();
   let numProductos = e.target.id.split("_")[1]; //trae el id del producto
 
-  validateForm2(numProductos);
+  validateForm2(numProductos); //Llama la función de validación del formulario para cada producto 
 
 }
+
 anadirProducto(almacenLocal);
 
 function listaElementos(json){
@@ -320,7 +321,7 @@ function validateForm2(n){//validateForm
 
     function validatePrice(price){//validateModel
       //let expReg= /^[A-Z]+$/;
-      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.$ ]+$/)
       let esValido3 = expReg.test(price);      
       if(esValido3 == true){//if Price
           inputPrice.classList.remove('is-invalid')
@@ -377,7 +378,7 @@ function guardarCambios(id){
 
   variableLS[id - 1].titulo = document.getElementById("actualizarNombre" + id).value;
   variableLS[id - 1].marca =  document.getElementById("actualizarMarca" + id).value;
-  variableLS[id - 1].marca =  document.getElementById("actualizarPrecio" + id).value;
+  variableLS[id - 1].precio =  document.getElementById("actualizarPrecio" + id).value;
   variableLS[id - 1].modelo = document.getElementById("actualizarModelo" + id).value;
   variableLS[id - 1].descripcion = document.getElementById("actualizarDescripcion" + id).value
 

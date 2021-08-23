@@ -150,7 +150,7 @@ function anadirServicio(servicios) {
                             <div class="form-group">
 
                                 <label for="validationCustom01">Nombre del servicio: </label>
-                                <input type="text" name="nombre" class="form-control" id="editarTitulo${servicio.id}" maxlength="300"
+                                <input value="${servicio.titulo}" type="text" name="nombre" class="form-control" id="editarTitulo${servicio.id}" maxlength="300"
                                     required>
                                 <div class="invalid-feedback">
                                     <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
@@ -161,9 +161,9 @@ function anadirServicio(servicios) {
                             <div class="form-group">
 
                                 <label for="validationCustom01">Párrafo de presentación</label>
-                                <textarea type="text" name="parrafo" class="form-control" id="editarParrafo1${servicio.id}" maxlength="300"
+                                <textarea  type="text" name="parrafo" class="form-control" id="editarParrafo1${servicio.id}" maxlength="300"
                                     required rows="2"
-                                    placeholder="Este párrafo es obligatorio, siempre será visible"></textarea>
+                                    placeholder="Este párrafo es obligatorio, siempre será visible"> ${servicio.parrafo1} </textarea>
                                 <div class="invalid-feedback">
                                     <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
                                     Este párrafo es requerido
@@ -174,8 +174,8 @@ function anadirServicio(servicios) {
                             <div class="form-group">
 
                                 <label for="validationCustom01">Párrafo 2: </label>
-                                <textarea type="text" name="parrafo2" class="form-control" id="editarParrafo2${servicio.id}" maxlength="300"
-                                    required rows="2" placeholder="Párrafo opcional"></textarea>
+                                <textarea  type="text" name="parrafo2" class="form-control" id="editarParrafo2${servicio.id}" maxlength="300"
+                                    required rows="2" placeholder="Párrafo opcional">${servicio.parrafo2}</textarea>
                                 <div class="invalid-feedback">
                                     <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
                                     Nombre válido es requerido
@@ -186,8 +186,8 @@ function anadirServicio(servicios) {
                             <div class="form-group">
 
                                 <label for="validationCustom01">Párrafo 3: </label>
-                                <textarea type="text" name="parrafo3" class="form-control" id="editarParrafo3${servicio.id}" maxlength="300"
-                                    required rows="2" placeholder="Párrafo opcional"></textarea>
+                                <textarea  type="text" name="parrafo3" class="form-control" id="editarParrafo3${servicio.id}" maxlength="300"
+                                    required rows="2" placeholder="Párrafo opcional">${servicio.parrafo3}</textarea>
                                 <div class="invalid-feedback">
                                     <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
                                     Nombre válido es requerido
@@ -198,8 +198,8 @@ function anadirServicio(servicios) {
                             <div class="form-group">
 
                                 <label for="validationCustom01">Párrafo Resaltado: </label>
-                                <textarea type="text" name="parrafoRes" class="form-control" id="editarParrafoBlack${servicio.id}" maxlength="300"
-                                    required rows="2" placeholder="Información resaltada"></textarea>
+                                <textarea  type="text" name="parrafoRes" class="form-control" id="editarParrafoBlack${servicio.id}" maxlength="300"
+                                    required rows="2" placeholder="Información resaltada">${servicio.parrafoBlack}</textarea>
                                 <div class="invalid-feedback">
                                     <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
                                     Nombre válido es requerido
@@ -213,12 +213,13 @@ function anadirServicio(servicios) {
                                     accept=".jpeg,.jpg,.png">
                             </div>
 
+							<!--
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                                 <label class="form-check-label" for="defaultCheck1">
                                     Visible en el catálogo
                                 </label>
-                            </div>
+                            </div> -->
 
                         </form> <!--Formulario de edición-->
 
@@ -299,7 +300,7 @@ function validateFormServicios(n){//validateForm
     
     function validateName(nombre){//validateName
       //let expReg= /^[A-Z]+$/;
-      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)  
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.,()¡!¿? ]+$/)  
       let esValido = expReg.test(nombre);      
       if(esValido == true){//if nombre
           inputNombre.classList.remove('is-invalid')
@@ -314,7 +315,7 @@ function validateFormServicios(n){//validateForm
     
     function validateParrafo(parrafo){//validateParrafo
       //let expReg= /^[A-Z]+$/;
-      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.,()¡!¿? ]+$/)
       let esValido2 = expReg.test(parrafo);      
       if(esValido2 == true){//if Marca
           inputParrafo.classList.remove('is-invalid')
