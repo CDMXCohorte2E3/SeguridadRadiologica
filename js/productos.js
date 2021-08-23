@@ -39,7 +39,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
     },
     {
       "imagen": "../img/products/img-product_5.jpg",
-      "titulo": "Lentes emplomados",
+      "titulo": "Lentes emplomados premium",
       "marca": "Marca Slim Royale",
       "modelo": "S-53",
       "precio": "$3403.08",
@@ -66,11 +66,11 @@ if( window.localStorage.getItem("productosLocalS") == null ){
     },
     {
       "imagen": "../img/products/img-product_8.jpg",
-      "titulo": "Guantes emplomados",
+      "titulo": "Guantes emplomados RADIAXON",
       "marca": "Marca Shielding",
       "modelo": "XR47",
       "precio": "$2,637.53",
-      "descripcion" : "RADIAXON|Equivalente a 0.5mm|de plomo|Tamaño mediano o grande",
+      "descripcion" : "Equivalente a 0.5mm|de plomo|Tamaño mediano o grande",
       "id": "8"
     },
     {
@@ -102,7 +102,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
     },
     {
       "imagen": "../img/products/img-product_12.jpg",
-      "titulo": "Protectores de gónadas",
+      "titulo": "Protector de gónadas",
       "marca": "Marca Slim Royale",
       "modelo": "S806 M/L",
       "precio": "$635.24",

@@ -14,14 +14,13 @@ function hacerPedido(){
 
 
 //Funcion para eliminar row
-/*
-function DeleteRowFunction() {
+function eliminarCompra() {
     // event.target will be the input element.
     var td = event.target.parentNode; 
     var tr = td.parentNode; // the row to be removed
     tr.parentNode.removeChild(tr);
 }//DeleteRowFunction
-*/
+
 
 // let listaCompras = JSON.parse(window.localStorage.getItem("identificadoresLocalS"));
 

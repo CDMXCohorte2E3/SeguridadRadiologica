@@ -1,3 +1,7 @@
+-- Queries para cargar información
+-- Es un backup
+
+
 INSERT INTO `radiomed_database`.`admin` 
 (`idAdministrador`, `Nombre`, `Email`, `Contrasena`) 
 VALUES 
