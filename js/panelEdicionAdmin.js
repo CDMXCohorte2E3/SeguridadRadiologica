@@ -43,7 +43,7 @@ function validateForm(e){//validateForm
 
     function validatePrice(price){//validateModel
       //let expReg= /^[A-Z]+$/;
-      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.$ ]+$/)
       let esValido3 = expReg.test(price);      
       if(esValido3 == true){//if Price
           inputPrice.classList.remove('is-invalid')
