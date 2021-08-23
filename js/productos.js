@@ -127,7 +127,7 @@ function anadirProducto(productos){
         let card = `
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 div-centered" style="margin-top:100px;">
         <div class="card"> 
-        <img src="${producto.imagen}" class="card-img-top" alt="..."> 
+        <img src="${producto.imagen}" class="card-img-top"> 
             <div class="card-body"> 
                 <h4 class="card-title text-center">${producto.titulo}</h4> 
                 <h6 class="card-subtitle mb-2 text-muted text-center">${producto.marca}</h6> 
