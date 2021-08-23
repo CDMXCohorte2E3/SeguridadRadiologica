@@ -101,11 +101,6 @@ function anadirServicio(servicios) {
 
 	servicios.forEach(function (servicio) {
 
-		document.getElementById('parrafo1').value = servicio.parrafo1
-		document.getElementById('parrafo2').value = servicio.parrafo2
-		document.getElementById('parrafo3').value = servicio.parrafo3
-		document.getElementById('parrafoBlack').value = servicio.parrafoBlack
-
 		let card = `
         <div class="card mb-3 div-centered" style="max-width: 100%;">
         <div class="row g-0">
