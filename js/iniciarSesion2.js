@@ -1,4 +1,3 @@
-
 //Validación del formulario
 let form = document.getElementById('needs-validation');
 
@@ -90,41 +89,64 @@ function validateForm(e){//validateForm
     }//if teléfono
 
     if (valid==6){
-      window.open('mailto:generation.c2.cdmxe3@gmail.com?subject=Contacto&body=body');
-      nuevoRegistro();
+       //  window.open('mailto:generation.c2.cdmxe3@gmail.com?subject=Contacto&body=body');
+       
+       nuevoRegistro();
+      Regis();
     }
-    return vaid = 0;
+    return valid = 0;
 }//validateForm
 
 //Eventos
 
-form.addEventListener('submit',validateForm)
 
-function nuevoRegistro(evento){
-    
+form.addEventListener('submit', validateForm)
+
+
+/*
+Encontré este tutorial para que funcione mejor la validación + pop up
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_validation_js 
+*/
+
+function nuevoRegistro(){
+  
     let inputNombre = document.getElementById('name').value;
     let inputApellidos = document.getElementById('lastName').value;
     let inputEmail = document.getElementById('emailRegistrar').value;
     let inputPhone = document.getElementById('phone').value;
     let inputContraseña = document.getElementById('passwordRegistrar').value;
     let inputConfirmarContraseña = document.getElementById('confirmPassword');
-  
+ 
     // Aquí se "hace JSON" los valores que puso el admin en añadir producto
     const datosRegistro = {
-        "nombre": inputNombre,
-        "apellidos": inputApellidos,
+        "name": inputNombre,
+        "lastName": inputApellidos,
+        "phone": inputPhone,
         "email": inputEmail,
-        "telefono": inputPhone,
-        "contrasena": inputContraseña
+        "password": inputContraseña
     }
-    if( window.localStorage.getItem("nuevoRegistro") === null ){        
+    if( window.localStorage.getItem("listaRegistro") === null ){        
         let primerRegistro = []
         primerRegistro[0] = datosRegistro
-        window.localStorage.setItem("nuevoRegistro",JSON.stringify(primerRegistro))
+        window.localStorage.setItem("listaRegistro",JSON.stringify(primerRegistro))
     } else{
-
-        let registrosDB = JSON.parse(window.localStorage.getItem("nuevoRegistro")) // Me traigo la base de datos
+        let registrosDB = JSON.parse(window.localStorage.getItem("listaRegistro")) // Me traigo la base de datos
         registrosDB.push(datosRegistro) // Como la base es un array, le hago push
-        window.localStorage.setItem("nuevoRegistro",JSON.stringify(registrosDB)) // Reenvío la información a la base de datos
-    } // fin de if
+        window.localStorage.setItem("listaRegistro",JSON.stringify(registrosDB)) // Reenvío la información a la base de datos
+      } // fin de if
 } // fin de nuevoRegistro
+
+
+//Funcion del pop-up
+function Regis(){
+  new swal({
+    icon: 'success',
+    title: "REGISTRO EXITOSO",
+    text: 'Ahora puedes inciar sesión' ,
+    position: 'center',
+ }).then(okay => {
+    if (okay) {
+        window.location.href = "./iniciarSesion.html";
+    }
+});
+}// Regis

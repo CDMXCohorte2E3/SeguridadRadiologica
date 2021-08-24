@@ -94,12 +94,12 @@
                         <h4>Panel de edición</h4>
 
 
-                        <form id="needs-validation" style="margin-bottom: 20px;" novalidate>
+                        <form id="needs-validation" style="margin-bottom: 20px;" method="POST" novalidate>
                             <!--Formulario de edición-->
                             <div class="form-group">
 
                                 <label for="validationCustom01">Nombre del servicio: </label>
-                                <input type="text" name="nombre" class="form-control" id="nombre" maxlength="300"
+                                <input type="text" name="nombre" class="form-control" id="titulo" maxlength="300"
                                     required>
                                 <div class="invalid-feedback">
                                     <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
@@ -110,7 +110,7 @@
                             <div class="form-group">
 
                                 <label for="validationCustom01">Párrafo de presentación</label>
-                                <textarea type="text" name="parrafo" class="form-control" id="parrafo" maxlength="300"
+                                <textarea type="text" name="parrafo" class="form-control" id="parrafo1" maxlength="300"
                                     required rows="2"
                                     placeholder="Este párrafo es obligatorio, siempre será visible"></textarea>
                                 <div class="invalid-feedback">
@@ -147,7 +147,7 @@
                             <div class="form-group">
 
                                 <label for="validationCustom01">Párrafo Resaltado: </label>
-                                <textarea type="text" name="parrafoRes" class="form-control" id="parrafoRes" maxlength="300"
+                                <textarea type="text" name="parrafoRes" class="form-control" id="parrafoBlack" maxlength="300"
                                     required rows="2" placeholder="Información resaltada"></textarea>
                                 <div class="invalid-feedback">
                                     <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
@@ -262,7 +262,7 @@
                                         class="footer-img-icon">56 1490
                                     3815</a></p>
                             <p><a href="https://www.facebook.com/RadioMedPR" class="footer-link-txt"> <img
-                                        src="./img/icons/icons-fb.svg" class="footer-img-icon">/RadioMedRP</a></p>
+                                        src="./img/icons/icons-FB.svg" class="footer-img-icon">/RadioMedRP</a></p>
                         </div>
                     </div>
                     <!-- Grid column -->
@@ -287,7 +287,7 @@
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
     <script src="./js/panelEdicionAdminServicios.js"></script>
-    <script src="./js/servicios.js"></script>
+    <script src="./js/serviciosPanel.js"></script>
     <script src="./js/irArriba.js"></script>
 
 </body>

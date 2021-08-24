@@ -5,15 +5,15 @@ let valid = 0;
 function validateForm(e){//validateForm
     //No ejecutes
     e.preventDefault();
-    let inputNombre = document.getElementById('nombre');
-    let inputParrafo = document.getElementById('parrafo');
+    let inputNombre = document.getElementById('titulo');
+    let inputParrafo = document.getElementById('parrafo1');
     let inputParrafo2 = document.getElementById('parrafo2');
     let inputParrafo3 = document.getElementById('parrafo3');
-    let inputParrafoRes = document.getElementById('parrafoRes');
+    let inputParrafoRes = document.getElementById('parrafoBlack');
     
     function validateName(nombre){//validateName
       //let expReg= /^[A-Z]+$/;
-      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)  
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.,()¡!¿? ]+$/)  
       let esValido = expReg.test(nombre);      
       if(esValido == true){//if nombre
           inputNombre.classList.remove('is-invalid')
@@ -28,7 +28,7 @@ function validateForm(e){//validateForm
     
     function validateParrafo(parrafo){//validateParrafo
       //let expReg= /^[A-Z]+$/;
-      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.,()¡!¿? ]+$/)
       let esValido2 = expReg.test(parrafo);      
       if(esValido2 == true){//if Marca
           inputParrafo.classList.remove('is-invalid')
@@ -69,7 +69,8 @@ function validateForm(e){//validateForm
     }//if opcional ParrafoRes
     
     if (valid==5){      
-      //nuevoProducto();
+      nuevoServicio();
+      window.location.reload();
     }
     return valid = 0;
 }//validateForm
@@ -80,27 +81,29 @@ form.addEventListener('submit',validateForm)
 
 // Función para agregar un producto nuevo...
 
-function nuevoProducto(evento){
+function nuevoServicio(){
   
-  let inputProduct = document.getElementById('product').value;
-  let inputMarca = document.getElementById('marca').value;
-  let inputModel = document.getElementById('model').value;
-  let inputDescription = document.getElementById('description').value;
+  let inputNombreSer = document.getElementById('titulo').value;
+  let inputParrafo1 = document.getElementById('parrafo1').value;
+  let inputParrafo2 = document.getElementById('parrafo2').value;
+  let inputParrafo3 = document.getElementById('parrafo3').value;
+  let inputParrafoBlack = document.getElementById('parrafoBlack').value;
   let inputImage = document.getElementById('image').value;
 
   // Aquí se "hace JSON" los valores que puso el admin en añadir producto
-  let traerLocalStorage = JSON.parse(window.localStorage.getItem("productosLocalS")) // Me traigo la base de datos
+  let traerLocalStorage = JSON.parse(window.localStorage.getItem("serviciosLocalS")) // Me traigo la base de datos
 
-  const caracteristicasProducto = {
+  const caracteristicasServicio = {
     "imagen": inputImage,
-    "titulo" : inputProduct, 
-    "marca": inputMarca,
-    "modelo" : inputModel,
-    "descripcion" : inputDescription,
+    "titulo" : inputNombreSer, 
+    "parrafo1": inputParrafo1,
+    "parrafo2" : inputParrafo2,
+    "parrafo3" : inputParrafo3,
+    "parrafoBlack" : inputParrafoBlack,
     "id" : traerLocalStorage.length + 1
   }
 
-  traerLocalStorage.push(caracteristicasProducto) // Como la base es un array, le hago push  
-  window.localStorage.setItem("productosLocalS",JSON.stringify(traerLocalStorage)) // Reenvío la información a la base de datos
+  traerLocalStorage.push(caracteristicasServicio) // Como la base es un array, le hago push  
+  window.localStorage.setItem("serviciosLocalS",JSON.stringify(traerLocalStorage)) // Reenvío la información a la base de datos
 
 }
