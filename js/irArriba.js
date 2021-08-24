@@ -1,7 +1,7 @@
-//Get the button
-var mybutton = document.getElementById("irArriba");
+//Traer el botón
+let mybutton = document.getElementById("irArriba");
 
-// When the user scrolls down 20px from the top of the document, show the button
+// Cuando el usuario hace scroll 20px desde la cima del documento, muestra el botón
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
@@ -12,7 +12,7 @@ function scrollFunction() {
   }
 }
 
-// When the user clicks on the button, scroll to the top of the document
+// Cuando el usuario hace click en el botón, se hace auto-scroll a la cima del documento
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
