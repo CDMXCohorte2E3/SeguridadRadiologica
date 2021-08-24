@@ -14,11 +14,31 @@ function hacerPedido(){
 
 
 //Funcion para eliminar row
-function eliminarCompra() {
+function eliminarCompra(arg_id) {
     
     let td = event.target.parentNode; 
     let tr = td.parentNode; // fila a ser removida
     tr.parentNode.removeChild(tr);
+
+    let eliminar = JSON.parse(window.localStorage.getItem("identificadoresLocalS"));
+
+    let i = 0;
+    while( i < eliminar.length){
+
+        if(eliminar[i].identificador == arg_id){
+
+            eliminar.splice(i,1);
+
+        } else{
+
+            i++;
+
+        } // fin del if-else
+    } // fin del while
+
+    window.localStorage.setItem("identificadoresLocalS",JSON.stringify(eliminar));
+    window.location.reload();
+
 }//eliminarCompra
 
 // Esta función me añade los productos al carrito. Estos productos lo agregué desde productos.html al hacer click en "comprar"
