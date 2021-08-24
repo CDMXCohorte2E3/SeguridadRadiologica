@@ -15,14 +15,11 @@ function hacerPedido(){
 
 //Funcion para eliminar row
 function eliminarCompra() {
-    // event.target will be the input element.
+    
     let td = event.target.parentNode; 
-    let tr = td.parentNode; // the row to be removed
+    let tr = td.parentNode; // fila a ser removida
     tr.parentNode.removeChild(tr);
-}//DeleteRowFunction
-
-
-// let listaCompras = JSON.parse(window.localStorage.getItem("identificadoresLocalS"));
+}//eliminarCompra
 
 // Esta función me añade los productos al carrito. Estos productos lo agregué desde productos.html al hacer click en "comprar"
 if( window.localStorage.getItem("identificadoresLocalS") != null){

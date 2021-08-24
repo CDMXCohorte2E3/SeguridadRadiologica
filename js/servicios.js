@@ -139,9 +139,9 @@ anadirServicio(almacenLocal);
 
 function myFunction(id) {
 	//función del botón ver mas o ver menos
-	var etc = document.getElementById("etc_" + id);
-	var moreText = document.getElementById("more_" + id);
-	var btnText = document.getElementById("myBtn_" + id);
+	let etc = document.getElementById("etc_" + id);
+	let moreText = document.getElementById("more_" + id);
+	let btnText = document.getElementById("myBtn_" + id);
 
 	if (etc.style.display === "none") {
 		etc.style.display = "inline";
