@@ -124,7 +124,7 @@ function anadirServicio(servicios) {
                         
 						<!-- Inicia Modal de edición -->
 
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEditarServicio${servicio.id}">
+						<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalEditarServicio${servicio.id}">
 						Editar servicio
 						</button>
 
