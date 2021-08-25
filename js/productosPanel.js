@@ -140,7 +140,7 @@ function anadirProducto(productos){
               <div class="button text-center">      
 
               <!-- Inicio del modal -->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEditarProducto${producto.id}"> Editar
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalEditarProducto${producto.id}"> Editar
               </button>
               <div class="modal fade" id="modalEditarProducto${producto.id}" tabindex="-1" aria-labelledby="modal-Panel-Edicion" aria-hidden="true">
               <div class="modal-dialog">
