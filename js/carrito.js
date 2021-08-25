@@ -1,14 +1,14 @@
-function hacerPedido(){
-          new swal({
-            icon: 'success',
-            title: "ORDEN CREADA",
-            text: 'Tu orden ha sido creada, en breve te contactaremos' ,
-            position: 'center',
-         }).then(okay => {
-            if (okay) {
-                window.location.href = "./historialPedidos.html";
-            }
-        });
+function hacerPedido() {
+    new swal({
+        icon: 'success',
+        title: "ORDEN CREADA",
+        text: 'Tu orden ha sido creada, en breve te contactaremos',
+        position: 'center',
+    }).then(okay => {
+        if (okay) {
+            window.location.href = "./historialPedidos.html";
+        }
+    });
 }// hacerPedido
 
 
@@ -16,18 +16,27 @@ function hacerPedido(){
 //Funcion para eliminar row
 function eliminarCompra() {
     // event.target will be the input element.
-    var td = event.target.parentNode; 
+    var td = event.target.parentNode;
     var tr = td.parentNode; // the row to be removed
     tr.parentNode.removeChild(tr);
-}//DeleteRowFunction
+
+
+   // window.localStorage.removeItem("elemento.identificador");
+
+
+   var data = JSON.parse(localStorage.getItem("identificadoresLocalS"));
+
+
+
+}//eliminarCompra
 
 
 // let listaCompras = JSON.parse(window.localStorage.getItem("identificadoresLocalS"));
 
 // Esta función me añade los productos al carrito. Estos productos lo agregué desde productos.html al hacer click en "comprar"
-if( window.localStorage.getItem("identificadoresLocalS") != null){
-    function cargarCompras(){
-        
+if (window.localStorage.getItem("identificadoresLocalS") != null) {
+    function cargarCompras() {
+
         let tablaCompras = document.getElementById("tablaCompras");
         let compraIndividual = "";
 
@@ -35,19 +44,19 @@ if( window.localStorage.getItem("identificadoresLocalS") != null){
         let listaProductos = JSON.parse(window.localStorage.getItem("productosLocalS"));
         let listaCantidades = [];
 
-        listaCompras.forEach( elemento => {
-            if (isNaN(listaCantidades[elemento.identificador])){
-                
+        listaCompras.forEach(elemento => {
+            if (isNaN(listaCantidades[elemento.identificador])) {
+
                 listaCantidades[elemento.identificador] = 0;
 
-            } 
+            }
             listaCantidades[elemento.identificador] += 1;
 
         })
 
 
-        listaCompras.forEach(function(compra){
-            if(compraIndividual.indexOf(`eliminarCompra(${compra.identificador})`) == -1 ){
+        listaCompras.forEach(function (compra) {
+            if (compraIndividual.indexOf(`eliminarCompra(${compra.identificador})`) == -1) {
                 let fila = `
                <tr id="fila_${compra.identificador}">
                 <td scope="row" class="productoCarrito col-6"> ${listaProductos[compra.identificador].titulo} </td>
