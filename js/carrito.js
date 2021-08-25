@@ -14,24 +14,33 @@ function hacerPedido() {
 
 
 //Funcion para eliminar row
-function eliminarCompra() {
-    // event.target will be the input element.
-    var td = event.target.parentNode;
-    var tr = td.parentNode; // the row to be removed
+
+function eliminarCompra(arg_id) {
+    
+    let td = event.target.parentNode; 
+    let tr = td.parentNode; // fila a ser removida
     tr.parentNode.removeChild(tr);
 
+    let eliminar = JSON.parse(window.localStorage.getItem("identificadoresLocalS"));
 
-   // window.localStorage.removeItem("elemento.identificador");
+    let i = 0;
+    while( i < eliminar.length){
 
+        if(eliminar[i].identificador == arg_id){
 
-   var data = JSON.parse(localStorage.getItem("identificadoresLocalS"));
+            eliminar.splice(i,1);
 
+        } else{
 
+            i++;
+
+        } // fin del if-else
+    } // fin del while
+
+    window.localStorage.setItem("identificadoresLocalS",JSON.stringify(eliminar));
+    window.location.reload();
 
 }//eliminarCompra
-
-
-// let listaCompras = JSON.parse(window.localStorage.getItem("identificadoresLocalS"));
 
 // Esta función me añade los productos al carrito. Estos productos lo agregué desde productos.html al hacer click en "comprar"
 if (window.localStorage.getItem("identificadoresLocalS") != null) {
@@ -59,7 +68,7 @@ if (window.localStorage.getItem("identificadoresLocalS") != null) {
             if (compraIndividual.indexOf(`eliminarCompra(${compra.identificador})`) == -1) {
                 let fila = `
                <tr id="fila_${compra.identificador}">
-                <td scope="row" class="productoCarrito col-6"> ${listaProductos[compra.identificador].titulo} </td>
+                <td scope="row" class="productoCarrito col-6"> ${listaProductos[compra.identificador -1].titulo} </td>
                 <td class="col-3"><input type="number" value="${listaCantidades[compra.identificador]}"></td>
                 <td style="text-align: center; class="col-3">
 
