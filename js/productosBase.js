@@ -9,7 +9,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "precio": "$2904.90",
         "descripcion" : "0.5mm de plomo|66x95 cm|Con bolsillo|Acabado textil",
         "id": "1",
-        "status":"0"
+        "status":"1"
       },
       {
         "imagen": "../img/products/img-product_2.jpg",
@@ -19,7 +19,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "precio": "$3646.65",
         "descripcion" : "0.5mm de plomo|66x95 cm|Con bolsillo|Acabado plástico",
         "id": "2",
-        "status":"0"
+        "status":"1"
       },
       {
         "imagen": "../img/products/img-product_3.jpg",
@@ -29,7 +29,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "precio": "$1443.25",
         "descripcion" : "0.5mm de plomo,40x40 cm|Tipo falda",
         "id": "3",
-        "status":"0"
+        "status":"1"
       },
       {
         "imagen": "../img/products/img-product_4.jpg",
@@ -39,7 +39,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "precio": "$2873.71",
         "descripcion" : "0.55mm de plomo|Con estuche",
         "id": "4",
-        "status":"0"
+        "status":"1"
       },
       {
         "imagen": "../img/products/img-product_5.jpg",

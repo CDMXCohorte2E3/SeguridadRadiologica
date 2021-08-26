@@ -43,7 +43,7 @@ function validateForm(e){//validateForm
 
     function validatePrice(price){//validateModel
       //let expReg= /^[A-Z]+$/;
-      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.$ ]+$/)
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
       let esValido3 = expReg.test(price);      
       if(esValido3 == true){//if Price
           inputPrice.classList.remove('is-invalid')
@@ -117,10 +117,11 @@ function nuevoProducto(evento){
     "precio": inputPrice,
     "modelo" : inputModel,
     "descripcion" : inputDescription,
-    "id" : traerLocalStorage.length + 1
+    "id" : traerLocalStorage.length + 1,
+    "status" : "1"
   }
   
   traerLocalStorage.push(caracteristicasProducto) // Como la base es un array, le hago push  
   window.localStorage.setItem("productosLocalS",JSON.stringify(traerLocalStorage)) // Reenvío la información a la base de datos
-
+  window.location.reload()
 }

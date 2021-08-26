@@ -1,3 +1,7 @@
+
+
+// Cambio a uso del local storage para trabajar con el JSON
+
 let almacenLocal = JSON.parse(window.localStorage.getItem("productosLocalS")) // Extraje la información que almacené en local storage
 
 function anadirProductoPanel(productosPanel){
@@ -25,11 +29,12 @@ function anadirProductoPanel(productosPanel){
               <!-- Inicio del modal -->
               <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalEditarProducto${producto.id}"> Editar
               </button>
-                <div class="deshabilitar" style="margin-top: 5px;">
-                    <button type="button" class="btn btn-secondary btn-sm" data-target="#modalEditarProducto${producto.id}"> Deshabilitar
-                    </button>
+
+                <div class="deshabilitar" id="botonHabilita${producto.id}" style="margin-top: 5px;">
+                    <button type="button" id="habilita${producto.id}" class="btn btn-secondary btn-sm"> Deshabilitar
+                    </button>  
                 </div>
-              
+                
               <div class="modal fade" id="modalEditarProducto${producto.id}" tabindex="-1" aria-labelledby="modal-Panel-Edicion" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -164,6 +169,75 @@ function listaElementos(json){
 listaElementos(almacenLocal);
 // Función para editar productos desde el panel de admin
 
+//Habilita-Deshabilita
+
+function habilitarDeshabilitar(json){
+  
+  for( i = 0 ; i < json.length ; i++ ){
+    let buton = document.getElementById("botonHabilita"+json[i].id);
+    let status = json[i].status;
+  
+    const btnHabilita=`
+      <button type="button" id="habilita${json[i].id}" class="btn btn-info btn-sm"> Habilitar
+      </button>
+    `;
+    const btnDeshabilita=`
+      <button type="button" id="habilita${json[i].id}" class="btn btn-secondary btn-sm"> Deshabilitar
+      </button>
+    `;
+
+    if(status == 1){
+      buton.innerHTML = btnDeshabilita;
+      let butonDeshabilita = document.getElementById("habilita"+json[i].id);
+      let identi=json[i].id;
+      butonDeshabilita.addEventListener("click", deshabilita);
+
+      function deshabilita(e){
+        e.preventDefault();
+        //let numProductos = e.target.id.split("_")[1]; //trae el id del producto
+        console.log(identi)
+        
+        let statusLS = JSON.parse(window.localStorage.getItem("productosLocalS"))
+        console.log(statusLS[identi-1].status)
+        statusLS[identi-1].status = "0";
+      
+        window.localStorage.setItem("productosLocalS",JSON.stringify(statusLS)) // Reenvío la información a la base de datos
+         window.location.reload()
+         
+      }//deshabilita
+
+    }else if(status == 0){
+      buton.innerHTML = btnHabilita;
+      let butonhabilita = document.getElementById("habilita"+json[i].id);
+      //console.log(json[i].id)
+      let identi=json[i].id;
+      butonhabilita.addEventListener("click", habilita);
+
+      function habilita(e){
+        e.preventDefault();
+        //let numProductos = e.target.id.split("_")[1]; //trae el id del producto
+        console.log(identi)
+        
+        let statusLS = JSON.parse(window.localStorage.getItem("productosLocalS"))
+        console.log(statusLS[identi-1].status)
+        statusLS[identi-1].status = "1";
+      
+        window.localStorage.setItem("productosLocalS",JSON.stringify(statusLS)) // Reenvío la información a la base de datos
+         window.location.reload()
+         
+      }//deshabilita
+    }//if
+
+  }//for
+ 
+}//habilitarDeshabilitar
+
+
+
+
+
+habilitarDeshabilitar(almacenLocal);
+
 //Validación del formulario
 let form2 = document.getElementById('act-needs-validation');
 
@@ -209,7 +283,7 @@ function validateForm2(n){//validateForm
 
     function validatePrice(price){//validateModel
       //let expReg= /^[A-Z]+$/;
-      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.$ ]+$/)
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
       let esValido3 = expReg.test(price);      
       if(esValido3 == true){//if Price
           inputPrice.classList.remove('is-invalid')
@@ -269,6 +343,7 @@ function guardarCambios(id){
   variableLS[id - 1].precio =  document.getElementById("actualizarPrecio" + id).value;
   variableLS[id - 1].modelo = document.getElementById("actualizarModelo" + id).value;
   variableLS[id - 1].descripcion = document.getElementById("actualizarDescripcion" + id).value
+  variableLS[id - 1].status = "1";
 
 
   window.localStorage.setItem("productosLocalS",JSON.stringify(variableLS)) // Reenvío la información a la base de datos
