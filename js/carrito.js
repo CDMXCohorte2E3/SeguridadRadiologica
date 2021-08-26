@@ -1,38 +1,51 @@
-/*
-// Función boton pop up
-function comprarCart(){
-          new swal({
-            icon: 'success',
-            title: "ORDEN CREADA",
-            text: 'Tu orden ha sido creada, en breve te contactaremos' ,
-            position: 'center',
-         }).then(okay => {
-            if (okay) {
-                window.location.href = "./historialPedidos.html";
-            }
-        });
-}// comprarCart
+function hacerPedido() {
+    new swal({
+        icon: 'success',
+        title: "ORDEN CREADA",
+        text: 'Tu orden ha sido creada, en breve te contactaremos',
+        position: 'center',
+    }).then(okay => {
+        if (okay) {
+            window.location.href = "./historialPedidos.html";
+        }
+    });
+}// hacerPedido
 
 
-function DeleteRowFunction() {
-    // event.target will be the input element.
-    var td = event.target.parentNode; 
-    var tr = td.parentNode; // the row to be removed
+
+//Funcion para eliminar row
+
+function eliminarCompra(arg_id) {
+    
+    let td = event.target.parentNode; 
+    let tr = td.parentNode; // fila a ser removida
     tr.parentNode.removeChild(tr);
-}
 
-//funcion para añadir producto al carrito de compras
-// import { anadirCarrito } from './js/productos.js';
+    let eliminar = JSON.parse(window.localStorage.getItem("identificadoresLocalS"));
 
-*/
+    let i = 0;
+    while( i < eliminar.length){
 
-// let listaCompras = JSON.parse(window.localStorage.getItem("identificadoresLocalS"));
+        if(eliminar[i].identificador == arg_id){
 
+            eliminar.splice(i,1);
+
+        } else{
+
+            i++;
+
+        } // fin del if-else
+    } // fin del while
+
+    window.localStorage.setItem("identificadoresLocalS",JSON.stringify(eliminar));
+    window.location.reload();
+
+}//eliminarCompra
 
 // Esta función me añade los productos al carrito. Estos productos lo agregué desde productos.html al hacer click en "comprar"
-if( window.localStorage.getItem("identificadoresLocalS") != null){
-    function cargarCompras(){
-        
+if (window.localStorage.getItem("identificadoresLocalS") != null) {
+    function cargarCompras() {
+
         let tablaCompras = document.getElementById("tablaCompras");
         let compraIndividual = "";
 
@@ -40,23 +53,24 @@ if( window.localStorage.getItem("identificadoresLocalS") != null){
         let listaProductos = JSON.parse(window.localStorage.getItem("productosLocalS"));
         let listaCantidades = [];
 
-        listaCompras.forEach( elemento => {
-            if (isNaN(listaCantidades[elemento.identificador])){
-                
+        listaCompras.forEach(elemento => {
+            if (isNaN(listaCantidades[elemento.identificador])) {
+
                 listaCantidades[elemento.identificador] = 0;
 
-            } 
+            }
             listaCantidades[elemento.identificador] += 1;
 
         })
 
 
-        listaCompras.forEach(function(compra){
-            if(compraIndividual.indexOf(`eliminarCompra(${compra.identificador})`) == -1 ){
+        listaCompras.forEach(function (compra) {
+            if (compraIndividual.indexOf(`eliminarCompra(${compra.identificador})`) == -1) {
                 let fila = `
-                <td scope="row" class="productoCarrito"> ${listaProductos[compra.identificador].titulo} </td>
+               <tr id="fila_${compra.identificador}">
+                <td scope="row" class="productoCarrito"> ${listaProductos[compra.identificador -1].titulo} </td>
                 <td><input type="number" value="${listaCantidades[compra.identificador]}"></td>
-                <td style="text-align: center;">
+                <td style="text-align: center; class="col-3">
 
                     <button type="button" class="btn btn-outline-danger" value="Delete Row" onclick="eliminarCompra(${compra.identificador})">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -73,6 +87,7 @@ if( window.localStorage.getItem("identificadoresLocalS") != null){
                         Eliminar
                     </button>
                 </td> <br>
+                </tr>
                 `
                 compraIndividual += fila;
             }

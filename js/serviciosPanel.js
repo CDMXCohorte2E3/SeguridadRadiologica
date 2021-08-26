@@ -124,7 +124,7 @@ function anadirServicio(servicios) {
                         
 						<!-- Inicia Modal de edición -->
 
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEditarServicio${servicio.id}">
+						<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalEditarServicio${servicio.id}">
 						Editar servicio
 						</button>
 
@@ -161,9 +161,9 @@ function anadirServicio(servicios) {
                             <div class="form-group">
 
                                 <label for="validationCustom01">Párrafo de presentación</label>
-                                <textarea value="${servicio.parrafo1}" type="text" name="parrafo" class="form-control" id="editarParrafo1${servicio.id}" maxlength="300"
+                                <textarea  type="text" name="parrafo" class="form-control" id="editarParrafo1${servicio.id}" maxlength="300"
                                     required rows="2"
-                                    placeholder="Este párrafo es obligatorio, siempre será visible"></textarea>
+                                    placeholder="Este párrafo es obligatorio, siempre será visible"> ${servicio.parrafo1} </textarea>
                                 <div class="invalid-feedback">
                                     <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
                                     Este párrafo es requerido
@@ -174,8 +174,8 @@ function anadirServicio(servicios) {
                             <div class="form-group">
 
                                 <label for="validationCustom01">Párrafo 2: </label>
-                                <textarea value="${servicio.parrafo2}" type="text" name="parrafo2" class="form-control" id="editarParrafo2${servicio.id}" maxlength="300"
-                                    required rows="2" placeholder="Párrafo opcional"></textarea>
+                                <textarea  type="text" name="parrafo2" class="form-control" id="editarParrafo2${servicio.id}" maxlength="300"
+                                    required rows="2" placeholder="Párrafo opcional">${servicio.parrafo2}</textarea>
                                 <div class="invalid-feedback">
                                     <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
                                     Nombre válido es requerido
@@ -186,8 +186,8 @@ function anadirServicio(servicios) {
                             <div class="form-group">
 
                                 <label for="validationCustom01">Párrafo 3: </label>
-                                <textarea value="${servicio.parrafo3}" type="text" name="parrafo3" class="form-control" id="editarParrafo3${servicio.id}" maxlength="300"
-                                    required rows="2" placeholder="Párrafo opcional"></textarea>
+                                <textarea  type="text" name="parrafo3" class="form-control" id="editarParrafo3${servicio.id}" maxlength="300"
+                                    required rows="2" placeholder="Párrafo opcional">${servicio.parrafo3}</textarea>
                                 <div class="invalid-feedback">
                                     <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
                                     Nombre válido es requerido
@@ -198,8 +198,8 @@ function anadirServicio(servicios) {
                             <div class="form-group">
 
                                 <label for="validationCustom01">Párrafo Resaltado: </label>
-                                <textarea value="${servicio.parrafoBlack}" type="text" name="parrafoRes" class="form-control" id="editarParrafoBlack${servicio.id}" maxlength="300"
-                                    required rows="2" placeholder="Información resaltada"></textarea>
+                                <textarea  type="text" name="parrafoRes" class="form-control" id="editarParrafoBlack${servicio.id}" maxlength="300"
+                                    required rows="2" placeholder="Información resaltada">${servicio.parrafoBlack}</textarea>
                                 <div class="invalid-feedback">
                                     <!--div de leyenda para validación, controla la leyenda con el invalid/valid-->
                                     Nombre válido es requerido
@@ -269,9 +269,9 @@ anadirServicio(almacenLocal);
 
 function desplegarServicios(id) {
 	//función del botón ver mas o ver menos
-	var etc = document.getElementById("etc_" + id);
-	var moreText = document.getElementById("more_" + id);
-	var btnText = document.getElementById("myBtn_" + id);
+	let etc = document.getElementById("etc_" + id);
+	let moreText = document.getElementById("more_" + id);
+	let btnText = document.getElementById("myBtn_" + id);
 
 	if (etc.style.display === "none") {
 		etc.style.display = "inline";
@@ -300,7 +300,7 @@ function validateFormServicios(n){//validateForm
     
     function validateName(nombre){//validateName
       //let expReg= /^[A-Z]+$/;
-      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)  
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.,()¡!¿? ]+$/)  
       let esValido = expReg.test(nombre);      
       if(esValido == true){//if nombre
           inputNombre.classList.remove('is-invalid')
@@ -315,7 +315,7 @@ function validateFormServicios(n){//validateForm
     
     function validateParrafo(parrafo){//validateParrafo
       //let expReg= /^[A-Z]+$/;
-      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.,()¡!¿? ]+$/)
       let esValido2 = expReg.test(parrafo);      
       if(esValido2 == true){//if Marca
           inputParrafo.classList.remove('is-invalid')
