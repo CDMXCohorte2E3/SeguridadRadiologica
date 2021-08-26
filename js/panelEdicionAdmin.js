@@ -117,10 +117,11 @@ function nuevoProducto(evento){
     "precio": inputPrice,
     "modelo" : inputModel,
     "descripcion" : inputDescription,
-    "id" : traerLocalStorage.length + 1
+    "id" : traerLocalStorage.length + 1,
+    "status" : "1"
   }
   
   traerLocalStorage.push(caracteristicasProducto) // Como la base es un array, le hago push  
   window.localStorage.setItem("productosLocalS",JSON.stringify(traerLocalStorage)) // Reenvío la información a la base de datos
-
+  window.location.reload()
 }
