@@ -303,7 +303,8 @@ h2{
 }
 
 .container-img-square{
-    width: 100%;
+
+    width: 36vw;
     object-fit: cover;
     margin:10px 0px 10px 0px;
 }
