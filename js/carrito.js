@@ -1,19 +1,52 @@
-function hacerPedido(){
-          new swal({
-            icon: 'success',
-            title: "ORDEN CREADA",
-            text: 'Tu orden ha sido creada, en breve te contactaremos' ,
-            position: 'center',
-         }).then(okay => {
-            if (okay) {
-                window.location.href = "./historialPedidos.html";
-            }
-        });
+if (window.localStorage.getItem("subtotales") != null) {
+    window.localStorage.removeItem("subtotales")
+}
+
+function hacerPedido() {    
+    new swal({
+        icon: 'success',
+        title: "ORDEN CREADA",
+        text: 'Tu orden ha sido creada, en breve te contactaremos',
+        position: 'center',
+    }).then(okay => {
+        if (okay) {
+            window.location.href = "./historialPedidos.html";
+        }
+    });
+
+    // Esto generará la orden de compra
+
+    // let longitudCompras = document.getElementsByClassName("cuentaDeFilas").length;
+    let productos = JSON.parse(window.localStorage.getItem("productosLocalS"));
+    let total = 0;
+    let subTotales = [];
+
+    for( i = 0 ; i <= productos.length ; i++){
+        if( document.getElementById(`fila_${i}`) != null){
+
+            let cantidadF = document.getElementById(`cantidadFinal${i}`).value;
+            let cadenaPrecio = productos[i-1].precio;
+            cadenaPrecio = cadenaPrecio.substring(1);
+            let precio = parseFloat(cadenaPrecio);
+            let subTotal = cantidadF * precio;
+            let precioSub = {"identificador": i, "subtotal": subTotal};
+            subTotales.push(precioSub)
+            total += subTotal;
+            console.log(cadenaPrecio);
+            console.log(total)
+        }
+    }
+
+    window.localStorage.setItem("subtotales",JSON.stringify(subTotales))
+
+    window.localStorage.removeItem("identificadoresLocalS")
+    
+    // Limpiar el localStorage al hacer el pedido, para que se borre la base de datos 
+
 }// hacerPedido
 
-
-
 //Funcion para eliminar row
+
 function eliminarCompra(arg_id) {
     
     let td = event.target.parentNode; 
@@ -42,9 +75,9 @@ function eliminarCompra(arg_id) {
 }//eliminarCompra
 
 // Esta función me añade los productos al carrito. Estos productos lo agregué desde productos.html al hacer click en "comprar"
-if( window.localStorage.getItem("identificadoresLocalS") != null){
-    function cargarCompras(){
-        
+if (window.localStorage.getItem("identificadoresLocalS") != null) {
+    function cargarCompras() {
+
         let tablaCompras = document.getElementById("tablaCompras");
         let compraIndividual = "";
 
@@ -52,23 +85,23 @@ if( window.localStorage.getItem("identificadoresLocalS") != null){
         let listaProductos = JSON.parse(window.localStorage.getItem("productosLocalS"));
         let listaCantidades = [];
 
-        listaCompras.forEach( elemento => {
-            if (isNaN(listaCantidades[elemento.identificador])){
-                
+        listaCompras.forEach(elemento => {
+            if (isNaN(listaCantidades[elemento.identificador])) {
+
                 listaCantidades[elemento.identificador] = 0;
 
-            } 
+            }
             listaCantidades[elemento.identificador] += 1;
 
         })
 
 
-        listaCompras.forEach(function(compra){
-            if(compraIndividual.indexOf(`eliminarCompra(${compra.identificador})`) == -1 ){
+        listaCompras.forEach(function (compra) {
+            if (compraIndividual.indexOf(`eliminarCompra(${compra.identificador})`) == -1) {
                 let fila = `
                <tr id="fila_${compra.identificador}">
-                <td scope="row" class="productoCarrito col-6"> ${listaProductos[compra.identificador -1].titulo} </td>
-                <td class="col-3"><input type="number" value="${listaCantidades[compra.identificador]}"></td>
+                <td scope="row" class="productoCarrito"> ${listaProductos[compra.identificador -1].titulo} </td>
+                <td><input id="cantidadFinal${compra.identificador}" type="number" value="${listaCantidades[compra.identificador]}"></td>
                 <td style="text-align: center; class="col-3">
 
                     <button type="button" class="btn btn-outline-danger" value="Delete Row" onclick="eliminarCompra(${compra.identificador})">

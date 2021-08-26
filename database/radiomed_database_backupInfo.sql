@@ -1,16 +1,12 @@
--- Queries para cargar información
--- Es un backup
-
-
 INSERT INTO `radiomed_database`.`admin` 
-(`idAdministrador`, `Nombre`, `Email`, `Contrasena`) 
+(`idAdministrador`, `Nombre`,`Apellidos`,  `Email`, `Contrasena`) 
 VALUES 
-(1,'Leticia Somera','radiomed.asesores@gmail.com','RadioMed_01'),
-(2,'David Vargas','radiomed.contacto@gmail.com','RadioMed_01'),
-(3,'América Sánchez ','americasanchezleon@gmail.com','RadioMed_02'),
-(4,'Carlos Pérez','carlos.dan.pvst@gmail.com','RadioMed_02'),
-(5,'Alejandra Zataráin','azatarainalp@gmail.com','RadioMed_02'),
-(6,'Victor Martínez ','victor.martinez.zamora98@gmail.com','RadioMed_02');
+(1,'Leticia', 'Somera' ,'radiomed.asesores@gmail.com','RadioMed_01'),
+(2,'David','Vargas ','radiomed.contacto@gmail.com','RadioMed_01'),
+(3,'América','Sánchez ','americasanchezleon@gmail.com','RadioMed_02'),
+(4,'Carlos','Pérez ','carlos.dan.pvst@gmail.com','RadioMed_02'),
+(5,'Alejandra','Zataráin','azatarainalp@gmail.com','RadioMed_02'),
+(6,'Victor','Martínez','victor.martinez.zamora98@gmail.com','RadioMed_02');
 
 
 INSERT INTO `radiomed_database`.`producto` 
@@ -22,11 +18,11 @@ VALUES
 (4,'Lentes emplomados','Marca Slim Royal','SS-53','$2873.71',' 0.75 mm de plomo | Con estuche','.\\img\\products\\img-product4.jpg','Lentes'),
 (5,'Lentes emplomados premium','Marca Slim Royal','S-53','$3403.08',' 0.5 mm de plomo | Con estuche','.\\img\\products\\img-product5.jpg','Lentes'),
 (6,'Googles emplomados','Marca Slim Royal','GOOGLE-HO','$6344.55',' 0.5 mm de plomo | Con bolsa de tela','.\\img\\products\\img-product6.jpg','Lentes'),
-(7,'Guantes emplomados','Marca Slim Royal','100 M/L','$2,911.80',' 0.5 mm de plomo | 350 mm de largo | Tamaño mediano o grande','.\\img\\products\\img-product7.jpg','Guantes'),
-(8,'Guantes emplomados','Marca Shielding','XR47','$2,637.53',' Modelo RADIAXON | Equivalente a 0.5 mm de plomo | Solo bajo pedido','.\\img\\products\\img-product8.jpg','Guantes'),
+(7,'Guantes emplomados','Marca Slim Royal','100 M/L','$2911.80',' 0.5 mm de plomo | 350 mm de largo | Tamaño mediano o grande','.\\img\\products\\img-product7.jpg','Guantes'),
+(8,'Guantes emplomados','Marca Shielding','XR47','$2637.53',' Modelo RADIAXON | Equivalente a 0.5 mm de plomo | Solo bajo pedido','.\\img\\products\\img-product8.jpg','Guantes'),
 (9,'Collarín emplomado','Marca Slim Royal','STANDARD-05','$767.96',' 0.5 mm de plomo','.\\img\\products\\img-product9.jpg','Collarines'),
-(10,'Collarín emplomado de lujo','Marca Slim Royal','$1,045.49','$1045.49',' 0.5 mm de plomo','.\\img\\products\\img-product10.jpg','Collarines'),
-(11,'Protectores de gónadas','Marca Slim Royal','S806A','$1,618.35','0.5 mm de plomo | Juego de 3 protectores: | grande, mediano y chico','.\\img\\products\\img-product11.jpg','Protectores de gónadas'),
+(10,'Collarín emplomado de lujo','Marca Slim Royal','DELUX-O5','$1045.49',' 0.5 mm de plomo','.\\img\\products\\img-product10.jpg','Collarines'),
+(11,'Protectores de gónadas','Marca Slim Royal','S806A','$1618.35','0.5 mm de plomo | Juego de 3 protectores: | grande, mediano y chico','.\\img\\products\\img-product11.jpg','Protectores de gónadas'),
 (12,'Protectores de gónadas','Marca Slim Royal','S806 M/L','$635.24',' 0.5mm de plomo | Una pieza | Tamaño mediano o grande','.\\img\\products\\img-product12.jpg','Protectores de gónadas');
 
 
@@ -45,14 +41,14 @@ VALUES
 
 
 INSERT INTO `radiomed_database`.`usuario` 
-(`idUsuario`, `Nombre`, `Email`, `Direccion`, `Teléfono`, `Empresa`, `RazonSocial`, `Contrasena`) 
+(`idUsuario`, `Nombre`,  `Apellidos`, `Email`, `Teléfono`, `Contrasena`) 
 
 VALUES 
-('1', 'Fabiola León', 'red.eyees@hotmail.com', 'Jose Ma. Castorena #361B', '562482045', 'Generation', 'SALA941009S82', 'RadioMed_03'),
-('2', 'Daniel Pérez', 'red.eyees@hotmail.com', 'Calle Falsa #134', '', 'Generation', 'PECD970000S00', 'RadioMed_03'),
-('3', 'Hugo Zamora', 'red.eyees@hotmail.com', 'Calle Falsa #123', '', 'Generation', 'MAZV970000S00', 'RadioMed_03'),
-('4', 'América Sánchez ', 'red.eyees@hotmail.com', 'Calle Falsa #264', '', 'Generation', 'SALA970000S00', 'RadioMed_03'),
-('5', 'Alejandra Alpuche', 'red.eyees@hotmail.com', 'Calle Falsa #528', '', 'Generation', 'ZAAA970000S00', 'RadioMed_03');
+('1', 'Fabiola','León', 'correo@gmail.com',  '562482045', 'RadioMed_03'),
+('2', 'Daniel','Pérez', 'correo@gmail.com',  '562482045', 'RadioMed_03'),
+('3', 'Hugo ','Zamora', 'correo@gmail.com',  '562482045', 'RadioMed_03'),
+('4', 'América ','Sánchez ', 'correo@gmail.com',  '562482045',  'RadioMed_03'),
+('5', 'Alejandra ','Alpuche', 'correo@gmail.com',  '562482045', 'RadioMed_03');
 
 
 INSERT INTO `radiomed_database`.`orden` 
@@ -76,13 +72,14 @@ VALUES
 
 
 INSERT INTO `radiomed_database`.`cotizacion` 
-(`IdCotizacion`, `idUsuario`, `Fecha`) 
-VALUES 
-('1', '5', '2021-08-23 12:37:07'),
-('2', '5', '2021-08-22 11:37:07'),
-('3', '1', '2021-08-21 10:37:07'),
-('4', '3', '2021-08-20 09:37:07'),
-('5', '4', '2021-08-19 08:37:07');
+(`IdCotizacion`,`Fecha`, `Nombre`, `Apellidos`,  `Email`,  `Direccion`,  `Telefono`,  `RazonSocial`, `Empresa`) 
+VALUES  
+('1', '2021-08-23 12:37:07', 'Fabiola', 'Sanchez', 'americasanchezleon@gmail.com', 'Mi casa','5624821045','SALA941009000','Generation'),
+('2', '2021-08-22 11:37:07','Daniel', 'Vazquez', 'danielVqz@gmail.com', 'Mi casa','5624821045','SALA941009000','Generation'),
+('3', '2021-08-21 10:37:07','Alejandra', 'Alpuche', 'alejanraalp@gmail.com', 'Mi casa','5624821045','SALA941009000','Generation'),
+('4', '2021-08-20 09:37:07','Grimaldo', 'Grimes', 'grimaldo@gmail.com', 'Mi casa','5624821045','SALA941009000','Generation'),
+('5', '2021-08-19 08:37:07','Hugo', 'Zamora', 'hugozamora@gmail.com', 'Mi casa','5624821045','SALA941009000','Generation');
+
 
 
 INSERT INTO `radiomed_database`.`detallecotizacion` 

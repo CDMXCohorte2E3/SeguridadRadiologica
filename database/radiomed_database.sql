@@ -27,6 +27,7 @@ DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
   `idAdministrador` int NOT NULL,
   `Nombre` varchar(45) DEFAULT NULL,
+  `Apellidos` varchar(45) DEFAULT NULL,
   `Email` varchar(45) DEFAULT NULL,
   `Contrasena` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idAdministrador`)
@@ -39,7 +40,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES (1,'Leticia Somera','radiomed.asesores@gmail.com','RadioMed_01'),(2,'David Vargas','radiomed.contacto@gmail.com','RadioMed_01'),(3,'América Sánchez ','americasanchezleon@gmail.com','RadioMed_02'),(4,'Carlos Pérez','carlos.dan.pvst@gmail.com','RadioMed_02'),(5,'Alejandra Zataráin','azatarainalp@gmail.com','RadioMed_02'),(6,'Victor Martínez ','victor.martinez.zamora98@gmail.com','RadioMed_02');
+INSERT INTO `admin` VALUES (1,'Leticia','Somera','radiomed.asesores@gmail.com','RadioMed_01'),(2,'David','Vargas ','radiomed.contacto@gmail.com','RadioMed_01'),(3,'América  ','Sánchez ','americasanchezleon@gmail.com','RadioMed_02'),(4,'Carlos ','Pérez ','carlos.dan.pvst@gmail.com','RadioMed_02'),(5,'Alejandra','Zataráin','azatarainalp@gmail.com','RadioMed_02'),(6,'Victor','Martínez','victor.martinez.zamora98@gmail.com','RadioMed_02');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,9 +53,15 @@ DROP TABLE IF EXISTS `cotizacion`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cotizacion` (
   `IdCotizacion` int NOT NULL,
-  `idUsuario` int NOT NULL,
   `Fecha` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`IdCotizacion`,`idUsuario`),
+  `Nombre` varchar(100) DEFAULT NULL,
+  `Apellidos` varchar(45) DEFAULT NULL,
+  `Email` varchar(100) DEFAULT NULL,
+  `Direccion` varchar(200) DEFAULT NULL,
+  `Telefono` varchar(15) DEFAULT NULL,
+  `RazonSocial` varchar(15) DEFAULT NULL,
+  `Empresa` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`IdCotizacion`),
   KEY `fk_Cotizacion_DetalleCotizacion1_idx` (`IdCotizacion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -65,7 +72,7 @@ CREATE TABLE `cotizacion` (
 
 LOCK TABLES `cotizacion` WRITE;
 /*!40000 ALTER TABLE `cotizacion` DISABLE KEYS */;
-INSERT INTO `cotizacion` VALUES (1,5,'2021-08-23 17:37:07'),(2,5,'2021-08-22 16:37:07'),(3,1,'2021-08-21 15:37:07'),(4,3,'2021-08-20 14:37:07'),(5,4,'2021-08-19 13:37:07');
+INSERT INTO `cotizacion` VALUES (1,'2021-08-23 17:37:07','Fabiola','Sanchez','americasanchezleon@gmail.com','Mi casa','5624821045','SALA941009000','Generation'),(2,'2021-08-22 16:37:07','Daniel','Vazquez','danielVqz@gmail.com','Mi casa','5624821045','SALA941009000','Generation'),(3,'2021-08-21 15:37:07','Alejandra','Alpuche','alejanraalp@gmail.com','Mi casa','5624821045','SALA941009000','Generation'),(4,'2021-08-20 14:37:07','Grimaldo','Grimes','grimaldo@gmail.com','Mi casa','5624821045','SALA941009000','Generation'),(5,'2021-08-19 13:37:07','Hugo','Zamora','hugozamora@gmail.com','Mi casa','5624821045','SALA941009000','Generation');
 /*!40000 ALTER TABLE `cotizacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -174,7 +181,7 @@ CREATE TABLE `producto` (
 
 LOCK TABLES `producto` WRITE;
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` VALUES (1,'Mandil emplomado económico','Marca Slim Royal','E6995','$2904.90','0.5 mm de plomo | 66x95cm | Con bolsillo | Acabado textil','.\\img\\products\\img-product1.jpg','Mandiles'),(2,'Mandil emplomado estándar','Marca Slim Royal','S6995','$3646.65','0.5 mm de plomo | 66x95cm | Con bolsillo | acabado plástico','.\\img\\products\\img-product2.jpg','Mandiles'),(3,'Faldón emplomado','Marca Slim Royal','SQUARE','$1443.25','0.5 mm de plomo | 40x40cm | Tipo falda','.\\img\\products\\img-product3.jpg','Mandiles'),(4,'Lentes emplomados','Marca Slim Royal','SS-53','$2873.71',' 0.75 mm de plomo | Con estuche','.\\img\\products\\img-product4.jpg','Lentes'),(5,'Lentes emplomados premium','Marca Slim Royal','S-53','$3403.08',' 0.5 mm de plomo | Con estuche','.\\img\\products\\img-product5.jpg','Lentes'),(6,'Googles emplomados','Marca Slim Royal','GOOGLE-HO','$6344.55',' 0.5 mm de plomo | Con bolsa de tela','.\\img\\products\\img-product6.jpg','Lentes'),(7,'Guantes emplomados','Marca Slim Royal','100 M/L','$2,911.80',' 0.5 mm de plomo | 350 mm de largo | Tamaño mediano o grande','.\\img\\products\\img-product7.jpg','Guantes'),(8,'Guantes emplomados','Marca Shielding','XR47','$2,637.53',' Modelo RADIAXON | Equivalente a 0.5 mm de plomo | Solo bajo pedido','.\\img\\products\\img-product8.jpg','Guantes'),(9,'Collarín emplomado','Marca Slim Royal','STANDARD-05','$767.96',' 0.5 mm de plomo','.\\img\\products\\img-product9.jpg','Collarines'),(10,'Collarín emplomado de lujo','Marca Slim Royal','$1,045.49','$1045.49',' 0.5 mm de plomo','.\\img\\products\\img-product10.jpg','Collarines'),(11,'Protectores de gónadas','Marca Slim Royal','S806A','$1,618.35','0.5 mm de plomo | Juego de 3 protectores: | grande, mediano y chico','.\\img\\products\\img-product11.jpg','Protectores de gónadas'),(12,'Protectores de gónadas','Marca Slim Royal','S806 M/L','$635.24',' 0.5mm de plomo | Una pieza | Tamaño mediano o grande','.\\img\\products\\img-product12.jpg','Protectores de gónadas');
+INSERT INTO `producto` VALUES (1,'Mandil emplomado económico','Marca Slim Royal','E6995','$2904.90','0.5 mm de plomo | 66x95cm | Con bolsillo | Acabado textil','.\\img\\products\\img-product1.jpg','Mandiles'),(2,'Mandil emplomado estándar','Marca Slim Royal','S6995','$3646.65','0.5 mm de plomo | 66x95cm | Con bolsillo | acabado plástico','.\\img\\products\\img-product2.jpg','Mandiles'),(3,'Faldón emplomado','Marca Slim Royal','SQUARE','$1443.25','0.5 mm de plomo | 40x40cm | Tipo falda','.\\img\\products\\img-product3.jpg','Mandiles'),(4,'Lentes emplomados','Marca Slim Royal','SS-53','$2873.71',' 0.75 mm de plomo | Con estuche','.\\img\\products\\img-product4.jpg','Lentes'),(5,'Lentes emplomados premium','Marca Slim Royal','S-53','$3403.08',' 0.5 mm de plomo | Con estuche','.\\img\\products\\img-product5.jpg','Lentes'),(6,'Googles emplomados','Marca Slim Royal','GOOGLE-HO','$6344.55',' 0.5 mm de plomo | Con bolsa de tela','.\\img\\products\\img-product6.jpg','Lentes'),(7,'Guantes emplomados','Marca Slim Royal','100 M/L','$2911.80',' 0.5 mm de plomo | 350 mm de largo | Tamaño mediano o grande','.\\img\\products\\img-product7.jpg','Guantes'),(8,'Guantes emplomados','Marca Shielding','XR47','$2637.53',' Modelo RADIAXON | Equivalente a 0.5 mm de plomo | Solo bajo pedido','.\\img\\products\\img-product8.jpg','Guantes'),(9,'Collarín emplomado','Marca Slim Royal','STANDARD-05','$767.96',' 0.5 mm de plomo','.\\img\\products\\img-product9.jpg','Collarines'),(10,'Collarín emplomado de lujo','Marca Slim Royal','DELUX-O5','$1045.49',' 0.5 mm de plomo','.\\img\\products\\img-product10.jpg','Collarines'),(11,'Protectores de gónadas','Marca Slim Royal','S806A','$1618.35','0.5 mm de plomo | Juego de 3 protectores: | grande, mediano y chico','.\\img\\products\\img-product11.jpg','Protectores de gónadas'),(12,'Protectores de gónadas','Marca Slim Royal','S806 M/L','$635.24',' 0.5mm de plomo | Una pieza | Tamaño mediano o grande','.\\img\\products\\img-product12.jpg','Protectores de gónadas');
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,11 +224,9 @@ DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `idUsuario` int NOT NULL,
   `Nombre` varchar(100) DEFAULT NULL,
+  `Apellidos` varchar(45) DEFAULT NULL,
   `Email` varchar(45) DEFAULT NULL,
-  `Direccion` varchar(200) DEFAULT NULL,
   `Teléfono` varchar(15) DEFAULT NULL,
-  `Empresa` varchar(30) DEFAULT NULL,
-  `RazonSocial` varchar(13) DEFAULT NULL,
   `Contrasena` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idUsuario`),
   KEY `fk_Usuario_Orden1_idx` (`idUsuario`)
@@ -234,9 +239,13 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Fabiola León','red.eyees@hotmail.com','Jose Ma. Castorena #361B','562482045','Generation','SALA941009S82','RadioMed_03'),(2,'Daniel Pérez','red.eyees@hotmail.com','Calle Falsa #134','','Generation','PECD970000S00','RadioMed_03'),(3,'Hugo Zamora','red.eyees@hotmail.com','Calle Falsa #123','','Generation','MAZV970000S00','RadioMed_03'),(4,'América Sánchez ','red.eyees@hotmail.com','Calle Falsa #264','','Generation','SALA970000S00','RadioMed_03'),(5,'Alejandra Alpuche','red.eyees@hotmail.com','Calle Falsa #528','','Generation','ZAAA970000S00','RadioMed_03');
+INSERT INTO `usuario` VALUES (1,'Fabiola','León','correo@gmail.com','562482045','RadioMed_03'),(2,'Daniel','Pérez','correo@gmail.com','562482045','RadioMed_03'),(3,'Hugo ','Zamora','correo@gmail.com','562482045','RadioMed_03'),(4,'América ','Sánchez ','correo@gmail.com','562482045','RadioMed_03'),(5,'Alejandra ','Alpuche','correo@gmail.com','562482045','RadioMed_03');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'radiomed_database'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -247,4 +256,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-23 15:43:19
+-- Dump completed on 2021-08-25 23:55:32
