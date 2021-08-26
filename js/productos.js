@@ -1,5 +1,3 @@
-// Cambio a uso del local storage para trabajar con el JSON
-
 let almacenLocal2 = JSON.parse(window.localStorage.getItem("productosLocalS")) // Extraje la información que almacené en local storage
 
 function anadirProducto(productos){

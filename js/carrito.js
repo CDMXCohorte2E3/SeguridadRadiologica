@@ -1,4 +1,8 @@
-function hacerPedido() {
+if (window.localStorage.getItem("subtotales") != null) {
+    window.localStorage.removeItem("subtotales")
+}
+
+function hacerPedido() {    
     new swal({
         icon: 'success',
         title: "ORDEN CREADA",
@@ -9,9 +13,37 @@ function hacerPedido() {
             window.location.href = "./historialPedidos.html";
         }
     });
+
+    // Esto generará la orden de compra
+
+    // let longitudCompras = document.getElementsByClassName("cuentaDeFilas").length;
+    let productos = JSON.parse(window.localStorage.getItem("productosLocalS"));
+    let total = 0;
+    let subTotales = [];
+
+    for( i = 0 ; i <= productos.length ; i++){
+        if( document.getElementById(`fila_${i}`) != null){
+
+            let cantidadF = document.getElementById(`cantidadFinal${i}`).value;
+            let cadenaPrecio = productos[i-1].precio;
+            cadenaPrecio = cadenaPrecio.substring(1);
+            let precio = parseFloat(cadenaPrecio);
+            let subTotal = cantidadF * precio;
+            let precioSub = {"identificador": i, "subtotal": subTotal};
+            subTotales.push(precioSub)
+            total += subTotal;
+            console.log(cadenaPrecio);
+            console.log(total)
+        }
+    }
+
+    window.localStorage.setItem("subtotales",JSON.stringify(subTotales))
+
+    window.localStorage.removeItem("identificadoresLocalS")
+    
+    // Limpiar el localStorage al hacer el pedido, para que se borre la base de datos 
+
 }// hacerPedido
-
-
 
 //Funcion para eliminar row
 
@@ -69,7 +101,7 @@ if (window.localStorage.getItem("identificadoresLocalS") != null) {
                 let fila = `
                <tr id="fila_${compra.identificador}">
                 <td scope="row" class="productoCarrito"> ${listaProductos[compra.identificador -1].titulo} </td>
-                <td><input type="number" value="${listaCantidades[compra.identificador]}"></td>
+                <td><input id="cantidadFinal${compra.identificador}" type="number" value="${listaCantidades[compra.identificador]}"></td>
                 <td style="text-align: center; class="col-3">
 
                     <button type="button" class="btn btn-outline-danger" value="Delete Row" onclick="eliminarCompra(${compra.identificador})">
