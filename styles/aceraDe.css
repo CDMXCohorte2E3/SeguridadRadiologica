@@ -1,0 +1,113 @@
+/* Azul: 25C4C7 , Oscuro: 303030 , Gris 6B6B6B */
+
+.bg-oscuro{
+    background-color: #303030;
+}
+
+/*
+.bg-gris{
+    background-color: #6B6B6B;
+}*/
+
+
+.bg-blanco{
+    background-color: #ffffff;
+}
+
+.container-fluid{
+    padding-left: 0;
+    width: 100vw;
+}
+/*
+.fondo{
+    width: 100vw;
+    height: 90px;
+    background-color: #25C4C7;
+}
+*/
+/*
+.acercaEmpresa{
+    font-family: "Raleway";
+    font-size: 50px;
+}
+*/
+/*
+.textoEmpresa{
+    font-family: "Open sans";
+    font-size: 18px;
+    padding: 0;
+    animation-name: slideIn;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+}
+*/
+
+@keyframes slideIn{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/*
+.imgMision{
+    width: 36vw;
+    height: 380px;
+}
+*/
+/*
+.tituloMision{
+    font-family: "Raleway";
+    font-size: 45px;
+    color: #25C4C7;
+}
+*/
+
+.textoMision{
+    font-family: "Open sans";
+    font-size: 21px;
+    color: #000;
+}
+.imgVision{
+    width: 36vw;
+    height: 380px;
+}
+.tituloVision{
+    font-family: "Raleway";
+    font-size: 45px;
+    color: #25C4C7;
+}
+.textoVision{
+    font-family: "Open sans";
+    font-size: 21px;
+    color: #000;
+}
+.esteProyecto{
+    font-family: "Open sans";
+    font-size: 21px;
+    color: #000;
+}
+.separacionNosotros{
+    margin-top: 150px;
+}
+.integrantes{
+    margin-top: 150px;
+}
+/*
+.imgIntegrante1{
+    width: 43vw;
+}
+*/
+.nombreIntegrante1{
+    font-family: "Raleway";
+    font-size: 30px;    
+}
+.rolIntegrante1{
+    font-family: "Open sans";
+    font-size: 25px;
+    color: #25C4C7;
+}
+.textoIntegrante1{
+    font-family: "Open sans";
+}

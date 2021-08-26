@@ -1,15 +1,128 @@
-
+// Esto añade al local storage las key-values
+if( window.localStorage.getItem("productosLocalS") == null ){
+  let prueba = [
+    {
+      "imagen": "./img/products/img-product_1.jpg",
+      "titulo": "Mandil emplomado económico",
+      "marca": "Marca Slim Royal",
+      "modelo": "E6995",
+      "precio": "$2904.90",
+      "descripcion" : "0.5mm de plomo|66x95 cm|Con bolsillo|Acabado textil",
+      "id": "1"
+    },
+    {
+      "imagen": "./img/products/img-product_2.jpg",
+      "titulo": "Mandil emplomado estándar",
+      "marca": "Marca Slim Royal",
+      "modelo": "S6995",
+      "precio": "$3646.65",
+      "descripcion" : "0.5mm de plomo|66x95 cm|Con bolsillo|Acabado plástico",
+      "id": "2"
+    },
+    {
+      "imagen": "./img/products/img-product_3.jpg",
+      "titulo": "Faldón emplomado",
+      "marca": "Marca Slim Royale",
+      "modelo": "SQUARE",
+      "precio": "$1443.25",
+      "descripcion" : "0.5mm de plomo,40x40 cm|Tipo falda",
+      "id": "3"
+    },
+    {
+      "imagen": "./img/products/img-product_4.jpg",
+      "titulo": "Lentes emplomados",
+      "marca": "Marca Slim Royale",
+      "modelo": "SS-53",
+      "precio": "$2873.71",
+      "descripcion" : "0.55mm de plomo|Con estuche",
+      "id": "4"
+    },
+    {
+      "imagen": "./img/products/img-product_5.jpg",
+      "titulo": "Lentes emplomados premium",
+      "marca": "Marca Slim Royale",
+      "modelo": "S-53",
+      "precio": "$3403.08",
+      "descripcion" : "0.5mm de plomo|Con estuche",
+      "id": "5"
+    },
+    {
+      "imagen": "./img/products/img-product_6.jpg",
+      "titulo": "Googles emplomados",
+      "marca": "Marca Slim Royale",
+      "modelo": "GOOGLE-HO",
+      "precio": "$6344.55",
+      "descripcion" : "0.5mm de plomo|Con bolsa de tela",
+      "id": "6"
+    },
+    {
+      "imagen": "./img/products/img-product_7.jpg",
+      "titulo": "Guantes emplomados",
+      "marca": "Marca Slim Royale",
+      "modelo": "100 M/L",
+      "precio": "$2,911.80",
+      "descripcion" : "0.5mm de plomo|350mm de largo|Tamaño mediano o grande",
+      "id": "7"
+    },
+    {
+      "imagen": "./img/products/img-product_8.jpg",
+      "titulo": "Guantes emplomados RADIAXON",
+      "marca": "Marca Shielding",
+      "modelo": "XR47",
+      "precio": "$2,637.53",
+      "descripcion" : "Equivalente a 0.5mm|de plomo|Tamaño mediano o grande",
+      "id": "8"
+    },
+    {
+      "imagen": "./img/products/img-product_9.jpg",
+      "titulo": "Collarín emplomado",
+      "marca": "Marca Slim Royale",
+      "modelo": "STANDAR-O5",
+      "precio": "$767.96",
+      "descripcion" : "0.5mm de plomo",
+      "id": "9"
+    },
+    {
+      "imagen": "./img/products/img-product_10.jpg",
+      "titulo": "Collarín emplomado de lujo",
+      "marca": "Marca Slim Royale",
+      "modelo": "DELUX-O5",
+      "precio": "$1,045.49",
+      "descripcion" : "0.5mm de plomo",
+      "id": "10"
+    },
+    {
+      "imagen": "./img/products/img-product_11.jpg",
+      "titulo": "Protectores de gónadas",
+      "marca": "Marca Slim Royale",
+      "modelo": "S806A",
+      "precio": "$1,618.35",
+      "descripcion" : "0.5mm de plomo,Juego de 3 piezas:|Grande mediano y chico",
+      "id": "11"
+    },
+    {
+      "imagen": "./img/products/img-product_12.jpg",
+      "titulo": "Protector de gónadas",
+      "marca": "Marca Slim Royale",
+      "modelo": "S806 M/L",
+      "precio": "$635.24",
+      "descripcion" : "0.5mm de plomo|Una pieza|Tamaño mediano o grande",
+      "id": "12"
+    }
+  ]
+  window.localStorage.setItem('productosLocalS',JSON.stringify(prueba))
+} // fin de añadir a local storage 
 
 // Cambio a uso del local storage para trabajar con el JSON
 
 let almacenLocal = JSON.parse(window.localStorage.getItem("productosLocalS")) // Extraje la información que almacené en local storage
 
-function anadirProductoPanel(productosPanel){
+function anadirProducto(productos){
 
-    const ancla = document.getElementById("productosPanel");
+    const ancla = document.getElementById("productos");
     let plantilla = "";
     
-    productosPanel.forEach(function(producto){
+    productos.forEach(function(producto){
 
       let card = `
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 div-centered" style="margin-top:100px;">
@@ -27,14 +140,8 @@ function anadirProductoPanel(productosPanel){
               <div class="button text-center">      
 
               <!-- Inicio del modal -->
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalEditarProducto${producto.id}"> Editar
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEditarProducto${producto.id}"> Editar
               </button>
-
-                <div class="deshabilitar" id="botonHabilita${producto.id}" style="margin-top: 5px;">
-                    <button type="button" id="habilita${producto.id}" class="btn btn-secondary btn-sm"> Deshabilitar
-                    </button>  
-                </div>
-                
               <div class="modal fade" id="modalEditarProducto${producto.id}" tabindex="-1" aria-labelledby="modal-Panel-Edicion" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -110,7 +217,7 @@ function anadirProductoPanel(productosPanel){
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cancelar </button>
-                    <button id="submit_${producto.id}" type="submit" class="btn btn-info"> Guardar cambios </button>
+                    <button id="submit_${producto.id}" type="submit" class="btn btn-primary"> Guardar cambios </button>
                   </div>
                 </div>
               </div>
@@ -127,7 +234,7 @@ function anadirProductoPanel(productosPanel){
     ancla.innerHTML = plantilla;
 
     //Para cada producto trae el botón de submit de cada producto y ejecuta la función validateFormS con el click
-    productosPanel.forEach(function(producto){
+    productos.forEach(function(producto){
       let tempform = document.getElementById("submit_" + producto.id);
       tempform.addEventListener('click',validateFormS);
 
@@ -147,7 +254,7 @@ function validateFormS(e){
 
 }
 
-anadirProductoPanel(almacenLocal);
+anadirProducto(almacenLocal);
 
 function listaElementos(json){
   let descr,spl,myDiv;
@@ -168,75 +275,6 @@ function listaElementos(json){
 
 listaElementos(almacenLocal);
 // Función para editar productos desde el panel de admin
-
-//Habilita-Deshabilita
-
-function habilitarDeshabilitar(json){
-  
-  for( i = 0 ; i < json.length ; i++ ){
-    let buton = document.getElementById("botonHabilita"+json[i].id);
-    let status = json[i].status;
-  
-    const btnHabilita=`
-      <button type="button" id="habilita${json[i].id}" class="btn btn-info btn-sm"> Habilitar
-      </button>
-    `;
-    const btnDeshabilita=`
-      <button type="button" id="habilita${json[i].id}" class="btn btn-secondary btn-sm"> Deshabilitar
-      </button>
-    `;
-
-    if(status == 1){
-      buton.innerHTML = btnDeshabilita;
-      let butonDeshabilita = document.getElementById("habilita"+json[i].id);
-      let identi=json[i].id;
-      butonDeshabilita.addEventListener("click", deshabilita);
-
-      function deshabilita(e){
-        e.preventDefault();
-        //let numProductos = e.target.id.split("_")[1]; //trae el id del producto
-        console.log(identi)
-        
-        let statusLS = JSON.parse(window.localStorage.getItem("productosLocalS"))
-        console.log(statusLS[identi-1].status)
-        statusLS[identi-1].status = "0";
-      
-        window.localStorage.setItem("productosLocalS",JSON.stringify(statusLS)) // Reenvío la información a la base de datos
-         window.location.reload()
-         
-      }//deshabilita
-
-    }else if(status == 0){
-      buton.innerHTML = btnHabilita;
-      let butonhabilita = document.getElementById("habilita"+json[i].id);
-      //console.log(json[i].id)
-      let identi=json[i].id;
-      butonhabilita.addEventListener("click", habilita);
-
-      function habilita(e){
-        e.preventDefault();
-        //let numProductos = e.target.id.split("_")[1]; //trae el id del producto
-        console.log(identi)
-        
-        let statusLS = JSON.parse(window.localStorage.getItem("productosLocalS"))
-        console.log(statusLS[identi-1].status)
-        statusLS[identi-1].status = "1";
-      
-        window.localStorage.setItem("productosLocalS",JSON.stringify(statusLS)) // Reenvío la información a la base de datos
-         window.location.reload()
-         
-      }//deshabilita
-    }//if
-
-  }//for
- 
-}//habilitarDeshabilitar
-
-
-
-
-
-habilitarDeshabilitar(almacenLocal);
 
 //Validación del formulario
 let form2 = document.getElementById('act-needs-validation');
@@ -283,7 +321,7 @@ function validateForm2(n){//validateForm
 
     function validatePrice(price){//validateModel
       //let expReg= /^[A-Z]+$/;
-      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)
+      let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.$ ]+$/)
       let esValido3 = expReg.test(price);      
       if(esValido3 == true){//if Price
           inputPrice.classList.remove('is-invalid')
@@ -330,7 +368,7 @@ function validateForm2(n){//validateForm
       window.location.reload()
     }
     return valid2 = 0;
-}//validateForm2
+}//validateForm
 
 
 
@@ -343,7 +381,6 @@ function guardarCambios(id){
   variableLS[id - 1].precio =  document.getElementById("actualizarPrecio" + id).value;
   variableLS[id - 1].modelo = document.getElementById("actualizarModelo" + id).value;
   variableLS[id - 1].descripcion = document.getElementById("actualizarDescripcion" + id).value
-  variableLS[id - 1].status = "1";
 
 
   window.localStorage.setItem("productosLocalS",JSON.stringify(variableLS)) // Reenvío la información a la base de datos
