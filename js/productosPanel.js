@@ -1,128 +1,11 @@
-// Esto añade al local storage las key-values
-if( window.localStorage.getItem("productosLocalS") == null ){
-  let prueba = [
-    {
-      "imagen": "./img/products/img-product_1.jpg",
-      "titulo": "Mandil emplomado económico",
-      "marca": "Marca Slim Royal",
-      "modelo": "E6995",
-      "precio": "$2904.90",
-      "descripcion" : "0.5mm de plomo|66x95 cm|Con bolsillo|Acabado textil",
-      "id": "1"
-    },
-    {
-      "imagen": "./img/products/img-product_2.jpg",
-      "titulo": "Mandil emplomado estándar",
-      "marca": "Marca Slim Royal",
-      "modelo": "S6995",
-      "precio": "$3646.65",
-      "descripcion" : "0.5mm de plomo|66x95 cm|Con bolsillo|Acabado plástico",
-      "id": "2"
-    },
-    {
-      "imagen": "./img/products/img-product_3.jpg",
-      "titulo": "Faldón emplomado",
-      "marca": "Marca Slim Royale",
-      "modelo": "SQUARE",
-      "precio": "$1443.25",
-      "descripcion" : "0.5mm de plomo,40x40 cm|Tipo falda",
-      "id": "3"
-    },
-    {
-      "imagen": "./img/products/img-product_4.jpg",
-      "titulo": "Lentes emplomados",
-      "marca": "Marca Slim Royale",
-      "modelo": "SS-53",
-      "precio": "$2873.71",
-      "descripcion" : "0.55mm de plomo|Con estuche",
-      "id": "4"
-    },
-    {
-      "imagen": "./img/products/img-product_5.jpg",
-      "titulo": "Lentes emplomados premium",
-      "marca": "Marca Slim Royale",
-      "modelo": "S-53",
-      "precio": "$3403.08",
-      "descripcion" : "0.5mm de plomo|Con estuche",
-      "id": "5"
-    },
-    {
-      "imagen": "./img/products/img-product_6.jpg",
-      "titulo": "Googles emplomados",
-      "marca": "Marca Slim Royale",
-      "modelo": "GOOGLE-HO",
-      "precio": "$6344.55",
-      "descripcion" : "0.5mm de plomo|Con bolsa de tela",
-      "id": "6"
-    },
-    {
-      "imagen": "./img/products/img-product_7.jpg",
-      "titulo": "Guantes emplomados",
-      "marca": "Marca Slim Royale",
-      "modelo": "100 M/L",
-      "precio": "$2911.80",
-      "descripcion" : "0.5mm de plomo|350mm de largo|Tamaño mediano o grande",
-      "id": "7"
-    },
-    {
-      "imagen": "./img/products/img-product_8.jpg",
-      "titulo": "Guantes emplomados RADIAXON",
-      "marca": "Marca Shielding",
-      "modelo": "XR47",
-      "precio": "$2637.53",
-      "descripcion" : "Equivalente a 0.5mm|de plomo|Tamaño mediano o grande",
-      "id": "8"
-    },
-    {
-      "imagen": "./img/products/img-product_9.jpg",
-      "titulo": "Collarín emplomado",
-      "marca": "Marca Slim Royale",
-      "modelo": "STANDAR-O5",
-      "precio": "$767.96",
-      "descripcion" : "0.5mm de plomo",
-      "id": "9"
-    },
-    {
-      "imagen": "./img/products/img-product_10.jpg",
-      "titulo": "Collarín emplomado de lujo",
-      "marca": "Marca Slim Royale",
-      "modelo": "DELUX-O5",
-      "precio": "$1045.49",
-      "descripcion" : "0.5mm de plomo",
-      "id": "10"
-    },
-    {
-      "imagen": "./img/products/img-product_11.jpg",
-      "titulo": "Protectores de gónadas",
-      "marca": "Marca Slim Royale",
-      "modelo": "S806A",
-      "precio": "$1618.35",
-      "descripcion" : "0.5mm de plomo,Juego de 3 piezas:|Grande mediano y chico",
-      "id": "11"
-    },
-    {
-      "imagen": "./img/products/img-product_12.jpg",
-      "titulo": "Protector de gónadas",
-      "marca": "Marca Slim Royale",
-      "modelo": "S806 M/L",
-      "precio": "$635.24",
-      "descripcion" : "0.5mm de plomo|Una pieza|Tamaño mediano o grande",
-      "id": "12"
-    }
-  ]
-  window.localStorage.setItem('productosLocalS',JSON.stringify(prueba))
-} // fin de añadir a local storage 
-
-// Cambio a uso del local storage para trabajar con el JSON
-
 let almacenLocal = JSON.parse(window.localStorage.getItem("productosLocalS")) // Extraje la información que almacené en local storage
 
-function anadirProducto(productos){
+function anadirProductoPanel(productosPanel){
 
-    const ancla = document.getElementById("productos");
+    const ancla = document.getElementById("productosPanel");
     let plantilla = "";
     
-    productos.forEach(function(producto){
+    productosPanel.forEach(function(producto){
 
       let card = `
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 div-centered" style="margin-top:100px;">
@@ -142,6 +25,11 @@ function anadirProducto(productos){
               <!-- Inicio del modal -->
               <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalEditarProducto${producto.id}"> Editar
               </button>
+                <div class="deshabilitar" style="margin-top: 5px;">
+                    <button type="button" class="btn btn-secondary btn-sm" data-target="#modalEditarProducto${producto.id}"> Deshabilitar
+                    </button>
+                </div>
+              
               <div class="modal fade" id="modalEditarProducto${producto.id}" tabindex="-1" aria-labelledby="modal-Panel-Edicion" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -217,7 +105,7 @@ function anadirProducto(productos){
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cancelar </button>
-                    <button id="submit_${producto.id}" type="submit" class="btn btn-primary"> Guardar cambios </button>
+                    <button id="submit_${producto.id}" type="submit" class="btn btn-info"> Guardar cambios </button>
                   </div>
                 </div>
               </div>
@@ -234,7 +122,7 @@ function anadirProducto(productos){
     ancla.innerHTML = plantilla;
 
     //Para cada producto trae el botón de submit de cada producto y ejecuta la función validateFormS con el click
-    productos.forEach(function(producto){
+    productosPanel.forEach(function(producto){
       let tempform = document.getElementById("submit_" + producto.id);
       tempform.addEventListener('click',validateFormS);
 
@@ -254,7 +142,7 @@ function validateFormS(e){
 
 }
 
-anadirProducto(almacenLocal);
+anadirProductoPanel(almacenLocal);
 
 function listaElementos(json){
   let descr,spl,myDiv;
@@ -368,7 +256,7 @@ function validateForm2(n){//validateForm
       window.location.reload()
     }
     return valid2 = 0;
-}//validateForm
+}//validateForm2
 
 
 
