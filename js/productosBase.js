@@ -66,7 +66,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "titulo": "Guantes emplomados",
         "marca": "Marca Slim Royale",
         "modelo": "100 M/L",
-        "precio": "$2,911.80",
+        "precio": "$2911.80",
         "descripcion" : "0.5mm de plomo|350mm de largo|Tamaño mediano o grande",
         "id": "7",
         "status":"1"
@@ -76,7 +76,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "titulo": "Guantes emplomados",
         "marca": "Marca Shielding",
         "modelo": "XR47",
-        "precio": "$2,637.53",
+        "precio": "$2637.53",
         "descripcion" : "RADIAXON|Equivalente a 0.5mm|de plomo|Tamaño mediano o grande",
         "id": "8",
         "status":"1"
@@ -96,7 +96,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "titulo": "Collarín emplomado de lujo",
         "marca": "Marca Slim Royale",
         "modelo": "DELUX-O5",
-        "precio": "$1,045.49",
+        "precio": "$1045.49",
         "descripcion" : "0.5mm de plomo",
         "id": "10",
         "status":"1"
@@ -106,7 +106,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "titulo": "Protectores de gónadas",
         "marca": "Marca Slim Royale",
         "modelo": "S806A",
-        "precio": "$1,618.35",
+        "precio": "$1618.35",
         "descripcion" : "0.5mm de plomo,Juego de 3 piezas:|Grande mediano y chico",
         "id": "11",
         "status":"1"

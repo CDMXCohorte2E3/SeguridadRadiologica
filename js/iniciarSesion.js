@@ -90,14 +90,14 @@ function iniciarSesion(){
     let inputEmail2 = document.getElementById('emailIniciar');
     let inputContraseña2 = document.getElementById('passwordIniciar');
 
-    console.log(inputEmail2.value);
-    console.log(inputContraseña2.value);
+    // console.log(inputEmail2.value);
+    // console.log(inputContraseña2.value);
 
     let cont = 0;
 
   for( i = 0 ; i < almacenLocal.length ; i++){
     if( almacenLocal[i].email == inputEmail2.value ){
-        console.log("Entre al primer if")
+        // console.log("Entre al primer if")
         cont++;
         //Toast();
         if( almacenLocal[i].password == inputContraseña2.value ){ 
@@ -106,12 +106,12 @@ function iniciarSesion(){
           cont++;
           break
         } else {
-          console.log("Contraseña o correo incorrecto")
+          // console.log("Contraseña o correo incorrecto")
           boton.innerHTML = msgError;
         } // if para comparar las contraseñas
 
     }else{
-      console.log("Contraseña o correo incorrecto")
+      // console.log("Contraseña o correo incorrecto")
       boton.innerHTML = msgError;
     }//if
 

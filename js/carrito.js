@@ -21,9 +21,11 @@ function hacerPedido() {
     let total = 0;
     let subTotales = [];
 
+
+    //Recorre la lista de productos y si hay productos agregados al carrio, obtiene los precios y calcula
+    //subtotales y total:
     for( i = 0 ; i <= productos.length ; i++){
         if( document.getElementById(`fila_${i}`) != null){
-
             let cantidadF = document.getElementById(`cantidadFinal${i}`).value;
             let cadenaPrecio = productos[i-1].precio;
             cadenaPrecio = cadenaPrecio.substring(1);
@@ -32,14 +34,15 @@ function hacerPedido() {
             let precioSub = {"identificador": i, "subtotal": subTotal};
             subTotales.push(precioSub)
             total += subTotal;
-            console.log(cadenaPrecio);
-            console.log(total)
+            
         }
     }
 
-    window.localStorage.setItem("subtotales",JSON.stringify(subTotales))
+    //Agregan subtotales y total a localStorage:
+    window.localStorage.setItem("subtotales",JSON.stringify(subTotales));
+    window.localStorage.setItem("total",JSON.stringify(total));
 
-    window.localStorage.removeItem("identificadoresLocalS")
+    window.localStorage.removeItem("identificadoresLocalS");
     
     // Limpiar el localStorage al hacer el pedido, para que se borre la base de datos 
 
@@ -102,7 +105,7 @@ if (window.localStorage.getItem("identificadoresLocalS") != null) {
                <tr id="fila_${compra.identificador}">
 
                 <td scope="row" class="productoCarrito col-6"> ${listaProductos[compra.identificador -1].titulo} </td>
-                <td class="col-3"><input type="number" style="width: 60%" value="${listaCantidades[compra.identificador]}"></td>
+                <td class="col-3"><input type="number" id="cantidadFinal${compra.identificador}" style="width: 60%" value="${listaCantidades[compra.identificador]}"></td>
 
                 <td style="text-align: center; class="col-3">
 
