@@ -1,6 +1,7 @@
 package org.radiomed.radiomedApp.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,7 @@ public class UsuarioService{
             if (rfc != null) tmpEmp.setRfc(rfc);
         }//if
     }// updateUsuario
+
 
 
 

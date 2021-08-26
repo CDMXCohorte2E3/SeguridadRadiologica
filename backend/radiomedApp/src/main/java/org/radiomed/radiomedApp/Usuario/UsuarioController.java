@@ -33,3 +33,5 @@ public class UsuarioController {
     }//deleteUsuario
 
 }//class UsuarioController
+
+    @PostMapping
