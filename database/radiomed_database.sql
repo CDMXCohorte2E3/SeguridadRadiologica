@@ -25,13 +25,14 @@ DROP TABLE IF EXISTS `admin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `admin` (
-  `idAdministrador` int NOT NULL,
-  `Nombre` varchar(45) DEFAULT NULL,
-  `Apellidos` varchar(45) DEFAULT NULL,
-  `Email` varchar(45) DEFAULT NULL,
-  `Contrasena` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idAdministrador`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `idadministrador` int NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(45) NOT NULL,
+  `Apellidos` varchar(45) NOT NULL,
+  `Email` varchar(45) NOT NULL,
+  `Contrasena` varchar(45) NOT NULL,
+  PRIMARY KEY (`idadministrador`),
+  UNIQUE KEY `idAdministrador_UNIQUE` (`idadministrador`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -242,10 +243,6 @@ LOCK TABLES `usuario` WRITE;
 INSERT INTO `usuario` VALUES (1,'Fabiola','León','correo@gmail.com','562482045','RadioMed_03'),(2,'Daniel','Pérez','correo@gmail.com','562482045','RadioMed_03'),(3,'Hugo ','Zamora','correo@gmail.com','562482045','RadioMed_03'),(4,'América ','Sánchez ','correo@gmail.com','562482045','RadioMed_03'),(5,'Alejandra ','Alpuche','correo@gmail.com','562482045','RadioMed_03');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping routines for database 'radiomed_database'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -256,4 +253,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-25 23:55:32
+-- Dump completed on 2021-08-27 17:14:52
