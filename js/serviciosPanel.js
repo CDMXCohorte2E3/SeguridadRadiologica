@@ -299,7 +299,6 @@ function validateFormServicios(n){//validateForm
     let inputParrafoRes = document.getElementById('editarParrafoBlack' + n);
     
     function validateName(nombre){//validateName
-      //let expReg= /^[A-Z]+$/;
       let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.,()¡!¿? ]+$/)  
       let esValido = expReg.test(nombre);      
       if(esValido == true){//if nombre
@@ -371,7 +370,6 @@ function editarServicios(id){
 	variableLS[id - 1].parrafo2 = document.getElementById("editarParrafo2" + id).value;
 	variableLS[id - 1].parrafo3 = document.getElementById("editarParrafo3" + id).value;
 	variableLS[id - 1].parrafoBlack = document.getElementById("editarParrafoBlack" + id).value;
-	// variableLS[id - 1] = document.getElementById("editarImage");
 
 	window.localStorage.setItem("serviciosLocalS",JSON.stringify(variableLS));
 	

@@ -13,7 +13,7 @@ function validateForm(e){//validateForm
     let inputConfirmarContraseña = document.getElementById('confirmPassword');
 
     function validateName(nombre){
-      //let expReg= /^[A-Z]+$/;
+      
       let expReg = new RegExp(/^[a-zA-Z-á-ú ]+$/)  
       let esValido2 = expReg.test(nombre);      
       if(esValido2 == true){//if nombre
@@ -28,7 +28,7 @@ function validateForm(e){//validateForm
     validateName(inputNombre.value)
 
     function validateLastName(apellidos){
-        //let expReg= /^[A-Z]+$/;
+        
         let expReg = new RegExp(/^[a-zA-Z-á-ú ]+$/)  
         let esValido2 = expReg.test(apellidos);        
         if(esValido2 == true){//if apellido
@@ -88,10 +88,8 @@ function validateForm(e){//validateForm
       inputPhone.classList.add('is-invalid')
     }//if teléfono
 
-    if (valid==6){
-       //  window.open('mailto:generation.c2.cdmxe3@gmail.com?subject=Contacto&body=body');
-       
-       nuevoRegistro();
+    if (valid==6){       
+      nuevoRegistro();
       Regis();
     }
     return valid = 0;
@@ -101,12 +99,6 @@ function validateForm(e){//validateForm
 
 
 form.addEventListener('submit', validateForm)
-
-
-/*
-Encontré este tutorial para que funcione mejor la validación + pop up
-https://www.w3schools.com/js/tryit.asp?filename=tryjs_validation_js 
-*/
 
 function nuevoRegistro(){
   

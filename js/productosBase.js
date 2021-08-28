@@ -2,7 +2,7 @@
 if( window.localStorage.getItem("productosLocalS") == null ){
     let prueba = [
       {
-        "imagen": "../img/products/img-product_1.jpg",
+        "imagen": "./img/products/img-product_1.jpg",
         "titulo": "Mandil emplomado económico",
         "marca": "Marca Slim Royal",
         "modelo": "E6995",
@@ -12,7 +12,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "status":"1"
       },
       {
-        "imagen": "../img/products/img-product_2.jpg",
+        "imagen": "./img/products/img-product_2.jpg",
         "titulo": "Mandil emplomado estándar",
         "marca": "Marca Slim Royal",
         "modelo": "S6995",
@@ -22,7 +22,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "status":"1"
       },
       {
-        "imagen": "../img/products/img-product_3.jpg",
+        "imagen": "./img/products/img-product_3.jpg",
         "titulo": "Faldón emplomado",
         "marca": "Marca Slim Royale",
         "modelo": "SQUARE",
@@ -32,7 +32,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "status":"1"
       },
       {
-        "imagen": "../img/products/img-product_4.jpg",
+        "imagen": "./img/products/img-product_4.jpg",
         "titulo": "Lentes emplomados",
         "marca": "Marca Slim Royale",
         "modelo": "SS-53",
@@ -42,7 +42,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "status":"1"
       },
       {
-        "imagen": "../img/products/img-product_5.jpg",
+        "imagen": "./img/products/img-product_5.jpg",
         "titulo": "Lentes emplomados",
         "marca": "Marca Slim Royale",
         "modelo": "S-53",
@@ -52,7 +52,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "status":"1"
       },
       {
-        "imagen": "../img/products/img-product_6.jpg",
+        "imagen": "./img/products/img-product_6.jpg",
         "titulo": "Googles emplomados",
         "marca": "Marca Slim Royale",
         "modelo": "GOOGLE-HO",
@@ -62,7 +62,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "status":"1"
       },
       {
-        "imagen": "../img/products/img-product_7.jpg",
+        "imagen": "./img/products/img-product_7.jpg",
         "titulo": "Guantes emplomados",
         "marca": "Marca Slim Royale",
         "modelo": "100 M/L",
@@ -72,7 +72,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "status":"1"
       },
       {
-        "imagen": "../img/products/img-product_8.jpg",
+        "imagen": "./img/products/img-product_8.jpg",
         "titulo": "Guantes emplomados",
         "marca": "Marca Shielding",
         "modelo": "XR47",
@@ -82,7 +82,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "status":"1"
       },
       {
-        "imagen": "../img/products/img-product_9.jpg",
+        "imagen": "./img/products/img-product_9.jpg",
         "titulo": "Collarín emplomado",
         "marca": "Marca Slim Royale",
         "modelo": "STANDAR-O5",
@@ -92,7 +92,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "status":"1"
       },
       {
-        "imagen": "../img/products/img-product_10.jpg",
+        "imagen": "./img/products/img-product_10.jpg",
         "titulo": "Collarín emplomado de lujo",
         "marca": "Marca Slim Royale",
         "modelo": "DELUX-O5",
@@ -102,7 +102,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "status":"1"
       },
       {
-        "imagen": "../img/products/img-product_11.jpg",
+        "imagen": "./img/products/img-product_11.jpg",
         "titulo": "Protectores de gónadas",
         "marca": "Marca Slim Royale",
         "modelo": "S806A",
@@ -112,7 +112,7 @@ if( window.localStorage.getItem("productosLocalS") == null ){
         "status":"1"
       },
       {
-        "imagen": "../img/products/img-product_12.jpg",
+        "imagen": "./img/products/img-product_12.jpg",
         "titulo": "Protectores de gónadas",
         "marca": "Marca Slim Royale",
         "modelo": "S806 M/L",
