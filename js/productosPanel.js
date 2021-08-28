@@ -253,7 +253,7 @@ function validateForm2(n){//validateForm
     let inputImage = document.getElementById('image');
 
     function validateName(nombre){//validateName
-      //let expReg= /^[A-Z]+$/;
+      
       let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9. ]+$/)  
       let esValido = expReg.test(nombre);
       if(esValido == true){//if nombre

@@ -14,7 +14,7 @@ function validateForm(e){//validateForm
     let inputNotes = document.getElementById('notas');
 
     function validateName(nombre){
-      //let expReg= /^[A-Z]+$/;
+      
       let expReg = new RegExp(/^[a-zA-Z-á-ú ]+$/)  
       let esValido2 = expReg.test(nombre);      
       if(esValido2 == true){//if nombre
@@ -43,7 +43,7 @@ function validateForm(e){//validateForm
     validateEmail(inputEmail.value)
 
     function validateAdress(adress){//validateAdress
-      //let expReg= /^[A-Z]+$/;
+      
       let expReg = new RegExp(/^[a-zA-Z-á-ú-0-9 -.#/]+$/)  
       let esValido3 = expReg.test(adress);      
       if(esValido3 == true){//if nombre

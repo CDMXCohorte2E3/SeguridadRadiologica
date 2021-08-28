@@ -8,7 +8,7 @@ function anadirProducto(productos){
     productos.forEach(function(producto2){
 
       if(producto2.status==1){
-        // console.log(producto2.status);
+        
         let card = `
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 div-centered" style="margin-top:100px;">
         <div class="card"> 
@@ -37,7 +37,7 @@ function anadirProducto(productos){
 
         plantilla2 += card;
         }else if(producto2.status==0){
-          // console.log("ceropa");
+          
 
         }//else if
         
