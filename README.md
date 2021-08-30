@@ -1,4 +1,7 @@
 # RADIOMED
+(./img/logo/logo-horizontal.svg)
+
+
 ## Seguridad Radiológica
 RadioMed es una empresa mexicana especializada en servicios de capacitación y asesoría en protección y seguridad radiológica para diagnóstico médico con rayos X. Nuestro personal cuenta con autorización de Asesor Especializado en Seguridad Radiológica avalada por la COFEPRIS.
 
