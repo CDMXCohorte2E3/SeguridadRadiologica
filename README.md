@@ -1,5 +1,9 @@
+
+![radiomed](./img/logo/logo-horizontal.svg)
 # RADIOMED
-(./img/logo/logo-horizontal.svg)
+***
+
+
 
 
 ## Seguridad Radiológica
