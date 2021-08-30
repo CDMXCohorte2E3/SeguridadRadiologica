@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES (1,'Leticia','Somera','radiomed.asesores@gmail.com','RadioMed_01'),(2,'David','Vargas ','radiomed.contacto@gmail.com','RadioMed_01'),(3,'América  ','Sánchez ','americasanchezleon@gmail.com','RadioMed_02'),(4,'Carlos ','Pérez ','carlos.dan.pvst@gmail.com','RadioMed_02'),(5,'Alejandra','Zataráin','azatarainalp@gmail.com','RadioMed_02'),(6,'Victor','Martínez','victor.martinez.zamora98@gmail.com','RadioMed_02');
+INSERT INTO `admin` VALUES (1,'Leticia','Somera','radiomed.asesores@gmail.com','RadioMed_01'),(2,'David','Vargas ','radiomed.contacto@gmail.com','RadioMed_01'),(3,'América  ','Sánchez ','americasanchezleon@gmail.com','RadioMed_02'),(4,'Carlos ','Pérez ','carlos.dan.pvst@gmail.com','RadioMed_02'),(5,'Alejandra','Zataráin','azatarainalp@gmail.com','RadioMed_02');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -53,7 +53,7 @@ DROP TABLE IF EXISTS `cotizacion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cotizacion` (
-  `IdCotizacion` int NOT NULL,
+  `Idcotizacion` int NOT NULL,
   `Fecha` timestamp NULL DEFAULT NULL,
   `Nombre` varchar(100) DEFAULT NULL,
   `Apellidos` varchar(45) DEFAULT NULL,
@@ -62,8 +62,8 @@ CREATE TABLE `cotizacion` (
   `Telefono` varchar(15) DEFAULT NULL,
   `RazonSocial` varchar(15) DEFAULT NULL,
   `Empresa` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`IdCotizacion`),
-  KEY `fk_Cotizacion_DetalleCotizacion1_idx` (`IdCotizacion`)
+  PRIMARY KEY (`Idcotizacion`),
+  KEY `fk_Cotizacion_DetalleCotizacion1_idx` (`Idcotizacion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -85,11 +85,11 @@ DROP TABLE IF EXISTS `detallecotizacion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `detallecotizacion` (
-  `idDetalleCotizacion` int NOT NULL,
-  `idCotizacion` int NOT NULL,
-  `idServicio` int NOT NULL,
-  PRIMARY KEY (`idDetalleCotizacion`,`idCotizacion`,`idServicio`),
-  KEY `fk_DetalleCotizacion_Servicio1_idx` (`idServicio`)
+  `iddetallecotizacion` int NOT NULL,
+  `idcotizacion` int NOT NULL,
+  `idservicio` int NOT NULL,
+  PRIMARY KEY (`iddetallecotizacion`,`idcotizacion`,`idservicio`),
+  KEY `fk_DetalleCotizacion_Servicio1_idx` (`idservicio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -111,12 +111,12 @@ DROP TABLE IF EXISTS `detalleorden`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `detalleorden` (
-  `idDetalleOrden` int NOT NULL,
-  `idOrden` int NOT NULL,
-  `idProducto` int NOT NULL,
+  `iddetalleorden` int NOT NULL,
+  `idorden` int NOT NULL,
+  `idproducto` int NOT NULL,
   `Cantidad` int DEFAULT NULL,
-  PRIMARY KEY (`idDetalleOrden`,`idOrden`,`idProducto`),
-  KEY `fk_DetalleOrden_Producto1_idx` (`idProducto`)
+  PRIMARY KEY (`iddetalleorden`,`idorden`,`idproducto`),
+  KEY `fk_DetalleOrden_Producto1_idx` (`idproducto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -138,11 +138,11 @@ DROP TABLE IF EXISTS `orden`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orden` (
-  `idOrden` int NOT NULL,
-  `idUsuario` int NOT NULL,
+  `idorden` int NOT NULL,
+  `idusuario` int NOT NULL,
   `Fecha` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`idOrden`,`idUsuario`),
-  KEY `fk_Orden_DetalleOrden1_idx` (`idOrden`)
+  PRIMARY KEY (`idorden`,`idusuario`),
+  KEY `fk_Orden_DetalleOrden1_idx` (`idorden`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -164,7 +164,7 @@ DROP TABLE IF EXISTS `producto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `producto` (
-  `idProducto` int NOT NULL,
+  `idproducto` int NOT NULL,
   `Nombre` varchar(45) DEFAULT NULL,
   `Marca` varchar(45) DEFAULT NULL,
   `Modelo` varchar(45) DEFAULT NULL,
@@ -172,7 +172,7 @@ CREATE TABLE `producto` (
   `Descripcion` varchar(200) DEFAULT NULL,
   `Imagen` varchar(150) DEFAULT NULL,
   `Categoria` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idProducto`)
+  PRIMARY KEY (`idproducto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -194,14 +194,14 @@ DROP TABLE IF EXISTS `servicio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `servicio` (
-  `idServicio` int NOT NULL,
+  `idservicio` int NOT NULL,
   `Nombre` varchar(200) DEFAULT NULL,
-  `ParrafoIntroductorio` varchar(300) DEFAULT NULL,
-  `ParrafoDos` varchar(300) DEFAULT NULL,
-  `ParrafoTres` varchar(300) DEFAULT NULL,
-  `ParrafoResaltado` varchar(300) DEFAULT NULL,
+  `Parrafointroductorio` varchar(300) DEFAULT NULL,
+  `Parrafodos` varchar(300) DEFAULT NULL,
+  `Parrafotres` varchar(300) DEFAULT NULL,
+  `Parraforesaltado` varchar(300) DEFAULT NULL,
   `Imagen` varchar(150) DEFAULT NULL,
-  PRIMARY KEY (`idServicio`)
+  PRIMARY KEY (`idservicio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -223,14 +223,14 @@ DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuario` (
-  `idUsuario` int NOT NULL,
+  `idusuario` int NOT NULL,
   `Nombre` varchar(100) DEFAULT NULL,
   `Apellidos` varchar(45) DEFAULT NULL,
   `Email` varchar(45) DEFAULT NULL,
   `Teléfono` varchar(15) DEFAULT NULL,
   `Contrasena` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idUsuario`),
-  KEY `fk_Usuario_Orden1_idx` (`idUsuario`)
+  PRIMARY KEY (`idusuario`),
+  KEY `fk_Usuario_Orden1_idx` (`idusuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -243,6 +243,10 @@ LOCK TABLES `usuario` WRITE;
 INSERT INTO `usuario` VALUES (1,'Fabiola','León','correo@gmail.com','562482045','RadioMed_03'),(2,'Daniel','Pérez','correo@gmail.com','562482045','RadioMed_03'),(3,'Hugo ','Zamora','correo@gmail.com','562482045','RadioMed_03'),(4,'América ','Sánchez ','correo@gmail.com','562482045','RadioMed_03'),(5,'Alejandra ','Alpuche','correo@gmail.com','562482045','RadioMed_03');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'radiomed_database'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -253,4 +257,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-27 17:14:52
+-- Dump completed on 2021-08-30 12:48:52
