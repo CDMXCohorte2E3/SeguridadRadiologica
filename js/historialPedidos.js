@@ -6,9 +6,11 @@ if (window.localStorage.getItem("subtotales") != null) {
 
         let tablaCompras = document.getElementById("tablaOrdenes");
         let ordenes = "";
+        let totalTabla= document.getElementById("total");
 
         let listaOrdenes = JSON.parse(window.localStorage.getItem("subtotales"));
-        let listaProductos = JSON.parse(window.localStorage.getItem("productosLocalS"))
+        let listaProductos = JSON.parse(window.localStorage.getItem("productosLocalS"));
+        let totalValor = JSON.parse(window.localStorage.getItem("total"));
 
 
         listaOrdenes.forEach(function (orden) {
@@ -25,6 +27,7 @@ if (window.localStorage.getItem("subtotales") != null) {
         }) // Fin de forEach
 
         tablaCompras.innerHTML = ordenes;
+        totalTabla.innerHTML += "$" + totalValor;
 
     }
     cargarPedidos();

@@ -12,7 +12,7 @@ function validateForm(e){//validateForm
     let inputParrafoRes = document.getElementById('parrafoBlack');
     
     function validateName(nombre){//validateName
-      //let expReg= /^[A-Z]+$/;
+      
       let expReg = new RegExp(/^[-a-zA-Z-á-ú-0-9.,()¡!¿? ]+$/)  
       let esValido = expReg.test(nombre);      
       if(esValido == true){//if nombre
